@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+    
+    <entry>
+      <title>GIT操作篇</title>
+      <link href="/2018/12/20/git%E6%93%8D%E4%BD%9C%E7%AF%87/"/>
+      <url>/2018/12/20/git%E6%93%8D%E4%BD%9C%E7%AF%87/</url>
+      
+        <content type="html"><![CDATA[<p>###Git简介<br>Git是目前世界上最先进的分布式版本控制系统。Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。</p><p>###安装Git<br>现在，Git可以在Linux、Unix、Mac和Windows这<br>几大平台上正常运行了。<br>1.linux上安装Git<br>2.windows上安装Git<br><a href="https://git-scm.com/download/" target="_blank" rel="noopener">下载Git</a>,然后一路默认。<br><a href="">中文参考</a></p><p>###配置</p><p>####设定自己机器的全局变量<br> git config –global user.name “Your Name” —— 设定用户名字，随便写<br> git config –global user.email “<a href="mailto:email@example.com" target="_blank" rel="noopener">email@example.com</a>“ ——设定用户邮箱，随便写<br>注意git config命令的–global参数，用了这个参数，表明你这台机器上所有的Git仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和Email地址。</p><p>####查看自己机器的配置信息<br>config 配置有system级别 global（用户级别） 和local（当前仓库）三个 设置先从system-&gt;global-&gt;local  底层配置会覆盖顶层配置 分别使用–system/global/local 可以定位到配置文件<br>git config –system –list——查看系统config<br>git config –global  –list——查看当前用户（global）配置<br>git config –local  –list—— 查看当前仓库配置信息<br>git config –list ——查看全配置</p><p>####额外配置<br>git config –global color.ui true ——开启颜色支持<br>git config –global core.quotepath false ——支持utf-8编码</p><p>###修改配置<br>git config –global –replace-all user.email “输入你的邮箱”<br>git config –global –replace-all user.name “输入你的用户名”</p><p>###创建版本库（repository）<br>mkdir directory——创建一个空目录<br>cd directory<br>windows下目录最好不用中文<br>git init——初始化仓库</p><p>###查看仓库状态<br>git status</p><p>###本地操作<br>touch ddf.txt<br>git add ddf.txt——把文件添加到仓库<br>git add -A——添加所有文件到仓库<br>这里如果有警告则添加git config –global core.autocrlf false；原因是路径中存在 / 的符号转义问题，false就是不转换符号默认是true，相当于把路径的 / 符号进行转义，这样添加的时候就有问题。<br>git commit -m “first”——把文件提交到仓库<br>git commit命令，-m后面输入的是本次提交的说明，可以输入任意内容，当然最好是有意义的，这样你就能从历史记录里方便地找到改动记录。</p><p>###回溯操作<br>git dif——查看difference，即查看修改内容<br>git log——查看提交历史，以便确定要回退到哪个版本。<br>记住：commit_id（版本号）<br>git reset –hard HEAD^——HEAD指向的版本就是当前版本，该指令即为回到上个操作版本<br>git reset –hard commit_id——回溯到相应版本<br>git reflog——查看命令历史，以便确定要回到未来的哪个版本。</p><p>###撤销修改<br> git checkout – ddf.txt</p><p>###删除文件<br> rm ddf.txt</p><p>###远程仓库<br>git push——推送，第一次后即用<br>git push  -u origin master——第一次推送master分支的所有内容</p><p>###从远程库克隆<br>1.通过https克隆<br>git clone url<br>2.通过ssh克隆</p><p>###从远程添加到本地<br> git pull——拉</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2018/12/18/hello-world/"/>
+      <url>/2018/12/18/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+  
+  
+</search>
