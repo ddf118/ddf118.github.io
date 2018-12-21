@@ -115,6 +115,6 @@ $(function () {
         }
     });
 	
-	$('header .brand-logo .logo-span').css('color','red')
+	$('header .brand-logo .logo-span').css('color','red');
 	
 });
