@@ -115,16 +115,6 @@ $(function () {
         }
     });
 	
-	/*产生随机颜色*/
-	function randomColor(){
-		var num1 = parseInt(Math.random()*255);
-		var num2 = parseInt(Math.random()*255);
-		var num3 = parseInt(Math.random()*255);
-		return 'rgb('+num1+','+num2+','+num3+')';
-	};
-	/*各个地方给予颜色*/
-	$('header .brand-logo .logo-span').css('color',randomColor());
-	
-	
+	$('header .brand-logo .logo-span').css('color','red')
 	
 });
