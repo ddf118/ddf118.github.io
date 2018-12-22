@@ -115,6 +115,4 @@ $(function () {
         }
     });
 	
-	$('header .brand-logo .logo-span').css('color','red');
-	
 });
