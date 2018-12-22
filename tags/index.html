@@ -293,19 +293,64 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
     
 
-<div id="category-cloud" class="container chip-container">
+<div id="tags" class="container chip-container">
     <div class="card">
         <div class="card-content">
-            <div class="tag-title center-align">文章分类</div>
+            <div class="tag-title center-align">文章标签</div>
             <div class="tag-chips">
                 
-                你目前还没有对文章进行分类.
+                
+                <a href="/tags/HEXO/" title="HEXO: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="HEXO" style="background-color: #F9EBEA;">HEXO
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/LINUX/" title="LINUX: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="LINUX" style="background-color: #F5EEF8;">LINUX
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/博客搭建/" title="博客搭建: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="博客搭建" style="background-color: #D5F5E3;">博客搭建
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
                 
             </div>
         </div>
     </div>
 </div>
 
+    
+    <link rel="stylesheet" type="text/css" href="/libs/jqcloud/jqcloud.css">
+<style type="text/css">
+    #tag-wordcloud {
+        width: 100%;
+        height: 300px;
+    }
+</style>
+
+<div class="container" data-aos="fade-up">
+    <div class="card">
+        <div id="tag-wordcloud" class="card-content"></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/libs/jqcloud/jqcloud-1.0.4.min.js"></script>
+<script type="text/javascript">
+    
+
+    $('#tag-wordcloud').jQCloud([{"text":"HEXO","weight":2,"link":"https://ddf118.github.io/tags/HEXO/"},{"text":"LINUX","weight":1,"link":"https://ddf118.github.io/tags/LINUX/"},{"text":"博客搭建","weight":1,"link":"https://ddf118.github.io/tags/博客搭建/"}], {
+        autoResize: true
+    });
+</script>
     
 
 </main>
