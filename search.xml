@@ -3,16 +3,62 @@
   
     
     <entry>
-      <title>linux操作篇</title>
-      <link href="/2018/12/22/linux%E6%93%8D%E4%BD%9C%E7%AF%87/"/>
-      <url>/2018/12/22/linux%E6%93%8D%E4%BD%9C%E7%AF%87/</url>
+      <title>vim编辑器之神</title>
+      <link href="/2018/12/24/vim%E7%BC%96%E8%BE%91%E5%99%A8%E4%B9%8B%E7%A5%9E/"/>
+      <url>/2018/12/24/vim%E7%BC%96%E8%BE%91%E5%99%A8%E4%B9%8B%E7%A5%9E/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h1 id="vim编辑器之神"><a href="#vim编辑器之神" class="headerlink" title="vim编辑器之神"></a>vim编辑器之神</h1><h3 id="配置vimrc配置"><a href="#配置vimrc配置" class="headerlink" title="配置vimrc配置"></a>配置vimrc配置</h3><p>在shell中可以通过 <code>vim ~/.vimrc</code> 或者 <code>vim /etc/vimrc</code> 打开vimrc文件对vim进行配置。在这个文件中可以进行很多和vim相关的配置，常用的如下（如果对其他配置感兴趣的可以自己百度）：</p><p><img src="./img/vim1.png" alt=""> </p><h3 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h3><h4 id="1-模式切换"><a href="#1-模式切换" class="headerlink" title="1.模式切换"></a>1.模式切换</h4><p>我们可以将vim分为命令模式、编辑模式和末行模式三种<br><strong>命令模式：</strong>进入vim的时候vim是处于命令模式状态下的，这个时候输入内容不会出现在编辑区  (最末什么都没有)</p><p><strong>末行模式：</strong>在命令模式下输入冒号，让vim进入末行模式。在末行模式的冒号后面可以输入相关的一些指令进行相关操作  (最后有一个冒号)</p><p><strong>编辑模式：</strong>在命令模式下按’i’进入编辑模式。在编辑模式下可以对文件内容进行编辑 (最后 –INSERT– 或者 –插入–)  </p><p>####2.保存和退出<br>在末行模式下输入相应的指令可以对编辑区的内容进行保存和退出vim界面<br><strong>w</strong> – 只保存(类似快捷键ctr+s)<br><strong>q</strong> – 退出（在编辑区的内容全部都保存的情况下才有效）<br><strong>wq</strong> – 保存并退出<br><strong>q!</strong>  – 强制退出（不保存修改信息）    </p><p>####3.光标操作<br>以下光标操作都是在命令模式下输入的<br><strong>^(shift+6)</strong>  – 移动到行首<br><strong>$(shift+4)</strong>  – 移动到行尾<br><strong>G(shift+g)</strong>    – 移动到文件末尾<br><strong>行号G</strong>            – 移动到指定行,例如:30G, 让光标直接跳转到行号是30的那一行<br><strong>gg</strong>                – 移动到文件开头  </p><p>####4.文本操作<br>以下操作不带冒号的是在命令模式下输入，前面有冒号代码后面的内容是在末行模式下输入<br><strong>dd</strong>            – 删除光标所在的行<br><strong>数字dd</strong>        – 从光标所在行开始往后面开始删，删除指定数量行内容<br><strong>:%d</strong>        – 删除所有     </p><p><strong>yy</strong>         – 复制光标所在的行<br><strong>数字yy</strong>        – 从光标所在行开始复制指定行数的内容<br><strong>p</strong>            – 将复制的内容粘贴到光标所在的位置<br><strong>u</strong>            – 撤销<br><strong>ctr+r</strong>    – 反撤销    </p><p><strong>:%!sort</strong>  – 对内容排序  </p><p><strong>:/查找对象[/gice]</strong>    – 搜索匹配正则表达式的内容，按回车回到命令模式后按n往前查找，按N往后查找  </p><p>*<em>:1,$s/被替换对象/替换内容[/gice</em>]*    – 将正则表达式匹配到的内容替换成指定内容   </p><pre><code>-    g: 全局匹配  -     i: 忽略大小写 -   c: 替换时需要提示  -   e: 忽略错误  </code></pre>]]></content>
       
       
       <categories>
           
-          <category> 1 </category>
+          <category> 系统管理 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LINUX </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>ssh的基本操作</title>
+      <link href="/2018/12/24/ssh%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/"/>
+      <url>/2018/12/24/ssh%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
+      
+        <content type="html"><![CDATA[<h1 id="ssh的基本操作"><a href="#ssh的基本操作" class="headerlink" title="ssh的基本操作"></a>ssh的基本操作</h1><p>###1.ssh服务器(文字接口连接服务器)</p><p>SSH是Secure Shell Protocol(安全的壳程序协议)的简写。</p><p>公钥:id_rsa.pub</p><p>1.很多服务器都是需要认证的，ssh认证是其中的一种。在客户端生成公钥，把生成的公钥添加到服务器，你以后连接服务器就不用每次都输入用户名和密码了。</p><p>2.很多git服务器都是用ssh认证方式，你需要把你生成的公钥发送给代码仓库管理员，让他给你添加到服务器上，你就可以通过ssh自由地拉取和提交代码了。</p><p>私钥:id_rsa</p><p>启动SSH服务(默认已经启动)：/etc/init.d/sshd restart</p><p>###2.查看本机 ssh 公钥，生成公钥</p><p>生成公钥</p><p>1.生成公钥了：ssh-keygen</p><p>2.接着会确认存放公钥的地址，默认就是上面说的路径，直接enter键确认</p><p>3.接着会要求输入密码和确认密码，如果不想设置密码直接不输入内容 按enter键</p><p>查看 ssh 公钥方法：</p><p>1.通过命令窗口</p><p>a. 打开你的 git bash 窗口</p><p>b. 进入 .ssh 目录：cd ~/.ssh</p><p>c. 找到 id_rsa.pub 文件：ls</p><p>d. 查看公钥：cat id_rsa.pub 或者 vim id_rsa.pub</p><p>2.或者你也可以直接输入命令 ：cat ~/.ssh/id_rsa.pub</p><p>3.或者你也可以直接打开你用户（一般都是 Administrator）下的 .ssh 文件夹，打开它里面的 id_rsa.pub 文件，如图：<img src="C:\Users\DDF\Desktop\20170801234853292.pg_.png" alt="20170801234853292.pg_"></p><p>###3.通过ssh连接服务器</p><p>ssh 账号@主机ip</p><p>###4.给服务器添加公钥(阿里)</p><p>cd ~/.ssh</p><p>vim authorized_keys 然后在里面加入自己本地的公钥</p><p>###5.远程添加</p><p>文件异地直接复制:SCP</p><p><img src="C:\Users\DDF\Desktop\QQ图片20181223175809.png" alt="QQ图片20181223175809"></p><p>scp id_rsa.pub root@主机地址:~/.ssh/ddf.pub              </p><p>cat ddf.pub &gt;&gt;authorized_keys         累加进                          </p><p>###6.退出</p><p>logout</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 服务器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>linux操作篇</title>
+      <link href="/2018/12/22/linux%E6%93%8D%E4%BD%9C%E7%AF%87/"/>
+      <url>/2018/12/22/linux%E6%93%8D%E4%BD%9C%E7%AF%87/</url>
+      
+        <content type="html"><![CDATA[<p>ls<br>cd<br>mv<br>cp<br>grep<br><a href="vim编辑器之神.md">vim</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 系统管理 </category>
           
       </categories>
       
@@ -30,12 +76,12 @@
       <link href="/2018/12/22/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AF%87/"/>
       <url>/2018/12/22/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AF%87/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p>###搭建博客</p><p>一.注册<a href="https://github.com/" target="_blank" rel="noopener">github</a>并创建自己的仓库</p><p>1.在github上注册账号</p><p>2.创建仓库</p><p>名字一定的是你的 username.github.io,不然无法通过username.github.io访问</p><p>二 <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">HEXO</a></p><p>1.环境搭建——要使用Hexo,需要安装Nodejs以及Git</p><p>安装Node.js</p><p><a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">下载Node.js</a></p><p><a href="http://www.runoob.com/nodejs/nodejs-install-setup.html" target="_blank" rel="noopener">安装Node.js</a></p><p>安装Git</p><p><a href="https://git-scm.com/download/" target="_blank" rel="noopener">下载git</a></p><p><a href="">中文安装提示</a></p><p>2.安装Hexo</p><p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">详情</a></p><p>在你需要安装Hexo的目录下(新建一个文件夹)右键选择 Git Bash</p><p>npm install -g hexo-cli    #使用 npm 安装 Hexo</p><p>npm install</p><p>npm install –save hexo-deployer-git #安装扩展</p><p>hexo init  #初始化网站</p><p>hexo s #启动本地服务器(hexo server)。默认情况下，访问网址为：<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a></p><p>hexo g #生成静态文件(hexo generate)</p><p>hexo d#部署网站(hexo deploy)</p><p>编辑根目录下_config.yml文件</p><p>deploy:<br>​    type: git<br>​    repo: <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:username/username.github.io.git  #这里的网址填你自己的<br>​    branch: master </p><p>3.添加主题</p><p>hexo clean #清除缓存</p><p>git clone 主题地址</p><p>4.更新博客基本操作</p><p>hexo clean(更改主题后必用)</p><p>hexo g</p><p>hexo d</p><p>5.ssh授权</p><p><a href="ssh的基本操作.md">详见</a></p>]]></content>
       
       
       <categories>
           
-          <category> 2 </category>
+          <category> 博客相关 </category>
           
       </categories>
       
@@ -53,12 +99,12 @@
       <link href="/2018/12/22/hexo%E6%93%8D%E4%BD%9C%E7%AF%87/"/>
       <url>/2018/12/22/hexo%E6%93%8D%E4%BD%9C%E7%AF%87/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p>Hexo使用攻略-添加分类及标签</p><p>一</p><p>1.创建分类</p><p>hexo new page “分类”</p><p>创建完成后,打开创建分类中的index.md。</p><p>在其中添加type: “分类名”</p><p>2.给文章添加分类属性</p><p>打开需要添加分类的文章，为其添加分类属性。分类: -web 表示添加这篇文章到“web”这个分类。注意：hexo一篇文章只能属于一个分类，也就是说如果在“- web”下方添加“-xxx”，hexo不会产生两个分类，而是把分类嵌套（即该文章属于 “- web”下的 “-xxx ”分类）。</p><p>二</p><p>1.创建标签</p><p>hexo new page “tags”</p><p>创建完成后,打开创建分类中的index.md。</p><p>在其中添加type: “标签名”</p><p>2.给文章添加分类属性</p><p>打开需要添加分类的文章，为其添加分类属性。分类: -web 表示添加这篇文章到“web”这个分类。注意：hexo一篇文章只能属于一个分类，也就是说如果在“- web”下方添加“-xxx”，hexo不会产生两个分类，而是把分类嵌套（即该文章属于 “- web”下的 “-xxx ”分类）。</p><p>三 给自定义添加</p>]]></content>
       
       
       <categories>
           
-          <category> 1 </category>
+          <category> 博客相关 </category>
           
       </categories>
       
@@ -81,10 +127,16 @@
       
       <categories>
           
-          <category> web </category>
+          <category> 博客相关 </category>
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> GIT </tag>
+            
+        </tags>
       
     </entry>
     
@@ -99,7 +151,7 @@
       
         <tags>
             
-            <tag> HEXO </tag>
+            <tag> test </tag>
             
         </tags>
       

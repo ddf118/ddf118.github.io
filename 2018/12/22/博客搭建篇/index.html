@@ -6,7 +6,13 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="博客搭建篇, 轮回">
-    <meta name="description" content="博客搭建篇 | 轮回">
+    <meta name="description" content="###搭建博客
+一.注册github并创建自己的仓库
+1.在github上注册账号
+2.创建仓库
+名字一定的是你的 username.github.io,不然无法通过username.github.io访问
+二 HEXO
+1.环境搭建——要">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -302,8 +308,8 @@
                 <span class="post-cate">
                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                     
-                    <a href="/categories/2/" class="post-category" target="_blank">
-                        2
+                    <a href="/categories/博客相关/" class="post-category" target="_blank">
+                        博客相关
                     </a>
                     
                 </span>
@@ -317,7 +323,41 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <p>###搭建博客</p>
+<p>一.注册<a href="https://github.com/" target="_blank" rel="noopener">github</a>并创建自己的仓库</p>
+<p>1.在github上注册账号</p>
+<p>2.创建仓库</p>
+<p>名字一定的是你的 username.github.io,不然无法通过username.github.io访问</p>
+<p>二 <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">HEXO</a></p>
+<p>1.环境搭建——要使用Hexo,需要安装Nodejs以及Git</p>
+<p>安装Node.js</p>
+<p><a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">下载Node.js</a></p>
+<p><a href="http://www.runoob.com/nodejs/nodejs-install-setup.html" target="_blank" rel="noopener">安装Node.js</a></p>
+<p>安装Git</p>
+<p><a href="https://git-scm.com/download/" target="_blank" rel="noopener">下载git</a></p>
+<p><a href="">中文安装提示</a></p>
+<p>2.安装Hexo</p>
+<p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">详情</a></p>
+<p>在你需要安装Hexo的目录下(新建一个文件夹)右键选择 Git Bash</p>
+<p>npm install -g hexo-cli    #使用 npm 安装 Hexo</p>
+<p>npm install</p>
+<p>npm install –save hexo-deployer-git #安装扩展</p>
+<p>hexo init  #初始化网站</p>
+<p>hexo s #启动本地服务器(hexo server)。默认情况下，访问网址为：<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a></p>
+<p>hexo g #生成静态文件(hexo generate)</p>
+<p>hexo d#部署网站(hexo deploy)</p>
+<p>编辑根目录下_config.yml文件</p>
+<p>deploy:<br>​    type: git<br>​    repo: <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:username/username.github.io.git  #这里的网址填你自己的<br>​    branch: master </p>
+<p>3.添加主题</p>
+<p>hexo clean #清除缓存</p>
+<p>git clone 主题地址</p>
+<p>4.更新博客基本操作</p>
+<p>hexo clean(更改主题后必用)</p>
+<p>hexo g</p>
+<p>hexo d</p>
+<p>5.ssh授权</p>
+<p><a href="ssh的基本操作.md">详见</a></p>
+
             </div>
             <hr>
 
@@ -489,7 +529,8 @@
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary"></div>
+                    <div class="summary">lscdmvcpgrepvim
+</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-22
@@ -498,8 +539,8 @@
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/1/" class="post-category" target="_blank">
-                                    1
+                            <a href="/categories/系统管理/" class="post-category" target="_blank">
+                                    系统管理
                                 </a>
                             
                             
@@ -532,7 +573,14 @@
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary"></div>
+                    <div class="summary">Hexo使用攻略-添加分类及标签
+一
+1.创建分类
+hexo new page “分类”
+创建完成后,打开创建分类中的index.md。
+在其中添加type: “分类名”
+2.给文章添加分类属性
+打开需要添加分类的文章，为其添加分类属性。分</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-22
@@ -541,8 +589,8 @@
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/1/" class="post-category" target="_blank">
-                                    1
+                            <a href="/categories/博客相关/" class="post-category" target="_blank">
+                                    博客相关
                                 </a>
                             
                             
