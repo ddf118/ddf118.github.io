@@ -5,10 +5,8 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="ssh的基本操作, 轮回">
-    <meta name="description" content="ssh的基本操作1.ssh服务器(文字接口连接服务器)SSH是Secure Shell Protocol(安全的壳程序协议)的简写。
-公钥:id_rsa.pub
-1.很多服务器都是需要认证的，ssh认证是其中的一种。在客户端生成公钥，把生成">
+    <meta name="keywords" content="pycharm构建Django, 轮回">
+    <meta name="description" content="1. 通过PyCharm创建Python项目 —&amp;gt; hellodjango2. 在Terminal的虚拟环境中安装依赖项 —&amp;gt;   pip install django pymysql django-redis djangore">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>ssh的基本操作 | 轮回</title>
+    <title>pycharm构建Django | 轮回</title>
     <link rel="icon" type="image/png" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -267,13 +265,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        ssh的基本操作
+                        pycharm构建Django
                     </div>
                 </div>
             </div>
@@ -293,8 +291,8 @@
             
             <div class="article-tag">
                 
-                <a href="/tags/服务器/" target="_blank">
-                    <span class="chip bg-color">服务器</span>
+                <a href="/tags/WEB后端/" target="_blank">
+                    <span class="chip bg-color">WEB后端</span>
                 </a>
                 
             </div>
@@ -304,47 +302,32 @@
                 <span class="post-cate">
                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                     
-                    <a href="/categories/技术类/" class="post-category" target="_blank">
-                        技术类
+                    <a href="/categories/WEB/" class="post-category" target="_blank">
+                        WEB
                     </a>
                     
                 </span>
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-12-24
+                    <i class="fa fa-clock-o fa-fw"></i>2019-01-02
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="ssh的基本操作"><a href="#ssh的基本操作" class="headerlink" title="ssh的基本操作"></a>ssh的基本操作</h1><h3 id="1-ssh服务器-文字接口连接服务器"><a href="#1-ssh服务器-文字接口连接服务器" class="headerlink" title="1.ssh服务器(文字接口连接服务器)"></a>1.ssh服务器(文字接口连接服务器)</h3><p>SSH是Secure Shell Protocol(安全的壳程序协议)的简写。</p>
-<p>公钥:id_rsa.pub</p>
-<p>1.很多服务器都是需要认证的，ssh认证是其中的一种。在客户端生成公钥，把生成的公钥添加到服务器，你以后连接服务器就不用每次都输入用户名和密码了。</p>
-<p>2.很多git服务器都是用ssh认证方式，你需要把你生成的公钥发送给代码仓库管理员，让他给你添加到服务器上，你就可以通过ssh自由地拉取和提交代码了。</p>
-<p>私钥:id_rsa</p>
-<p>启动SSH服务(默认已经启动)：/etc/init.d/sshd restart</p>
-<h3 id="2-查看本机-ssh-公钥，生成公钥"><a href="#2-查看本机-ssh-公钥，生成公钥" class="headerlink" title="2.查看本机 ssh 公钥，生成公钥"></a>2.查看本机 ssh 公钥，生成公钥</h3><p>生成公钥</p>
-<p>1.生成公钥了：ssh-keygen</p>
-<p>2.接着会确认存放公钥的地址，默认就是上面说的路径，直接enter键确认</p>
-<p>3.接着会要求输入密码和确认密码，如果不想设置密码直接不输入内容 按enter键</p>
-<p>查看 ssh 公钥方法：</p>
-<p>1.通过命令窗口</p>
-<p>a. 打开你的 git bash 窗口</p>
-<p>b. 进入 .ssh 目录：cd ~/.ssh</p>
-<p>c. 找到 id_rsa.pub 文件：ls</p>
-<p>d. 查看公钥：cat id_rsa.pub 或者 vim id_rsa.pub</p>
-<p>2.或者你也可以直接输入命令 ：cat ~/.ssh/id_rsa.pub</p>
-<p>3.或者你也可以直接打开你用户（一般都是 Administrator）下的 .ssh 文件夹，打开它里面的 id_rsa.pub 文件.</p>
-<h3 id="3-通过ssh连接服务器"><a href="#3-通过ssh连接服务器" class="headerlink" title="3.通过ssh连接服务器"></a>3.通过ssh连接服务器</h3><p>ssh 账号@主机ip</p>
-<h3 id="4-给服务器添加公钥-阿里"><a href="#4-给服务器添加公钥-阿里" class="headerlink" title="4.给服务器添加公钥(阿里)"></a>4.给服务器添加公钥(阿里)</h3><p>cd ~/.ssh</p>
-<p>vim authorized_keys 然后在里面加入自己本地的公钥</p>
-<h3 id="5-远程添加"><a href="#5-远程添加" class="headerlink" title="5.远程添加"></a>5.远程添加</h3><p>文件异地直接复制:SCP</p>
-<p><img src="/img/scp1.png" alt=""></p>
-<p>scp id_rsa.pub root@主机地址:~/.ssh/ddf.pub              </p>
-<p>cat ddf.pub &gt;&gt;authorized_keys         累加进                          </p>
-<h3 id="6-退出"><a href="#6-退出" class="headerlink" title="6.退出"></a>6.退出</h3><p>logout</p>
+                <h3 id="1-通过PyCharm创建Python项目-—-gt-hellodjango"><a href="#1-通过PyCharm创建Python项目-—-gt-hellodjango" class="headerlink" title="1. 通过PyCharm创建Python项目 —&gt; hellodjango"></a>1. 通过PyCharm创建Python项目 —&gt; hellodjango</h3><h3 id="2-在Terminal的虚拟环境中安装依赖项-—-gt"><a href="#2-在Terminal的虚拟环境中安装依赖项-—-gt" class="headerlink" title="2. 在Terminal的虚拟环境中安装依赖项 —&gt;"></a>2. 在Terminal的虚拟环境中安装依赖项 —&gt;</h3><p>   pip install django pymysql django-redis djangorestframework pillow #安装</p>
+<p>   pip check  #检查是否冲突</p>
+<p>   pip freeze &gt; requirements.txt #导出python安装包环境</p>
+<p>备注:<code>pip install -r requirements.txt</code>导入requirements文件</p>
+<h3 id="3-创建Django项目-—-gt"><a href="#3-创建Django项目-—-gt" class="headerlink" title="3. 创建Django项目 —&gt;"></a>3. 创建Django项目 —&gt;</h3><p>   django-admin startproject hellodjango .</p>
+<h3 id="4-运行项目-—-gt"><a href="#4-运行项目-—-gt" class="headerlink" title="4. 运行项目 —&gt;"></a>4. 运行项目 —&gt;</h3><p>   python manage.py runserver<br>   <a href="http://localhost:8000" target="_blank" rel="noopener">http://localhost:8000</a><br>   <a href="http://127.0.0.1:8000" target="_blank" rel="noopener">http://127.0.0.1:8000</a><br>   python manage.py runserver 0.0.0.0:80<br>   <a href="http://localhost" target="_blank" rel="noopener">http://localhost</a><br>   <a href="http://127.0.0.1" target="_blank" rel="noopener">http://127.0.0.1</a><br>   <a href="http://10.7.187.140" target="_blank" rel="noopener">http://10.7.187.140</a></p>
+<h3 id="5-修改配置文件-—-gt-hellodjango-settings-py"><a href="#5-修改配置文件-—-gt-hellodjango-settings-py" class="headerlink" title="5. 修改配置文件 —&gt; hellodjango/settings.py"></a>5. 修改配置文件 —&gt; hellodjango/settings.py</h3><p>   LANGUAGE_CODE = ‘zh-hans’<br>   TIME_ZONE = ‘Asia/Chongqing’<br>   DATABASES = {<br>   ‘default’: {<br>   ​    ‘BACKEND’: ‘….mysql’,<br>   ​    ‘NAME’: ‘’<br>   ​    ‘HOST’: ‘’,<br>   ​    ‘PORT’: 3306,<br>   ​    ‘USER’: ‘’,<br>   ​    ‘PASSWORD’: ‘’,<br>   ​    ‘TIME_ZONE’: ‘Asia/Chongqing’,<br>   }<br>   }</p>
+<h3 id="6-修改init-py文件"><a href="#6-修改init-py文件" class="headerlink" title="6. 修改init.py文件"></a>6. 修改<strong>init</strong>.py文件</h3><p>   import pymysql</p>
+<p>pymysql.install_as_MySQLdb()</p>
+<h3 id="7-生成Django自带的数据表"><a href="#7-生成Django自带的数据表" class="headerlink" title="7. 生成Django自带的数据表"></a>7. 生成Django自带的数据表</h3><p>   python manage.py migrate</p>
+<h3 id="8-创建后台管理员账号"><a href="#8-创建后台管理员账号" class="headerlink" title="8. 创建后台管理员账号"></a>8. 创建后台管理员账号</h3><p>   python manage.py createsuperuser</p>
 
             </div>
             <hr>
@@ -483,7 +466,7 @@
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="https://ddf118.github.io" class="b-link-green">轮回</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/12/24/ssh的基本操作/" class="b-link-green">ssh的基本操作</a>
+                    <a href="/2019/01/02/pycharm构建Django/" class="b-link-green">pycharm构建Django</a>
                 </p>
             </div>
         </div>
@@ -507,27 +490,28 @@
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/2018/12/24/vim编辑器之神/">
+                <a href="/2019/01/02/HTML/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="vim编辑器之神">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="HTML">
                         
-                        <span class="card-title">vim编辑器之神</span>
+                        <span class="card-title">HTML</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">vim编辑器之神配置vimrc配置在shell中可以通过 vim ~/.vimrc 或者 vim /etc/vimrc 打开vimrc文件对vim进行配置。在这个文件中可以进行很多和vim相关的配置，常用的如下（如果对其他配置感兴趣的可以自</div>
+                    <div class="summary">HTML标签 - 承载内容 - content
+</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-24
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-02
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/系统管理/" class="post-category" target="_blank">
-                                    系统管理
+                            <a href="/categories/WEB/" class="post-category" target="_blank">
+                                    WEB
                                 </a>
                             
                             
@@ -537,8 +521,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/LINUX/" target="_blank">
-                        <span class="chip bg-color">LINUX</span>
+                    <a href="/tags/WEB前端/" target="_blank">
+                        <span class="chip bg-color">WEB前端</span>
                     </a>
                     
                 </div>
@@ -550,28 +534,32 @@
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/2018/12/22/linux操作篇/">
+                <a href="/2019/01/02/Web后端-Django/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="linux操作篇">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Django">
                         
-                        <span class="card-title">linux操作篇</span>
+                        <span class="card-title">Django</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">lscdmvcpgrepvim
-</div>
+                    <div class="summary">注:本篇方法通过virtualenv直接在命令行模式安装，另有通过pycharm构建一.构建虚拟环境
+安装virtualenv
+ pip install virtualenv
+ 若不成功 配置环境变量
+
+创建虚拟环境 d: mkdir en</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-22
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-02
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/系统管理/" class="post-category" target="_blank">
-                                    系统管理
+                            <a href="/categories/WEB/" class="post-category" target="_blank">
+                                    WEB
                                 </a>
                             
                             
@@ -581,8 +569,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/LINUX/" target="_blank">
-                        <span class="chip bg-color">LINUX</span>
+                    <a href="/tags/WEB后端/" target="_blank">
+                        <span class="chip bg-color">WEB后端</span>
                     </a>
                     
                 </div>
