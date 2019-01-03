@@ -5,8 +5,8 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="标签, 轮回">
-    <meta name="description" content="标签 | 轮回">
+    <meta name="keywords" content="轮回">
+    <meta name="description" content="轮回">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>标签 | 轮回</title>
+    <title>轮回</title>
     <link rel="icon" type="image/png" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -261,6 +261,13 @@
     </nav>
 </header>
 
+<style type="text/css">
+    /* don't remove. */
+    .index-cover {
+        height: 100vh;
+    }
+</style>
+
 <div class="bg-cover  about-cover" style="background-image: url('/medias/cover.jpg')">
     <div class="container">
         <div class="row">
@@ -292,108 +299,93 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 <main class="content">
 
     
-
-<div id="tags" class="container chip-container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">文章标签</div>
-            <div class="tag-chips">
-                
-                
-                <a href="/tags/WEB前端/" title="WEB前端: 3">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="WEB前端" style="background-color: #F9EBEA;">WEB前端
-                        <span class="tag-length">3</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/WEB后端/" title="WEB后端: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="WEB后端" style="background-color: #F5EEF8;">WEB后端
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/GIT/" title="GIT: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="GIT" style="background-color: #D5F5E3;">GIT
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/test/" title="test: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="test" style="background-color: #E8F8F5;">test
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/HEXO/" title="HEXO: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="HEXO" style="background-color: #FEF9E7;">HEXO
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/LINUX/" title="LINUX: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="LINUX" style="background-color: #F8F9F9;">LINUX
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/服务器/" title="服务器: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="服务器" style="background-color: #82E0AA;">服务器
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/博客搭建/" title="博客搭建: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="博客搭建" style="background-color: #D7BDE2;">博客搭建
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
+    <div class="container notice">
+        <div class="card">
+            <div class="card-content">
+                <i class="fa fa-volume-up fa-lg fa-fw text-color"></i>一切诸愿速成就，永无业障能遮止。
             </div>
+        </div>
+    </div>
+    
+
+    <div id="recommend-sections">
+    
+    </div>
+
+    
+
+    <!-- 所有文章卡片 -->
+    <article id="articles" class="container articles">
+        <div class="row article-row">
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2018/12/18/hello-world/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                            
+                            <span class="card-title">Hello World</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary">Welcome to Hexo! This is your very first post. Check documentation for</div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-18
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-user fa-fw"></i>
+                                DDF
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/test/" target="_blank">
+                            <span class="chip bg-color">test</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </article>
+
+</main>
+
+
+<div class="container paging">
+    <div class="row">
+        <div class="col s6 m4 l4">
+            
+            <a href="/" class="left btn-floating btn-large waves-effect waves-light bg-color">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            
+        </div>
+        <div class="page-info col m4 l4 hide-on-small-only">
+            <div class="center-align b-text-gray">2 / 2</div>
+        </div>
+        <div class="col s6 m4 l4">
+            
+            <a class="right btn-floating btn-large disabled">
+                <i class="fa fa-angle-right"></i>
+            </a>
+            
         </div>
     </div>
 </div>
 
-    
-    <link rel="stylesheet" type="text/css" href="/libs/jqcloud/jqcloud.css">
-<style type="text/css">
-    #tag-wordcloud {
-        width: 100%;
-        height: 300px;
-    }
-</style>
 
-<div class="container" data-aos="fade-up">
-    <div class="card">
-        <div id="tag-wordcloud" class="card-content"></div>
-    </div>
-</div>
-
-<script type="text/javascript" src="/libs/jqcloud/jqcloud-1.0.4.min.js"></script>
-<script type="text/javascript">
-    
-
-    $('#tag-wordcloud').jQCloud([{"text":"WEB前端","weight":3,"link":"https://ddf118.github.io/tags/WEB前端/"},{"text":"WEB后端","weight":2,"link":"https://ddf118.github.io/tags/WEB后端/"},{"text":"GIT","weight":1,"link":"https://ddf118.github.io/tags/GIT/"},{"text":"test","weight":1,"link":"https://ddf118.github.io/tags/test/"},{"text":"HEXO","weight":2,"link":"https://ddf118.github.io/tags/HEXO/"},{"text":"LINUX","weight":2,"link":"https://ddf118.github.io/tags/LINUX/"},{"text":"服务器","weight":1,"link":"https://ddf118.github.io/tags/服务器/"},{"text":"博客搭建","weight":1,"link":"https://ddf118.github.io/tags/博客搭建/"}], {
-        autoResize: true
-    });
-</script>
-    
-
-</main>
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">

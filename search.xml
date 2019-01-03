@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>hexo的图片及超链接玩法</title>
+      <link href="/2019/01/03/hexofun/"/>
+      <url>/2019/01/03/hexofun/</url>
+      
+        <content type="html"><![CDATA[<h3 id="hexo的图片的玩法"><a href="#hexo的图片的玩法" class="headerlink" title="hexo的图片的玩法"></a>hexo的图片的玩法</h3><h4 id="给自己的文章添加图片"><a href="#给自己的文章添加图片" class="headerlink" title="给自己的文章添加图片"></a>给自己的文章添加图片</h4><p>在Markdown中<code>![图片名](url)</code>，这里面的url若是网上的则直接弄过来就可以；坑为本地上传的图片地址，在source文件夹中创建一个文件夹img用来保存图片，然后url写成/img/图片名.格式即可。<br>标题那添加则和上面类似，img: url，url与上面一样。</p><h4 id="给自己的字段添加超链接"><a href="#给自己的字段添加超链接" class="headerlink" title="给自己的字段添加超链接"></a>给自己的字段添加超链接</h4><p>在Markdown中<code>[字段](url)</code>，url建议不用本地，因为本人还没玩透。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客相关 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> HEXO </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>JavaScript</title>
       <link href="/2019/01/02/JavaScript/"/>
       <url>/2019/01/02/JavaScript/</url>
