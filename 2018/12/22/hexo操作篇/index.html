@@ -6,12 +6,8 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="hexo操作篇, 轮回">
-    <meta name="description" content="一.Hexo使用攻略-添加分类及标签1.创建分类
-hexo new page “分类”
-创建完成后,打开创建分类中的index.md。
-在其中添加type: “分类名”
-2.给文章添加分类属性
-打开需要添加分类的文章，为其添加分类属性。分类">
+    <meta name="description" content="一.添加分类1.创建分类categories页是用来展示所有分类的页面，如果在你的博客source目录下还没有categories/index.md文件，那么你就需要新建一个，命令如下：
+hexo new page &#34;categories&#34;">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -322,19 +318,21 @@ hexo new page “分类”
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一-Hexo使用攻略-添加分类及标签"><a href="#一-Hexo使用攻略-添加分类及标签" class="headerlink" title="一.Hexo使用攻略-添加分类及标签"></a>一.Hexo使用攻略-添加分类及标签</h2><p>1.创建分类</p>
-<p>hexo new page “分类”</p>
+                <h2 id="一-添加分类"><a href="#一-添加分类" class="headerlink" title="一.添加分类"></a>一.添加分类</h2><p>1.创建分类<br><code>categories</code>页是用来展示所有分类的页面，如果在你的博客<code>source</code>目录下还没有<code>categories/index.md</code>文件，那么你就需要新建一个，命令如下：</p>
+<pre class=" language-bash"><code class="language-bash">hexo new page <span class="token string">"categories"</span>
+</code></pre>
 <p>创建完成后,打开创建分类中的index.md。</p>
-<p>在其中添加type: “分类名”</p>
+<p>在其中添加<code>type: &quot;categories&quot;</code>,<code>layout: &quot;categories&quot;</code></p>
 <p>2.给文章添加分类属性</p>
-<p>打开需要添加分类的文章，为其添加分类属性。分类: -web 表示添加这篇文章到“web”这个分类。注意：hexo一篇文章只能属于一个分类，也就是说如果在“- web”下方添加“-xxx”，hexo不会产生两个分类，而是把分类嵌套（即该文章属于 “- web”下的 “-xxx ”分类）。</p>
+<p>打开需要添加分类的文章，为其添加分类属性。categories: -web 表示添加这篇文章到“web”这个分类。注意：hexo一篇文章只能属于一个分类，也就是说如果在“- web”下方添加“-xxx”，hexo不会产生两个分类，而是把分类嵌套（即该文章属于 “- web”下的 “-xxx ”分类）。</p>
 <h2 id="二-添加分类及标签"><a href="#二-添加分类及标签" class="headerlink" title="二.添加分类及标签"></a>二.添加分类及标签</h2><p>1.创建标签</p>
 <p>hexo new page “tags”</p>
 <p>创建完成后,打开创建分类中的index.md。</p>
-<p>在其中添加type: “标签名”</p>
-<p>2.给文章添加分类属性</p>
-<p>打开需要添加分类的文章，为其添加分类属性。分类: -web 表示添加这篇文章到“web”这个分类。注意：hexo一篇文章只能属于一个分类，也就是说如果在“- web”下方添加“-xxx”，hexo不会产生两个分类，而是把分类嵌套（即该文章属于 “- web”下的 “-xxx ”分类）。</p>
-<h2 id="三-给自定义添加"><a href="#三-给自定义添加" class="headerlink" title="三.给自定义添加"></a>三.给自定义添加</h2>
+<p>在其中添加<code>type: &quot;tags&quot;</code>,<code>layout: &quot;tags&quot;</code></p>
+<p>2.给文章添加标签属性</p>
+<p>打开需要添加分类的文章，为其添加分类属性。tags: -web 表示添加这篇文章到“web”这个标签。注意：hexo一篇文章只能属于一个分类，也就是说如果在“- web”下方添加“-xxx”，hexo不会产生两个分类，而是把分类嵌套（即该文章属于 “- web”下的 “-xxx ”分类）。</p>
+<h2 id="三-给自定义添加"><a href="#三-给自定义添加" class="headerlink" title="三.给自定义添加"></a>三.给自定义添加</h2><p>类似上面操作</p>
+
             </div>
             <hr>
 
