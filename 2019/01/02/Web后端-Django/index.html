@@ -377,7 +377,9 @@ TIME_ZONE <span class="token operator">=</span> <span class="token string">'Asia
 <ol start="2">
 <li><strong>安装pymysql</strong><br>使用pymysql连接数据库: 因为python3没有MySQLdb驱动，无法直接连接MySQL<br>在工程目录的<code>__init__.py</code>文件中定义  <code>pymysql.install_as_MySQLdb()</code></li>
 <li><strong>迁移</strong><br>第一次迁移: <code>python manege.py migrate</code><br>除开第一次迁移<br>生成迁移文件: <code>python manage.py makemigrations</code><br>执行迁移文件: <code>python manage.py migrate</code></li>
-<li><strong>插入管理员账号</strong><br><code>python manage.py createsuperuser</code><h3 id="五-模型层"><a href="#五-模型层" class="headerlink" title="五.模型层"></a>五.模型层</h3></li>
+<li><strong>插入管理员账号</strong><br><code>python manage.py createsuperuser</code></li>
+</ol>
+<h3 id="五-模型层"><a href="#五-模型层" class="headerlink" title="五.模型层"></a>五.模型层</h3><ol>
 <li><strong>概念</strong><br>objects: 管理器，默认模型的属性<br>ORM(objects relationship mapping): 对象关系映射</li>
 </ol>
 <blockquote>
