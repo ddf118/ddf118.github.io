@@ -270,7 +270,7 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/source/img/66.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -367,9 +367,11 @@
 <span class="token string">'TIME_ZONE'</span><span class="token punctuation">:</span> <span class="token string">'Asia/Chongqing'</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">#TIME_ZONE:时区</span>
 <span class="token string">'OPTIONS'</span><span class="token punctuation">:</span><span class="token punctuation">{</span><span class="token string">'isolation_level'</span><span class="token punctuation">:</span>None<span class="token punctuation">}</span> <span class="token comment" spellcheck="true">#OPTIONS</span>
 </code></pre>
-<a href="https://docs.djangoproject.com/en/2.1/ref/settings/#databases" target="_blank" rel="noopener">配置详见</a><br><code>`</code>python<br>LANGUAGE_CODE = ‘zh-hans’ #设置为中文</li>
+<a href="https://docs.djangoproject.com/en/2.1/ref/settings/#databases" target="_blank" rel="noopener">配置详见</a></li>
 </ol>
-<p>TIME_ZONE = ‘Asia/Chongqing’ #时区设为重庆<br><code>`</code></p>
+<pre class=" language-python"><code class="language-python">LANGUAGE_CODE <span class="token operator">=</span> <span class="token string">'zh-hans'</span> <span class="token comment" spellcheck="true">#设置为中文</span>
+TIME_ZONE <span class="token operator">=</span> <span class="token string">'Asia/Chongqing'</span> <span class="token comment" spellcheck="true">#时区设为重庆</span>
+</code></pre>
 <ol start="2">
 <li>安装pymysql<br> 使用pymysql连接数据库: 因为python3没有MySQLdb驱动，无法直接连接MySQL<br> 在工程目录的<strong>init</strong>.py文件中定义  pymysql.install_as_MySQLdb()</li>
 <li>迁移<br> 第一次迁移: python manege.py migrate<br> 除开第一次迁移<br> 生成迁移文件: python manage.py makemigrations<br> 执行迁移文件: python manage.py migrate</li>
