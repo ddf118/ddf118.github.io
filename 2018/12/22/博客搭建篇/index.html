@@ -348,18 +348,20 @@
 </ol>
 <p>在你需要安装Hexo的目录下(新建一个文件夹)右键选择 Git Bash</p>
 <p><code>npm install -g hexo-cli</code>    #使用 npm 安装 Hexo</p>
-<p><code>npm install --save hexo-deployer-git</code> #安装扩展</p>
-<p><code>hexo init</code>  #初始化网站</p>
-<p><code>hexo s</code>#启动本地服务器(hexo server)。默认情况下，访问网址为：<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a></p>
+<p><code>hexo init [folder]</code>  #新建一个网站。如果没有设置 folder ，Hexo 默认在目前的文件夹建立网站。</p>
 <p><code>hexo g</code> #生成静态文件(hexo generate)</p>
-<p><code>hexo d</code> #部署网站(hexo deploy)</p>
-<p>编辑根目录下_config.yml文件</p>
+<p><code>hexo s</code>#启动本地服务器(hexo server)。默认情况下，访问网址为：<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a></p>
+<p><code>npm install --save hexo-deployer-git</code> #安装git扩展,让hexo可以通过git方式部署</p>
+<p>部署前需要编辑根目录下_config.yml文件</p>
 <p>deploy:<br>​    type: git<br>​    repo: <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:username/username.github.io.git  #这里的网址填你自己的<br>​    branch: master </p>
+<p>type模式选择为git后，为方便请先设置ssh公钥登录github。<br>repo在设置公钥后可使用ssh地址。<br>若repo使用https地址则需要配置凭证。可使用命令git config –global credential.helper wincred，此为配置git，<a href="https://ddf118.github.io/2018/12/20/git操作篇/">详见</a></p>
+<p><code>hexo d</code> #部署网站(hexo deploy)</p>
 <ol start="3">
 <li><strong>添加主题</strong></li>
 </ol>
 <p><code>hexo clean</code> #清除缓存</p>
 <p><code>git clone 主题地址</code></p>
+<p>主题需要保存在themes文件夹里。根目录下_config.yml文件里的theme后也需要写主题名字。</p>
 <ol start="4">
 <li><strong>更新博客基本操作</strong></li>
 </ol>
