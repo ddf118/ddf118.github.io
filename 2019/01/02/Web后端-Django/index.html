@@ -389,10 +389,10 @@ TIME_ZONE <span class="token operator">=</span> <span class="token string">'Asia
 <p>添加新的路由<br>在<code>urls.py</code>中添加<br><code>path(&#39;name/&#39;,views.name),</code></p>
 </blockquote>
 <blockquote>
-<p>添加方法——CDUS<br>在<code>views.py</code>中添加<br>sql在Django中的方法:</p>
+<p>添加新的方法——CDUS<br>在<code>views.py</code>中添加<br>sql在Django中的方法:</p>
 </blockquote>
 <ol start="2">
-<li><strong>创建C:</strong><br>法一:create()方法: 模型名.objects.create(字段1=值,字段2=值)<br><code>Student.objects.create(s_name=&#39;谢霆锋&#39;)</code><br>法二:save()方法: 模型对象.save()</li>
+<li><strong>创建C:</strong><br>法一:<code>create()方法: 模型名.objects.create(字段1=值,字段2=值)</code><br><code>Student.objects.create(s_name=&#39;谢霆锋&#39;)</code><br>法二:<code>save()方法: 模型对象.save()</code></li>
 </ol>
 <pre class=" language-python"><code class="language-python">stu <span class="token operator">=</span> Student<span class="token punctuation">(</span><span class="token punctuation">)</span>
 stu<span class="token punctuation">.</span>s_name <span class="token operator">=</span> <span class="token string">'唐嫣'</span>
@@ -400,9 +400,9 @@ stu<span class="token punctuation">.</span>s_gender <span class="token operator"
 stu<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token punctuation">)</span> 
 </code></pre>
 <ol start="3">
-<li><p><strong>删除D:</strong><br>delete()方法: 模型名.objects.filter(条件).delete()<br><code>Student.objects.filter(id=2).delete()</code></p>
+<li><p><strong>删除D:</strong><br><code>delete()方法: 模型名.objects.filter(条件).delete()</code><br><code>Student.objects.filter(id=2).delete()</code></p>
 </li>
-<li><p><strong>修改U:</strong><br>法一:update()方法: 模型名.objects.filter(条件).update(字段1=值,字段2=值)<br><code>Student.objects.filter(id=1).update(s_name=&#39;谢霆锋&#39;)</code><br>法二:save()方法: 模型对象.save()</p>
+<li><p><strong>修改U:</strong><br>法一:<code>update()方法: 模型名.objects.filter(条件).update(字段1=值,字段2=值)</code><br><code>Student.objects.filter(id=1).update(s_name=&#39;谢霆锋&#39;)</code><br>法二:<code>save()方法: 模型对象.save()</code></p>
 <pre class=" language-python"><code class="language-python">stu <span class="token operator">=</span> Student<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>filter<span class="token punctuation">(</span>id<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>first<span class="token punctuation">(</span><span class="token punctuation">)</span>
 stu<span class="token punctuation">.</span>s_name <span class="token operator">=</span> <span class="token string">'杨幂'</span>
 stu<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -412,7 +412,31 @@ stu<span class="token punctuation">.</span>save<span class="token punctuation">(
 <li><p><strong>查询S:</strong><br><strong>filter()方法:</strong> 查询满足条件的信息: <code>模型名.objects.filter(条件)</code><br><strong>all()方法:</strong> 查询所有: <code>模型名.objects.all()</code><br><strong>get()方法:</strong> 查询指定的条件: <code>模型名.objects.get()</code><br>​    只能返回唯一的一个对象结果<br>​    条件必须成立<br><strong>first()方法:</strong> 取出结果中的第一个对象: <code>模型名.objects.filter().first()</code><br><strong>exclude()方法:</strong> 查询出不满足条件的信息: <code>模型名.objects.exclude(条件)</code><br><strong>order_by()方法:</strong> 升序:<code>模型名.objects.order_by(&#39;id&#39;)</code>  降序:<code>模型名.objects.order_by(&#39;-id&#39;)</code><br><strong>values()方法:</strong> 取查询对象中的字段: <code>模型名.objects.all().values()</code><br><strong>exists()方法:</strong> 判断结果是否存在,存在返回True,否则返回False <code>模型名.objects.filter().exists()</code><br><strong>count()方法:</strong> 计算结果的条数 <code>模型名.objects.filter().count()</code><br><strong>pk:</strong> 主键（就是id）<br><strong>运算符:</strong><br>​    语法: <code>字段__运算符</code><br><strong>模糊查询:</strong><br>​    contains: 包含<br>​    <code>Student.objects.filter(s_name__contains=&#39;小&#39;)</code><br>​    startswith: 以什么开头<br>​    <code>Student.objects.filter(s_name__startswith=&#39;小&#39;)</code><br>​    endswith: 以什么结束<br>​    <code>Student.objects.filter(s_name__endswith=&#39;嫣&#39;)</code><br>​    in: 在某个范围之内<br>​    <code>Student.objects.filter(id__in=[1,2,3,4])</code><br>​    <code>Student.objects.filter(pk__in=[1,2,3,4])</code><br>​    gt,gte: 大于,大于等于<br>​    # 查询年龄大于等于18且小于20<br>​    <code>Student.objects.filter(s_age__gte=18, s_age__lt=20)</code><br>​    lt,lte: 小于,小于等于<br>​    <code>Student.objects.filter(s_age__lt=20)</code><br><strong>聚合:</strong><br>​    <code>from django.db.models import Max, Avg, Min, Sum, Count</code><br>​    语法: <code>模型名.objects.all().aggregate(Sum(字段))</code><br>​  <code>Student.objects.all().aggregate(Max(&#39;s_age&#39;))</code><br>​    <code>Student.objects.all().aggregate(Avg(&#39;s_age&#39;))</code><br>​    <code>Student.objects.all().aggregate(Sum(&#39;s_age&#39;))</code><br><strong>Q()    Q查询对象:</strong><br>​    <code>from django.db.models import Q</code><br>​    与1: Q(条件1), Q(条件2)<br>​    <code>Student.objects.filter(Q(s_age__gte=18), Q(s_age__lt=20))</code><br>​    与2: Q(条件1) &amp; Q(条件2)<br>​    <code>Student.objects.filter(Q(s_age__gte=18) &amp; Q(s_age__lt=20))</code><br>​    或: Q(条件1) | Q(条件2)<br>​    <code>Student.objects.filter(Q(s_age__gte=18) | Q(s_age__lt=20))</code><br>​    非: ~Q(条件1)<br>​    <code>Student.objects.filter(~Q(s_age__gte=18))</code><br><strong>F()    F查询对象:</strong><br>​    <code>from django.db.models import F</code><br>​    用于比较两个字段,可使用+,-符号<br>​    <code>模型名.objects.filter(physics__gt=F(&#39;math&#39;)-10)</code></p>
 </li>
 </ol>
-
+<h3 id="六-模型设计"><a href="#六-模型设计" class="headerlink" title="六.模型设计"></a>六.模型设计</h3><ol>
+<li>迁移表名的定义 models.py<br>指定db_table参数，表示模型迁移时，映射到数据库中的表名称<br>如果没指定db_table参数,则数据库中模型映射的表名为: 应用名app_模型名称的小写<pre class=" language-python"><code class="language-python"> <span class="token keyword">class</span> <span class="token class-name">Meta</span><span class="token punctuation">:</span>
+     db_table <span class="token operator">=</span> <span class="token string">'course'</span>
+</code></pre>
+</li>
+<li>字段类型  models.py<br>CharField: 字符串类型<br>IntegerField: 整型<br>ImageField: 字符串类型,用于存图片<br>BooleanField: 布尔， True 或者 False<br>DateTimeField: 日期, 年月日时分秒<br>DateField: 年月日<br>TextField: 存储长文本内容, areatext标签<br>FloatField: 浮点类型<br>DecimalField: 浮点类型，限制最大长度和小数点后的长度</li>
+<li>约束 models.py<br>unique: 是否唯一<br>default: 默认值<br>null: 是否可以为空<br>primary_key: 主键<br>auto_now_add: 创建时，默认赋值为当前时间<br>auto_now: 创建或修改时，默认赋值为当前时间<br>max_length: 最大长度<br>related_name: 反向查询名称<br>on_delete: 删除的约束条件<br>​    models.CASCADE 删除主表，从表也会被删<br>​    models.PROTECT 不让删除主表，从表可以删<br>​    models.SET_NULL 删除主表，从表的关联字段设置为空</li>
+<li><p>一对一，1:1<br>存储     views.py<br>​    <code>stu_info = StudentInfo()</code><br>​    关联字段存储1： <code>stu_info.关联字段 = 关联对象</code><br>​    <code>stu_info.name = &#39;大霸王&#39;</code><br>​    <code>stu_info.stu = Student.objects.get(id=5)</code><br>​    关联字段存储2: <code>stu_info.关联字段_id = 主键id值</code><br>​    <code>stu_info.stu_id = 5</code><br>查询      views.py<br>​    学生模型和学生拓展模型的定义，一对一<br>​    <strong>查询1:学生对象查询拓展表对象:</strong><br>​    获得学生对象<br>​    <code>stu1 = Student.objects.filter(s_name=&#39;唐嫣&#39;).first()</code><br>​    通过学生对象查询拓展表信息<br>​    <strong>没设置related_name参数时：</strong><code>学生对象.拓展模型名称的小写</code><br>​      ​    法一:正向查询<br>​      ​    ​      ​    <code>stu_info = StudentInfo.objects.filter(stu=stu1).first()</code><br>​      ​        <code>stu_info = StudentInfo.objects.filter(stu_id=stu1.id).first()</code><br>​      ​    法二：反向查询<br>​      ​    ​      ​    <code>stu_info = stu1.studentinfo</code><br>​    <strong>设置related_name参数时：</strong><code>学生对象.related_name参数</code><br>​        <code>stu_info = stu1.info</code><br>​    <strong>查询2:拓展表对象查询学生对象:</strong><br>​    获得拓展表对象<br>​    <code>stu_info = StudentInfo.objects.filter(s_no=&#39;89757&#39;).first()</code><br>​    通过拓展表对象查询学生信息<br>​    <strong>没设置related_name参数时：</strong><code>拓展表对象.OneToOneField定义的字段</code><br>​    <code>stu1 = stu_info.stu</code><br>​    <strong>设置related_name参数时：</strong><code>拓展表对象.OneToOneField定义的字段</code><br>​    <code>stu1 = stu_info.stu</code><br>定义模型：OneToOneField: 定义在关联模型的任何一方都可以</p>
+</li>
+<li><p>一对多<br> 存储<br> ​    #查询id=4的学生对象<br> ​    <code>stu = Student.objects.get(pk=4)</code><br> ​    关联字段的存储1:<code>stu.关系字段 = 关联模型对象</code><br> ​    <code>stu.g = Grade.objects.get(pk=1)</code><br> ​    关联字段的存储2: <code>stu.关系字段_id = 关联表的主键id值</code><br> ​    <code>stu.g_id = 1</code><br> 查询:<br> ​    <strong>查询1：学生查询班级</strong><br> ​            <code>stu = Student.objects.filter(s_name=&#39;小花&#39;).first()</code><br> ​        <strong>没设置related_name参数时：</strong><code>多的一方(学生)对象.关联字段</code><br> ​            <code>grade = stu.g</code><br> ​        <strong>设置related_name参数时：</strong><code>多的一方(学生)对象.关联字段</code><br> ​            <code>grade = stu.g</code><br> ​<br> ​    <strong>查询2：班级查询学生</strong><br> ​            <code>grade = Grade.objects.filter(g_name=&#39;c1801&#39;).first()</code><br> ​        <strong>没设置related_name参数时：</strong><code>一的一方（班级）.关联模型名的小写_set.filter().all()</code><br> ​            <code>stus = grade.student_set.all()</code><br> ​        <strong>设置related_name参数时：</strong><code>一的一方(班级).related_name参数.filter().all()</code><br> ​            <code>stus = grade.stu.all()</code><br> 定义模型：ForeignKey: 定义在多(N)的一方</p>
+</li>
+<li>多对多<br> 存储：同一对多<br> 查询：<br> ​    <strong>查询1：课程加入学生</strong><br> ​        <code>cou = Course.objects.filter(c_name=&#39;高数&#39;).first()</code><br> ​        <code>stu = Student.objects.filter(s_name=&#39;杨幂&#39;).first()</code><br> ​        <strong>没设置related_name参数时：</strong><code>课程对象.关联字段</code><br> ​        <code>cou.stu.add(stu)</code><br> ​        <strong>设置related_name参数时：</strong><code>课程对象.关联字段</code><br> ​        <code>cou.stu.add(stu)</code><br> ​    <strong>查询2：学生加入课程</strong><br> ​        <strong>没设置related_name参数时：</strong><code>学生对象.关联模型名的小写_set</code><br> ​        <code>stu.course_set.add(cou)</code><br> ​        <strong>设置related_name参数时：</strong><code>学生对象.related_name参数</code><br> ​        <code>stu.cou.add(cou)</code><br> 定义模型：ManyToManyField: 定义在模型的任何一方都可以</li>
+</ol>
+<h3 id="7-模板"><a href="#7-模板" class="headerlink" title="7.模板"></a>7.模板</h3><pre><code>解析模板文件的位置：
+    TEMPALATES创建在与应用同级。再在里面创建模板文件。
+    配置: 在settings.py文件中定义TEMPALTES的目录地址
+    &#39;DIRS&#39;:[]中添加`os.path.join(BASE_DIR, &#39;templates&#39;)`
+后端渲染模板：    views.py
+    使用`render()`渲染模板
+    传递参数给模板, render(request, 模板名, {key1:value1, key2: value2})
+前端渲染数据：    模板
+    解析变量: `{{ 变量 }}`
+    解析标签: `{% 标签 %} {% end标签 %}`
+        标签: for
+</code></pre>
             </div>
             <hr>
 
