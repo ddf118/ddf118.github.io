@@ -326,7 +326,7 @@
 <p>私钥:id_rsa</p>
 <p>启动SSH服务(默认已经启动)：/etc/init.d/sshd restart</p>
 <h3 id="2-查看本机-ssh-公钥，生成公钥"><a href="#2-查看本机-ssh-公钥，生成公钥" class="headerlink" title="2.查看本机 ssh 公钥，生成公钥"></a>2.查看本机 ssh 公钥，生成公钥</h3><p>生成公钥</p>
-<p>1.生成公钥了：ssh-keygen</p>
+<p>1.生成公钥了：<code>ssh-keygen -t rsa</code></p>
 <p>2.接着会确认存放公钥的地址，默认就是上面说的路径，直接enter键确认</p>
 <p>3.接着会要求输入密码和确认密码，如果不想设置密码直接不输入内容 按enter键</p>
 <p>查看 ssh 公钥方法：</p>
@@ -337,14 +337,14 @@
 <p>d. 查看公钥：cat id_rsa.pub 或者 vim id_rsa.pub</p>
 <p>2.或者你也可以直接输入命令 ：cat ~/.ssh/id_rsa.pub</p>
 <p>3.或者你也可以直接打开你用户（一般都是 Administrator）下的 .ssh 文件夹，打开它里面的 id_rsa.pub 文件.</p>
-<h3 id="3-通过ssh连接服务器"><a href="#3-通过ssh连接服务器" class="headerlink" title="3.通过ssh连接服务器"></a>3.通过ssh连接服务器</h3><p>ssh 账号@主机ip</p>
+<h3 id="3-通过ssh连接服务器"><a href="#3-通过ssh连接服务器" class="headerlink" title="3.通过ssh连接服务器"></a>3.通过ssh连接服务器</h3><p><code>ssh 账号@主机ip</code></p>
 <h3 id="4-给服务器添加公钥-阿里"><a href="#4-给服务器添加公钥-阿里" class="headerlink" title="4.给服务器添加公钥(阿里)"></a>4.给服务器添加公钥(阿里)</h3><p>cd ~/.ssh</p>
 <p>vim authorized_keys 然后在里面加入自己本地的公钥</p>
 <h3 id="5-远程添加"><a href="#5-远程添加" class="headerlink" title="5.远程添加"></a>5.远程添加</h3><p>文件异地直接复制:SCP</p>
 <p><img src="/img/scp1.png" alt=""></p>
 <p>scp id_rsa.pub root@主机地址:~/.ssh/ddf.pub              </p>
 <p>cat ddf.pub &gt;&gt;authorized_keys         累加进                          </p>
-<h3 id="6-退出"><a href="#6-退出" class="headerlink" title="6.退出"></a>6.退出</h3><p>logout</p>
+<h3 id="6-退出"><a href="#6-退出" class="headerlink" title="6.退出"></a>6.退出</h3><p><code>ssh -T url</code>测试是否设置成功<br>logout</p>
 
             </div>
             <hr>

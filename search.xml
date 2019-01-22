@@ -3,6 +3,75 @@
   
     
     <entry>
+      <title>项目部署</title>
+      <link href="/2019/01/22/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/"/>
+      <url>/2019/01/22/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/</url>
+      
+        <content type="html"><![CDATA[<h2 id="零-项目部署前提"><a href="#零-项目部署前提" class="headerlink" title="零.项目部署前提"></a>零.项目部署前提</h2><p>阿里云地址：120.77.174.68<br>本地ip：127.0.0.1<br>MySQL： 3306端口<br>Redis： 6379端口</p><h2 id="一-安装数据库"><a href="#一-安装数据库" class="headerlink" title="一.安装数据库"></a>一.安装数据库</h2><h3 id="安装MariaDB或者安装MySQL"><a href="#安装MariaDB或者安装MySQL" class="headerlink" title="安装MariaDB或者安装MySQL"></a>安装MariaDB或者安装<a href="">MySQL</a></h3><h3 id="安装MariaDB"><a href="#安装MariaDB" class="headerlink" title="安装MariaDB"></a>安装MariaDB</h3><p>安装命令：<code>yum -y install mariadb mariadb-server</code><br>安装完成MariaDB，首先启动MariaDB：<code>systemctl start mariadb</code><br>设置开机启动：<code>systemctl enable mariadb</code></p><h2 id="二-设置MariaDB密码"><a href="#二-设置MariaDB密码" class="headerlink" title="二.设置MariaDB密码"></a>二.设置MariaDB密码</h2><p>命令: <code>mysql_secure_installation</code></p><pre><code>Enter current password for root:&lt;–初次运行直接回车设置密码Set root password? [Y/n] &lt;– 是否设置root用户密码，输入y并回车或直接回车New password: &lt;– 设置root用户的密码Re-enter new password: &lt;– 再输入一次你设置的密码其他配置Remove anonymous users? [Y/n] &lt;– 是否删除匿名用户，回车Disallow root login remotely? [Y/n] &lt;–是否禁止root远程登录,回车,Remove test database and access to it? [Y/n] &lt;– 是否删除test数据库，回车Reload privilege tables now? [Y/n] &lt;– 是否重新加载权限表，回车</code></pre><p>初始化MariaDB完成，接下来测试登录<br><code>mysql -u root -p</code></p><h2 id="三-开启远程连接"><a href="#三-开启远程连接" class="headerlink" title="三.开启远程连接"></a>三.开启远程连接</h2><p>在mysql数据库中的user表中可以看到默认是只能本地连接的，所有可以添加一个新的用户，该用户可以远程访问<br>1.创建用户（进入mysql后）<br> 先使用数据库<br><code>use mysql;</code></p><p> 针对ip<br><code>create user &#39;root&#39;@&#39;192.168.10.10&#39; identified by &#39;密码&#39;;</code></p><p> 全部（用这个就行）<br> <code>create user &#39;root&#39;@&#39;%&#39; identified by &#39;密码&#39;;</code></p><ol start="2"><li><p>授权<br>给用户最大权限（用这个就行）<br><code>grant all privileges on *.* to &#39;root&#39;@&#39;%&#39; identified by &#39;密码&#39;;</code></p><p>给部分权限(test 数据库)</p></li></ol><p><code>grant all privileges on test.* to &#39;root&#39;@&#39;%&#39; identified by &#39;password&#39; with grant option;</code></p><p> 刷新权限表<br><code>flush privileges;</code></p><p> 查看<br><code>show grants for &#39;root&#39;@&#39;localhost&#39;;</code><br>接下来就可以在远程的数据库可视化工具中直接访问该服务器中的mysql了。</p><p> 访问数据库<br><code>mysql -u root -p</code><br><img src="/img/deploy1.jpg" alt="1"></p><h2 id="四-安装python3-6"><a href="#四-安装python3-6" class="headerlink" title="四.安装python3.6"></a>四.安装python3.6</h2><p>首先安装依赖包</p><p>安装Python3.6所需要的依赖包：</p><p><code>yum -y groupinstall &quot;Development tools&quot;</code></p><p><code>yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel</code></p><p>安装Python3.7还需额外安装依赖包：<br><code>yum install libffi-devel -y</code></p><p>然后根据自己需求下载不同版本的Python3，我下载的是Python3.6.2</p><p><code>wget https://www.python.org/ftp/python/3.6.2/Python-3.6.2.tar.xz</code></p><p>然后解压压缩包，进入该目录，安装Python3</p><p><code>tar -xvJf  Python-3.6.2.tar.xz</code><br><code>cd Python-3.6.2</code><br><code>./configure --prefix=/usr/local/python3</code><br><code>make &amp;&amp; make install</code></p><p>最后创建软链接</p><p><code>ln -s /usr/local/python3/bin/python3 /usr/bin/python3</code></p><p><code>ln -s /usr/local/python3/bin/pip3 /usr/bin/pip3</code></p><h2 id="五-安装环境"><a href="#五-安装环境" class="headerlink" title="五.安装环境"></a>五.安装环境</h2><ol><li>安装virtualenv<br><code>yum install python-virtualenv</code></li><li>创建虚拟环境<br><code>virtualenv --no-site-packages -p /usr/bin/python3 env1</code></li></ol><p><code>cd env1</code></p><p> 激活虚拟环境<br><code>source bin/activate</code><br>xftp传输项目或者<a href="">scp传输</a></p><ol start="3"><li>安装环境需要的包<br><code>pip3 install -r re_install.txt</code></li></ol><p>其中re_install.txt文件中记录的是需要安装包的名称以及对应的版本</p><h3 id="环境绝对路径安装"><a href="#环境绝对路径安装" class="headerlink" title="环境绝对路径安装"></a>环境绝对路径安装</h3><p>/home/env/env1/bin/pip3 install -r /home/src/fresh_shop/requirement.txt</p><h3 id="绝对路径启动项目"><a href="#绝对路径启动项目" class="headerlink" title="绝对路径启动项目"></a>绝对路径启动项目</h3><p>/home/env/env1/bin/python3 /home/src/fresh_shop/manage.py runserver 0.0.0.0:80</p><p><code>netstat -lntp</code> 查看端口使用</p><h2 id="六-部署"><a href="#六-部署" class="headerlink" title="六.部署"></a>六.部署</h2><h3 id="1-测试环境中部署方式"><a href="#1-测试环境中部署方式" class="headerlink" title="1. 测试环境中部署方式"></a>1. 测试环境中部署方式</h3><p>1.1修改settings.py配置文件，将DEBUG=False模式，修改ALLOEWD_HOST=[‘*’]<br>1.2.中间件的修改</p><pre><code># 不需要做登录校验的地址        not_need_check = [&#39;/user/register/&#39;, &#39;/user/login/&#39;,                          &#39;/goods/index/&#39;, &#39;/goods/detail/.*/&#39;,                          &#39;/cart/.*/&#39;,&#39;/static/.*/&#39;,&#39;/media/.*/&#39;]# &#39;/static/.*/&#39;,&#39;/media/.*/&#39;</code></pre><p>1.3.修改工程目录下的urls.py</p><pre><code>from django.contrib import adminfrom django.urls import path, include,re_pathfrom django.contrib.staticfiles.urls import staticfrom fresh_shop.settings import MEDIA_URL, MEDIA_ROOT, STATICFILES_DIRSfrom goods import viewsfrom django.views.static import serveurlpatterns = [    path(&#39;admin/&#39;, admin.site.urls),    # 导入应用    path(&#39;cart/&#39;, include((&#39;cart.urls&#39;, &#39;cart&#39;), namespace=&#39;cart&#39;)),    path(&#39;goods/&#39;, include((&#39;goods.urls&#39;, &#39;goods&#39;), namespace=&#39;goods&#39;)),    path(&#39;order/&#39;, include((&#39;order.urls&#39;, &#39;order&#39;), namespace=&#39;order&#39;)),    path(&#39;user/&#39;, include((&#39;user.urls&#39;, &#39;user&#39;), namespace=&#39;user&#39;)),    # 首页路径    path(&#39;&#39;, views.index),    re_path(r&#39;^static/(?P&lt;path&gt;.*)$&#39;, serve, {&quot;document_root&quot;: STATICFILES_DIRS[0]}),    re_path(r&#39;^media/(?P&lt;path&gt;.*)$&#39;, serve, {&quot;document_root&quot;: MEDIA_ROOT}),</code></pre><p>1.4.创建脚本文件<br>在src目录中创建一个sh脚本<br>[root@izwz9gtgjgu8as4jaamzxzz src]# touch freshshop.sh<br>在sh脚本里面添加绝对路径启动<br>[root@izwz9gtgjgu8as4jaamzxzz src]# vim freshshop.sh<br><code>/home/env/env1/bin/python3 /home/src/fresh_shop/manage.py runserver 0.0.0.0:80</code><br>1.5.修改脚本文件权限<br>[root@izwz9gtgjgu8as4jaamzxzz src]# chmod -R 777 freshshop.sh<br>1.6.启动<br>nohup：不挂断地运行命令。<br>&amp;：挂后台<br>[root@izwz9gtgjgu8as4jaamzxzz src]# <code>nohup ./freshshop.sh &amp;</code></p><h3 id="2-正式环境中部署方式"><a href="#2-正式环境中部署方式" class="headerlink" title="2. 正式环境中部署方式"></a>2. 正式环境中部署方式</h3><p>正式环境中部署为nginx+uwsgi来部署django项目<br>2.1 安装nginx<br>a）添加nginx存储库<br><code>yum install epel-release</code><br>b) 安装nginx<br><code>yum install nginx</code><br>c) 运行nginx<br>Nginx不会自行启动。要运行Nginx则需输入<br><code>systemctl start nginx</code><br>nginx的运行命令：<br> <code>systemctl status nginx</code> 查看nginx的状态<br> <code>systemctl start/stop/enable/disable nginx</code> 启动/关闭/设置开机启动/禁止开机启动<br>d）系统启动时启用Nginx<br><code>systemctl enable nginx</code><br>e）如果您正在运行防火墙，请运行以下命令以允许HTTP和HTTPS通信：</p><p><code>sudo firewall-cmd --permanent --zone=public --add-service=http</code></p><p><code>sudo firewall-cmd --permanent --zone=public --add-service=https</code></p><p><code>sudo firewall-cmd --reload</code></p><h3 id="3-配置uwsgi"><a href="#3-配置uwsgi" class="headerlink" title="3.配置uwsgi"></a>3.配置uwsgi</h3><p>3.1 安装uwsgi<br>在虚拟环境中安装uwsgi，假设虚拟环境安装在/home/env/env1中<br>使用<code>/home/env/env1/bin/pip3 install uwsgi</code></p><h3 id="4-配置项目代码，配置项目nginx，配置uwsgi-ini等"><a href="#4-配置项目代码，配置项目nginx，配置uwsgi-ini等" class="headerlink" title="4.配置项目代码，配置项目nginx，配置uwsgi.ini等"></a>4.配置项目代码，配置项目nginx，配置uwsgi.ini等</h3><p>本案例的配置文件，都习惯将每一个项目的配置文件，日志文件，虚拟环境放在一起，这样开发方便，运维也方便维护<br>项目的目录结构如下：<code>conf env logs src</code><br>其中：</p><p>conf是配置文件，用于存放项目的nginx.conf文件，uwsgi.ini文件</p><p>logs是日志文件，用于存放nginx的启动成功和失败文件，以及uwsgi的运行日志文件</p><p>env是用于存放虚拟环境</p><p>src是项目文件，该目录下上传的是目录代码</p><p>4.1 配置nginx.conf文件<br>在conf下面创建一个名为freshnginx.conf的文件<br>首先：编写自己项目的conf文件如下：</p><pre><code>server {    listen        80;    server_name 120.77.174.68;    access_log /home/logs/freshaccess.log;    error_log /home/logs/fresherror.log;    location / {        include uwsgi_params;        uwsgi_pass 127.0.0.1:8890;    }    location /static/ {        alias /home/src/fresh_shop/static/;    }    location /media/ {        alias /home/src/fresh_shop/media/;    }}</code></pre><p>其次：修改总的nginx的配置文件，让总的nginx文件包含我们自定义的项目的freshnginx.conf文件</p><p>总的nginx配置文件在：/etc/nginx/nginx.conf中</p><p><img src="/img/deploy2.png" alt="2"><br>以上步骤操作完成以后，需要重启nginx：<br><code>systemctl restart nginx</code><br>查看运行状态<br><code>systemctl status nginx</code><br>4.2 配置uwsgi文件<br>在conf文件夹下除了包含自定义的freshnginx.conf文件，还有我们定义的uwsgi.ini文件</p><pre><code>[uwsgi]# 守护进程master = true# 进程个数processes = 4# 项目地址chdir = /home/src/fresh_shop# 指定python版本pythonpath = /home/env/env1/bin/python3# 指定uwsgi文件module = fresh_shop.wsgi# 和nginx通信地址:端口socket = 127.0.0.1:8890# 日志文件地址logto = /home/logs/freshuwsgi.log</code></pre><p>运行项目:<br><code>/home/env/env1/bin/uwsgi --ini /home/conf/freshuwsgi.ini &amp;</code></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> WEB </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> WEB后端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Postman</title>
+      <link href="/2019/01/22/Postman/"/>
+      <url>/2019/01/22/Postman/</url>
+      
+        <content type="html"><![CDATA[<p>Postman</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> WEB </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> WEB后端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>/和\的区别</title>
+      <link href="/2019/01/22/%E6%96%9C%E6%9D%A0%E7%8E%A9%E8%80%8D/"/>
+      <url>/2019/01/22/%E6%96%9C%E6%9D%A0%E7%8E%A9%E8%80%8D/</url>
+      
+        <content type="html"><![CDATA[<h3 id="正斜杠"><a href="#正斜杠" class="headerlink" title="正斜杠/"></a>正斜杠/</h3><p>“/”是表示非本地的路径分隔。</p><h3 id="反斜杠"><a href="#反斜杠" class="headerlink" title="反斜杠\"></a>反斜杠\</h3><p>本地路径表示用“\”表示母文件夹与子文件夹的层次关系。</p><h3 id="二者区别"><a href="#二者区别" class="headerlink" title="二者区别"></a>二者区别</h3><p>“\”、“/”的区别其实在与区别本地与非本地。<br>1.浏览器地址栏网址使用 正斜杠/；<br>2.windows文件浏览器上使用 反斜杠\；<br>3.出现在<code>html url()</code>属性中的路径，指定的路径是网络路径，所以必须使用 正斜杠/；<br>4.出现在普通字符串的路径，如果代表的是windows文件路径，则使用 正斜杠/和 反斜杠\是一样的；如果代表的是网络文件路径，则必须使用 正斜杠/；</p><p>另外在编程中，常用反斜杠\加字符表示转义字符，如\0表示“空字符”\r表示“回车”，\n表示“换行”等。</p><p>而<code>\\</code>则表示反斜杠\的转义字符，在编程中常用于表示反斜杠\不是普通的字符，而是路径的分隔符。如用一个字符串存储保存文件的路径时，路径为<code>F:\caffe\Temp\image.jpg</code>;则用字符串存储时，应该写为<code>str=F:\\caffe\\Temp\\image.jpg</code>;</p><p>因为若不这样表示，则反斜杠\将会当作普通字符，而非路径的分隔符。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 斜杠 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>Markdown</title>
       <link href="/2019/01/03/markdown/"/>
       <url>/2019/01/03/markdown/</url>
@@ -141,7 +210,7 @@
     </entry>
     
     <entry>
-      <title>Django</title>
+      <title>Django的初始化以及模型</title>
       <link href="/2019/01/02/Web%E5%90%8E%E7%AB%AF-Django/"/>
       <url>/2019/01/02/Web%E5%90%8E%E7%AB%AF-Django/</url>
       
@@ -191,7 +260,7 @@
       <link href="/2018/12/24/ssh%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/"/>
       <url>/2018/12/24/ssh%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
       
-        <content type="html"><![CDATA[<h1 id="ssh的基本操作"><a href="#ssh的基本操作" class="headerlink" title="ssh的基本操作"></a>ssh的基本操作</h1><h3 id="1-ssh服务器-文字接口连接服务器"><a href="#1-ssh服务器-文字接口连接服务器" class="headerlink" title="1.ssh服务器(文字接口连接服务器)"></a>1.ssh服务器(文字接口连接服务器)</h3><p>SSH是Secure Shell Protocol(安全的壳程序协议)的简写。</p><p>公钥:id_rsa.pub</p><p>1.很多服务器都是需要认证的，ssh认证是其中的一种。在客户端生成公钥，把生成的公钥添加到服务器，你以后连接服务器就不用每次都输入用户名和密码了。</p><p>2.很多git服务器都是用ssh认证方式，你需要把你生成的公钥发送给代码仓库管理员，让他给你添加到服务器上，你就可以通过ssh自由地拉取和提交代码了。</p><p>私钥:id_rsa</p><p>启动SSH服务(默认已经启动)：/etc/init.d/sshd restart</p><h3 id="2-查看本机-ssh-公钥，生成公钥"><a href="#2-查看本机-ssh-公钥，生成公钥" class="headerlink" title="2.查看本机 ssh 公钥，生成公钥"></a>2.查看本机 ssh 公钥，生成公钥</h3><p>生成公钥</p><p>1.生成公钥了：ssh-keygen</p><p>2.接着会确认存放公钥的地址，默认就是上面说的路径，直接enter键确认</p><p>3.接着会要求输入密码和确认密码，如果不想设置密码直接不输入内容 按enter键</p><p>查看 ssh 公钥方法：</p><p>1.通过命令窗口</p><p>a. 打开你的 git bash 窗口</p><p>b. 进入 .ssh 目录：cd ~/.ssh</p><p>c. 找到 id_rsa.pub 文件：ls</p><p>d. 查看公钥：cat id_rsa.pub 或者 vim id_rsa.pub</p><p>2.或者你也可以直接输入命令 ：cat ~/.ssh/id_rsa.pub</p><p>3.或者你也可以直接打开你用户（一般都是 Administrator）下的 .ssh 文件夹，打开它里面的 id_rsa.pub 文件.</p><h3 id="3-通过ssh连接服务器"><a href="#3-通过ssh连接服务器" class="headerlink" title="3.通过ssh连接服务器"></a>3.通过ssh连接服务器</h3><p>ssh 账号@主机ip</p><h3 id="4-给服务器添加公钥-阿里"><a href="#4-给服务器添加公钥-阿里" class="headerlink" title="4.给服务器添加公钥(阿里)"></a>4.给服务器添加公钥(阿里)</h3><p>cd ~/.ssh</p><p>vim authorized_keys 然后在里面加入自己本地的公钥</p><h3 id="5-远程添加"><a href="#5-远程添加" class="headerlink" title="5.远程添加"></a>5.远程添加</h3><p>文件异地直接复制:SCP</p><p><img src="/img/scp1.png" alt=""></p><p>scp id_rsa.pub root@主机地址:~/.ssh/ddf.pub              </p><p>cat ddf.pub &gt;&gt;authorized_keys         累加进                          </p><h3 id="6-退出"><a href="#6-退出" class="headerlink" title="6.退出"></a>6.退出</h3><p>logout</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="ssh的基本操作"><a href="#ssh的基本操作" class="headerlink" title="ssh的基本操作"></a>ssh的基本操作</h1><h3 id="1-ssh服务器-文字接口连接服务器"><a href="#1-ssh服务器-文字接口连接服务器" class="headerlink" title="1.ssh服务器(文字接口连接服务器)"></a>1.ssh服务器(文字接口连接服务器)</h3><p>SSH是Secure Shell Protocol(安全的壳程序协议)的简写。</p><p>公钥:id_rsa.pub</p><p>1.很多服务器都是需要认证的，ssh认证是其中的一种。在客户端生成公钥，把生成的公钥添加到服务器，你以后连接服务器就不用每次都输入用户名和密码了。</p><p>2.很多git服务器都是用ssh认证方式，你需要把你生成的公钥发送给代码仓库管理员，让他给你添加到服务器上，你就可以通过ssh自由地拉取和提交代码了。</p><p>私钥:id_rsa</p><p>启动SSH服务(默认已经启动)：/etc/init.d/sshd restart</p><h3 id="2-查看本机-ssh-公钥，生成公钥"><a href="#2-查看本机-ssh-公钥，生成公钥" class="headerlink" title="2.查看本机 ssh 公钥，生成公钥"></a>2.查看本机 ssh 公钥，生成公钥</h3><p>生成公钥</p><p>1.生成公钥了：<code>ssh-keygen -t rsa</code></p><p>2.接着会确认存放公钥的地址，默认就是上面说的路径，直接enter键确认</p><p>3.接着会要求输入密码和确认密码，如果不想设置密码直接不输入内容 按enter键</p><p>查看 ssh 公钥方法：</p><p>1.通过命令窗口</p><p>a. 打开你的 git bash 窗口</p><p>b. 进入 .ssh 目录：cd ~/.ssh</p><p>c. 找到 id_rsa.pub 文件：ls</p><p>d. 查看公钥：cat id_rsa.pub 或者 vim id_rsa.pub</p><p>2.或者你也可以直接输入命令 ：cat ~/.ssh/id_rsa.pub</p><p>3.或者你也可以直接打开你用户（一般都是 Administrator）下的 .ssh 文件夹，打开它里面的 id_rsa.pub 文件.</p><h3 id="3-通过ssh连接服务器"><a href="#3-通过ssh连接服务器" class="headerlink" title="3.通过ssh连接服务器"></a>3.通过ssh连接服务器</h3><p><code>ssh 账号@主机ip</code></p><h3 id="4-给服务器添加公钥-阿里"><a href="#4-给服务器添加公钥-阿里" class="headerlink" title="4.给服务器添加公钥(阿里)"></a>4.给服务器添加公钥(阿里)</h3><p>cd ~/.ssh</p><p>vim authorized_keys 然后在里面加入自己本地的公钥</p><h3 id="5-远程添加"><a href="#5-远程添加" class="headerlink" title="5.远程添加"></a>5.远程添加</h3><p>文件异地直接复制:SCP</p><p><img src="/img/scp1.png" alt=""></p><p>scp id_rsa.pub root@主机地址:~/.ssh/ddf.pub              </p><p>cat ddf.pub &gt;&gt;authorized_keys         累加进                          </p><h3 id="6-退出"><a href="#6-退出" class="headerlink" title="6.退出"></a>6.退出</h3><p><code>ssh -T url</code>测试是否设置成功<br>logout</p>]]></content>
       
       
       <categories>
