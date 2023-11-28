@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="正则表达式, 轮回">
-    <meta name="description" content="正则表达式正则表达式(英语：Regular expression，常简写为regex、regexp或RE)就是字符匹配的工具;是由正则符号和普通字符组成，来匹配不同规律的字符串。一个正则表达式通常被称为一个模式（pattern），为用来描述">
+    <meta name="keywords" content="Mysql分页子查询问题, 轮回">
+    <meta name="description" content="默认排序oracle：默认没有排序规则mysql：InnoDB引擎： 默认查询按照id正序排序MyISAM引擎： 默认按照插入时间正序排序排序
+子查询后默认排序失效没有使用子查询的时候，mysql默认排序正常，无论是否使用ORDER BY。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>正则表达式 | 轮回</title>
+    <title>Mysql分页子查询问题 | 轮回</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
     
 
@@ -325,12 +326,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">正则表达式</h1>
+                    <h1 class="description center-align post-title">Mysql分页子查询问题</h1>
                 </div>
             </div>
         </div>
@@ -354,8 +355,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E9%80%9A%E7%94%A8%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/">
-                                <span class="chip bg-color">通用技术知识</span>
+                            <a href="/tags/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                <span class="chip bg-color">Mysql数据库</span>
                             </a>
                         
                     </div>
@@ -379,28 +380,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-05-29
+                    2023-11-28
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-05-29
+                    2023-11-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.4k
+                    537
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    17 分
+                    2 分
                 </div>
                 
 
@@ -418,434 +419,117 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p>正则表达式(英语：Regular expression，常简写为regex、regexp或RE)就是字符匹配的工具;是由正则符号和普通字符组成，来匹配不同规律的字符串。<br>一个正则表达式通常被称为一个模式（pattern），为用来描述或者匹配一系列匹配某个句法规则的字符串。</p>
-<h3 id="普通字符-amp-元字符"><a href="#普通字符-amp-元字符" class="headerlink" title="普通字符&amp;元字符"></a>普通字符&amp;元字符</h3><blockquote>
-<p>普通字符在正则表达式中，代表字符本身。这包括所有大写和小写字母、所有数字、所有标点符号和一些其他符号。</p>
+                <h2 id="默认排序"><a href="#默认排序" class="headerlink" title="默认排序"></a>默认排序</h2><p>oracle：默认没有排序规则<br>mysql：<br>InnoDB引擎： 默认查询按照id正序排序<br>MyISAM引擎： 默认按照插入时间正序排序排序</p>
+<h2 id="子查询后默认排序失效"><a href="#子查询后默认排序失效" class="headerlink" title="子查询后默认排序失效"></a>子查询后默认排序失效</h2><p>没有使用子查询的时候，mysql默认排序正常，无论是否使用ORDER BY。 使用子查询之后，mysql默认排序在使用ORDER BY之后失效(ORDER BY指定的排序正常，但是ORDER BY之后的默认排序失效，会导致查询结果每次不同)，不使用ORDER BY仍为默认主键升序。</p>
+<h3 id="没有子查询-每次查询一致"><a href="#没有子查询-每次查询一致" class="headerlink" title="没有子查询 每次查询一致"></a>没有子查询 每次查询一致</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_id<span class="token punctuation">`</span></span><span class="token punctuation">,</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_job_level_sort<span class="token punctuation">`</span></span><span class="token punctuation">,</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_emp_name<span class="token punctuation">`</span></span><span class="token punctuation">,</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_job_level_name<span class="token punctuation">`</span></span>
+<span class="token keyword">FROM</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span> 
+<span class="token keyword">WHERE</span>
+    <span class="token punctuation">(</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_is_delete<span class="token punctuation">`</span></span> <span class="token operator">=</span> <span class="token boolean">FALSE</span> 
+    <span class="token operator">AND</span> <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_company_id<span class="token punctuation">`</span></span> <span class="token operator">=</span> <span class="token string">'93c6bff9c6154e469338c42d93a6ba92'</span> 
+    <span class="token operator">AND</span> <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_work_status<span class="token punctuation">`</span></span> <span class="token operator">IN</span> <span class="token punctuation">(</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span> <span class="token punctuation">)</span> 
+    <span class="token operator">AND</span> <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_company_id<span class="token punctuation">`</span></span> <span class="token operator">=</span> <span class="token string">'93c6bff9c6154e469338c42d93a6ba92'</span> 
+    <span class="token punctuation">)</span> 
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_job_level_sort<span class="token punctuation">`</span></span> <span class="token keyword">ASC</span><span class="token punctuation">,</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_job_level_name<span class="token punctuation">`</span></span> <span class="token keyword">ASC</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="没有子查询-主键IN-每次查询一致"><a href="#没有子查询-主键IN-每次查询一致" class="headerlink" title="没有子查询 主键IN 每次查询一致"></a>没有子查询 主键IN 每次查询一致</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_id<span class="token punctuation">`</span></span><span class="token punctuation">,</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_job_level_sort<span class="token punctuation">`</span></span><span class="token punctuation">,</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_emp_name<span class="token punctuation">`</span></span><span class="token punctuation">,</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_job_level_name<span class="token punctuation">`</span></span>
+<span class="token keyword">FROM</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span> 
+<span class="token keyword">WHERE</span>
+    <span class="token punctuation">(</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_is_delete<span class="token punctuation">`</span></span> <span class="token operator">=</span> <span class="token boolean">FALSE</span> 
+    <span class="token operator">AND</span> <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_company_id<span class="token punctuation">`</span></span> <span class="token operator">=</span> <span class="token string">'93c6bff9c6154e469338c42d93a6ba92'</span> 
+    <span class="token operator">AND</span> <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_work_status<span class="token punctuation">`</span></span> <span class="token operator">IN</span> <span class="token punctuation">(</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span> <span class="token punctuation">)</span> 
+    <span class="token operator">AND</span> <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_company_id<span class="token punctuation">`</span></span> <span class="token operator">=</span> <span class="token string">'93c6bff9c6154e469338c42d93a6ba92'</span> 
+    <span class="token operator">AND</span> <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_id<span class="token punctuation">`</span></span> <span class="token operator">IN</span> <span class="token punctuation">(</span>
+<span class="token string">'003e91414db04c5bb9d76960ee895c13'</span><span class="token punctuation">,</span><span class="token string">'022b138df784466e82956e67747e7f56'</span><span class="token punctuation">,</span><span class="token string">'033d230fe5b14c5da2ed19c735dc4ac3'</span><span class="token punctuation">,</span><span class="token string">'03dc77f15e8845a6b3addca420f7c73c'</span>
+    <span class="token punctuation">)</span> 
+    <span class="token punctuation">)</span> 
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_job_level_sort<span class="token punctuation">`</span></span> <span class="token keyword">ASC</span><span class="token punctuation">,</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_job_level_name<span class="token punctuation">`</span></span> <span class="token keyword">ASC</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="存在子查询-每次查询不一致"><a href="#存在子查询-每次查询不一致" class="headerlink" title="存在子查询 每次查询不一致"></a>存在子查询 每次查询不一致</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_id<span class="token punctuation">`</span></span><span class="token punctuation">,</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_job_level_sort<span class="token punctuation">`</span></span><span class="token punctuation">,</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_emp_name<span class="token punctuation">`</span></span><span class="token punctuation">,</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_job_level_name<span class="token punctuation">`</span></span>
+<span class="token keyword">FROM</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span> 
+<span class="token keyword">WHERE</span>
+    <span class="token punctuation">(</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_is_delete<span class="token punctuation">`</span></span> <span class="token operator">=</span> <span class="token boolean">FALSE</span> 
+    <span class="token operator">AND</span> <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_company_id<span class="token punctuation">`</span></span> <span class="token operator">=</span> <span class="token string">'93c6bff9c6154e469338c42d93a6ba92'</span> 
+    <span class="token operator">AND</span> <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_work_status<span class="token punctuation">`</span></span> <span class="token operator">IN</span> <span class="token punctuation">(</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span> <span class="token punctuation">)</span> 
+    <span class="token operator">AND</span> <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_company_id<span class="token punctuation">`</span></span> <span class="token operator">=</span> <span class="token string">'93c6bff9c6154e469338c42d93a6ba92'</span> 
+    <span class="token operator">AND</span> <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_id<span class="token punctuation">`</span></span> <span class="token operator">IN</span> <span class="token punctuation">(</span>
+<span class="token keyword">SELECT</span>
+    U0<span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_employee_id<span class="token punctuation">`</span></span> 
+<span class="token keyword">FROM</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_company_organization_scope_employee<span class="token punctuation">`</span></span> U0 
+<span class="token keyword">WHERE</span>
+    <span class="token punctuation">(</span> U0<span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_is_enable<span class="token punctuation">`</span></span> <span class="token operator">=</span> <span class="token boolean">TRUE</span> <span class="token operator">AND</span> U0<span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_scope_id<span class="token punctuation">`</span></span> <span class="token operator">=</span> <span class="token string">'c2fb4268fe88a81ed8e89892a28a14f3'</span> <span class="token operator">AND</span> U0<span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_company_id<span class="token punctuation">`</span></span> <span class="token operator">=</span> <span class="token string">'93c6bff9c6154e469338c42d93a6ba92'</span> <span class="token punctuation">)</span> 
+    <span class="token punctuation">)</span> 
+    <span class="token punctuation">)</span> 
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_job_level_sort<span class="token punctuation">`</span></span> <span class="token keyword">ASC</span><span class="token punctuation">,</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_job_level_name<span class="token punctuation">`</span></span> <span class="token keyword">ASC</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">ORDER</span> <span class="token keyword">BY</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_job_level_sort<span class="token punctuation">`</span></span> <span class="token keyword">ASC</span><span class="token punctuation">,</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_job_level_name<span class="token punctuation">`</span></span> <span class="token keyword">ASC</span><span class="token punctuation">,</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_id<span class="token punctuation">`</span></span> <span class="token keyword">ASC</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="分页偏移后默认排序失效"><a href="#分页偏移后默认排序失效" class="headerlink" title="分页偏移后默认排序失效"></a>分页偏移后默认排序失效</h2><blockquote>
+<p>因上次子查询出现问题后，本次分页也出现问题。直接怀疑order by指定排序后会因不同条件打乱默认排序(姑且认为有) order by指定排序后 一定要指定id升序</p>
 </blockquote>
-<p>完整字符匹配<br>eg: ‘abc’ –&gt; 匹配一个字符串，第一个字符是’a’,第二个字符是’b’,第三个字符也是最后一个字符是’c’</p>
-<blockquote>
-<p>元字符就是指那些在正则表达式中具有特殊意义的专用字符，’\大写字母’对应的功能是’\小写字母’功能取反</p>
-</blockquote>
-<h4 id="常用字符"><a href="#常用字符" class="headerlink" title="常用字符"></a>常用字符</h4><table>
-<thead>
-<tr>
-<th>常用字符</th>
-<th>说明</th>
-<th>例子</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>.</td>
-<td>匹配除换行符以外的任意字符</td>
-<td>‘a.c’ –&gt; 匹配一个长度上3的字符串，并且第一个字符是’a’,最后一个字符是’c’,中间是任意字符</td>
-</tr>
-<tr>
-<td>\w</td>
-<td>匹配字母或数字或下划线或汉字</td>
-<td>‘\w\w…’ –&gt; 匹配一个长度是5的字符串，并且字符串的前两位是数字、字母和下划线，后面是三个任意字符</td>
-</tr>
-<tr>
-<td>\s</td>
-<td>匹配任意的空白符 包括：空格、制表符和换行符(空格,\t,\r,\n)</td>
-<td>‘a.c’ –&gt; ‘\w\w\s\w’ –&gt; 匹配一个长度是4的字符串，并且字符串前两位是字母数字或者下划线(中文),中间一个空白，再一个字母数字或者下划线(中文)</td>
-</tr>
-<tr>
-<td>\d</td>
-<td>匹配数字字符</td>
-<td>‘\d\d\d..’ –&gt; 匹配一个长度是5的字符串，字符串的前三位是数字字符，后两位是任意字符</td>
-</tr>
-<tr>
-<td>\W</td>
-<td>匹配非数字或字母或下划线</td>
-<td>‘\d\D\s\w\Ba’ –&gt; 匹配一个字符串，第一个字符是数字、第二个是非数字,第三个是空白，第四个是数字字母下划线，最后一个是a，并且要求a前面不是单词边界</td>
-</tr>
-<tr>
-<td>\D</td>
-<td>匹配非数字字符</td>
-<td>同上</td>
-</tr>
-<tr>
-<td>\S</td>
-<td>匹配非空白字符</td>
-<td>同上</td>
-</tr>
-<tr>
-<td>\</td>
-<td>将下一个字符标记为或特殊字符、或原义字符、或向后引用、或八进制转义符</td>
-<td>‘.‘ –&gt; 匹配’.’这个字符</td>
-</tr>
-<tr>
-<td>( )</td>
-<td>标记一个子表达式的开始和结束位置</td>
-<td></td>
-</tr>
-<tr>
-<td>[</td>
-<td>标记一个中括号表达式的开始</td>
-<td></td>
-</tr>
-<tr>
-<td>{</td>
-<td>标记限定符表达式的开始</td>
-<td></td>
-</tr>
-<tr>
-<td>|</td>
-<td>指明两项之间的一个选择</td>
-<td></td>
-</tr>
-</tbody></table>
-<h4 id="定位符"><a href="#定位符" class="headerlink" title="定位符"></a>定位符</h4><table>
-<thead>
-<tr>
-<th>定位字符</th>
-<th>说明</th>
-<th>例子</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>^</td>
-<td>匹配字符串的开始</td>
-<td>‘^The..’ –&gt; 匹配一个字符串前面三个字符是’The’，后面两个任意字符</td>
-</tr>
-<tr>
-<td>$</td>
-<td>匹配字符串的结束</td>
-<td>‘The$’ –&gt; 匹配一个字符串前面三个字符是’The’,并且e后面是字符串结尾</td>
-</tr>
-<tr>
-<td>\b</td>
-<td>匹配单词边界 检测\b出现的位置是否是单词边界，不会对字符进行匹配。单词边界：字符串开头、字符串结尾、标点符号、空白符号等</td>
-<td>‘\bhello,\bworld’ –&gt; 匹配字符串’hello,world’, 并且要求w前面是单词边界, h前面也是单词边界</td>
-</tr>
-<tr>
-<td>\B</td>
-<td>匹配非单词边界</td>
-<td>‘\d\D\s\w\Ba’ –&gt; 匹配一个字符串，第一个字符是数字、第二个是非数字,第三个是空白，第四个是数字字母下划线，最后一个是a，并且要求a前面不是单词边界</td>
-</tr>
-<tr>
-<td><strong>注意：不能将限定符与定位符一起使用。由于在紧靠换行或者单词边界的前面或后面不能有一个以上位置，因此不允许诸如 ^* 之类的表达式。</strong></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h4 id="限定符"><a href="#限定符" class="headerlink" title="限定符"></a>限定符</h4><table>
-<thead>
-<tr>
-<th>限定字符</th>
-<th>说明</th>
-<th>例子</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>*</td>
-<td>匹配前面的子表达式零次或多次</td>
-<td>‘a\d*’ –&gt; 匹配一个字符串前面第一个字符是a,后面数字可有可无</td>
-</tr>
-<tr>
-<td>+</td>
-<td>匹配前面的子表达式一次或多次</td>
-<td>‘a\d+’ –&gt; 匹配一个字符串前面第一个字符是a,后面数字有</td>
-</tr>
-<tr>
-<td>?</td>
-<td>匹配前面的子表达式零次或一次</td>
-<td>‘a\d+’ –&gt; 匹配一个字符串前面第一个字符是a,后面数字无或者只有1个</td>
-</tr>
-<tr>
-<td>{n}</td>
-<td>匹配确定的n次(n非负整数)</td>
-<td>‘a{3}’ –&gt; 匹配’aaa’</td>
-</tr>
-<tr>
-<td>{n,}</td>
-<td>至少匹配n次(n非负整数)</td>
-<td>‘a{1,}’ –&gt; 匹配’a’、’aa’、…</td>
-</tr>
-<tr>
-<td>{,m}</td>
-<td>至多匹配m次(m非负整数)</td>
-<td>‘a{,3}’ –&gt; 匹配’’、’a’、’aa’、’aaa’</td>
-</tr>
-<tr>
-<td>{n,m}</td>
-<td>最少匹配n次且最多匹配m次(m和n均为非负整数，其中n&lt;&#x3D;m)</td>
-<td>‘a{1,3}’ –&gt; 匹配’a’、’aa’、’aaa’</td>
-</tr>
-</tbody></table>
-<h4 id="非打印字符"><a href="#非打印字符" class="headerlink" title="非打印字符"></a>非打印字符</h4><table>
-<thead>
-<tr>
-<th>非打印字符</th>
-<th>说明</th>
-<th>例子</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>\f</td>
-<td>匹配一个换页符</td>
-<td></td>
-</tr>
-<tr>
-<td>\n</td>
-<td>匹配一个换行符</td>
-<td></td>
-</tr>
-<tr>
-<td>\r</td>
-<td>匹配一个回车符</td>
-<td></td>
-</tr>
-<tr>
-<td>\t</td>
-<td>匹配一个制表符</td>
-<td></td>
-</tr>
-<tr>
-<td>\v</td>
-<td>匹配一个垂直制表符</td>
-<td></td>
-</tr>
-</tbody></table>
-<h3 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h3><blockquote>
-<p>匹配中括号出现的任意一个字符<br>一个中括号只能匹配一个字符<br>正则中有特殊功能的单个符号在[]都表示符号本身 例如：.  $  ^ + * ？ |等<br>匹配字符的组合符号，在中括号中保持原来的功能, 例如: \w  \d \s  \W  \D \S</p>
-</blockquote>
-<h4 id="普通字符集-匹配中括号出现的任意一个字符"><a href="#普通字符集-匹配中括号出现的任意一个字符" class="headerlink" title="[普通字符集] - 匹配中括号出现的任意一个字符"></a>[普通字符集] - 匹配中括号出现的任意一个字符</h4><blockquote>
-<p>eg: ‘[abc]’ –&gt; 匹配一个字符是a或者b或者c;<br>‘\d[bc&#x3D;\d]’ –&gt; 匹配一个长度是2的字符串，第一个字符是数字，第二个字符是b或者c或者&#x3D;或者数字</p>
-</blockquote>
-<h4 id="字符1-字符2-表示字符1到字符2（注意：要求字符1的编码值要小于字符2）"><a href="#字符1-字符2-表示字符1到字符2（注意：要求字符1的编码值要小于字符2）" class="headerlink" title="[字符1-字符2] - 表示字符1到字符2（注意：要求字符1的编码值要小于字符2）"></a>[字符1-字符2] - 表示字符1到字符2（注意：要求字符1的编码值要小于字符2）</h4><blockquote>
-<p>[a-z] - 表示匹配所有小写字母<br>[A-Z] –&gt; 表示匹配所有大写字母<br>[a-zA-Z] –&gt; 匹配所有的字母<br>[1-7] –&gt; 匹配数字字符1到7<br>[\u4e00-\u9fa5] –&gt; 匹配所有的中文<br>eg: ‘[1-7][abc-][a-z]’ –&gt; 匹配一个长度是3的字符串,第一个字符是数字字符1到7中的一个，第二个字符是’a’，’b’,’c’,’-‘中的一个,第三个字符是小写字母</p>
-</blockquote>
-<h4 id="字符集-匹配不在字符集中的任意一个字符"><a href="#字符集-匹配不在字符集中的任意一个字符" class="headerlink" title="[^字符集] - 匹配不在字符集中的任意一个字符"></a>[^字符集] - 匹配不在字符集中的任意一个字符</h4><blockquote>
-<p>[^abc] - 匹配除了’a’,’b’,’c’以外的其他任意一个字符<br>[^\d] –&gt; 匹配除了数字字符以外的其他任意一个字符<br>[^a-z] –&gt; 匹配除了小写字母以外的其他任意一个字符<br>[abc^] –&gt; 匹配’a’,’b’,’c’或者’^’中的任意一个字符</p>
-</blockquote>
-<h3 id="分枝条件"><a href="#分枝条件" class="headerlink" title="分枝条件"></a>分枝条件</h3><p>正则表达式里的分枝条件指的是有几种规则，如果满足其中任意一种规则都应该当成匹配，具体方法是用|把不同的规则分隔开<br>条件1 | 条件2  - 匹配条件1或者条件2<br><strong>注意：正则中的分之也会出现短路，当条件1可以匹配，就不会再使用条件2进行匹配</strong><br>‘\d{2}|[a-z]’ –&gt; 匹配两个数字字符或者一个小写字母<br>‘a\d{2}|\w{2}’ –&gt; 匹配一个a后面两个数字，或者两个数字字母下划线</p>
-<h3 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h3><ul>
-<li>分组 - 将括号中的内容作为一个整体<br>‘(\d[a-z]){3}’ –&gt; 匹配一个字符串，以’数字小写字母’的形式出现3次<br>‘abc(\d{3}|[A-Z]{3})’ –&gt; 匹配一个字符串，前三位是’abc’,后三位是三个数字或者三个大写字母</li>
-</ul>
-<h3 id="后向引用"><a href="#后向引用" class="headerlink" title="后向引用"></a>后向引用</h3><p>用于重复搜索前面某个分组匹配的文本</p>
-<ul>
-<li>常用分组语法</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>分类</th>
-<th>代码&#x2F;语法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>捕获</td>
-<td>(exp)</td>
-<td>匹配exp,并捕获文本到自动命名的组里</td>
-</tr>
-<tr>
-<td>捕获</td>
-<td>(?<name>exp)</td>
-<td>匹配exp,并捕获文本到名称为name的组里，也可以写成(?’name’exp)</td>
-</tr>
-<tr>
-<td>捕获</td>
-<td>(?:exp)</td>
-<td>匹配exp,不捕获匹配的文本，也不给此分组分配组号</td>
-</tr>
-<tr>
-<td>零宽断言</td>
-<td>(?&#x3D;exp)</td>
-<td>匹配exp前面的位置</td>
-</tr>
-<tr>
-<td>零宽断言</td>
-<td>(?&lt;&#x3D;exp)</td>
-<td>匹配exp后面的位置</td>
-</tr>
-<tr>
-<td>零宽断言</td>
-<td>(?!exp)</td>
-<td>匹配后面跟的不是exp的位置</td>
-</tr>
-<tr>
-<td>零宽断言</td>
-<td>(?&lt;!exp)</td>
-<td>匹配前面不是exp的位置</td>
-</tr>
-<tr>
-<td>注释</td>
-<td>(?#comment)</td>
-<td>这种类型的分组不对正则表达式的处理产生任何影响，用于提供注释让人阅读</td>
-</tr>
-</tbody></table>
-<ul>
-<li>捕获 - <strong>通过正则获取符合条件的子串的时候，可以在正则表达式中加括号，匹配后只获取括号里面匹配到的内容</strong><br>‘a(\d+)’ –&gt; ‘ahsa783+sdh*92dfjhjj78jhsda67jk’ –&gt; 匹配两段：’783’、’67’</li>
-<li>重复匹配 - <strong>带多个分组的正则表达式中可以分组的后面通过添加’\数字’来重复前面第几个分组中匹配到的内容</strong><blockquote>
-<p>\数字重复之前的内容 必须一样<br>\数字 - 这儿的数字代表前面第几个分组; \1代表第一个分组  \2代表第二个分组</p>
-</blockquote>
-</li>
-</ul>
-<p>‘(\d{3})([a-z]{2})a\1{2}-\2’ –&gt; ‘123efa123123-ef’ –&gt; 完全匹配,1-3位数字,4-5位小写字母,6位a,7-12位数字(重复分组1*2),13位-,14-15位小写字母(重复分组2)</p>
-<ul>
-<li>零宽断言 - <strong>查找在某些内容(但并不包括这些内容)之前或之后的东西</strong><ul>
-<li>(?&#x3D;exp)<br>  零宽度正预测先行断言,断言自身出现的位置的后面能匹配表达式exp<br>  ‘\b\w+(?&#x3D;ing\b)’ –&gt; 匹配以ing结尾的单词的前面部分(除了ing以外的部分) –&gt; ‘I”m singing while you’re dancing.’ –&gt; ‘sing’、’danc’</li>
-<li>(?&lt;&#x3D;exp)<br>  零宽度正回顾后发断言,断言自身出现的位置的前面能匹配表达式exp<br>  ‘(?&lt;&#x3D;\bre)\w+\b’ –&gt; 匹配以re开头的单词的后半部分(除了re以外的部分) –&gt; ‘reading a book’ –&gt; ‘ading’</li>
-</ul>
-</li>
-<li>负向零宽断言 - <strong>查找不是某个字符或不在某个字符类里的字符的方法</strong><ul>
-<li>(?!exp)<br>  零宽度负预测先行断言,断言此位置的后面不能匹配表达式exp<br>  ‘\d{3}(?!\d)’ –&gt; 匹配三位数字，而且这三位数字的后面不能是数字 –&gt; ‘11ddf118ggg’ –&gt; ‘ggg’<br>  ‘\b(?!abc)\w+\b’ –&gt; 匹配不包含连续字符串abc的单词 –&gt; ‘abc118 1 a2’ –&gt; ‘1’、’a2’</li>
-<li>(?&lt;!exp)<br>  零宽度负回顾后发断言,断言此位置的前面不能匹配表达式exp<br>  ‘(?&lt;![a-z])\d{7}’ –&gt; 匹配前面不是小写字母的七位数字 –&gt; ‘abc1234567A7654321’ –&gt; ‘7654321’</li>
-</ul>
-</li>
-<li>注释<br>‘2[0-4]\d(?#200-249)’ –&gt; 匹配200-249 –&gt; ‘abc1234567A7654321’ –&gt; ‘234’</li>
-</ul>
-<h3 id="贪婪与懒惰"><a href="#贪婪与懒惰" class="headerlink" title="贪婪与懒惰"></a>贪婪与懒惰</h3><ul>
-<li>贪婪匹配 - 匹配尽可能多的字符<br>‘a.+b’ –&gt; ‘xxxahdjbnnkbsssammmb’ –&gt; ‘ahdjbnnkbsssammmb’</li>
-<li>懒惰匹配 - 匹配尽可能少的字符<br>‘a.+?b’ –&gt; ‘xxxahdjbnnkbsssammmb’ –&gt; ‘ahdjb’、’ammmb’</li>
-<li>懒惰限定符<table>
-<thead>
-<tr>
-<th>代码&#x2F;语法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>*?</td>
-<td>重复任意次，但尽可能少重复</td>
-</tr>
-<tr>
-<td>+?</td>
-<td>重复1次或更多次，但尽可能少重复</td>
-</tr>
-<tr>
-<td>??</td>
-<td>重复0次或1次，但尽可能少重复</td>
-</tr>
-<tr>
-<td>{n,m}?</td>
-<td>重复n到m次，但尽可能少重复</td>
-</tr>
-<tr>
-<td>{n,}?</td>
-<td>重复n次以上，但尽可能少重复</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<h2 id="Python中的使用"><a href="#Python中的使用" class="headerlink" title="Python中的使用"></a>Python中的使用</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> re
-
-
-<span class="token comment"># re.compile(pattern, flags=0) 将正则表达式的样式编译为一个正则表达式对象(正则对象)</span>
-<span class="token comment"># 如果需要多次使用这个正则表达式的话，使用 re.compile() 和保存这个正则对象以便复用，可以让程序更加高效</span>
-re_str <span class="token operator">=</span> <span class="token string">r"\d&#123;3&#125;"</span>
-re_obj <span class="token operator">=</span> re<span class="token punctuation">.</span><span class="token builtin">compile</span><span class="token punctuation">(</span>re_str<span class="token punctuation">)</span>
-re<span class="token punctuation">.</span>fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span> <span class="token string">"234"</span><span class="token punctuation">)</span> <span class="token comment"># 调用模块中的函数 &lt;re.Match object; span=(0, 3), match='234'></span>
-re_obj<span class="token punctuation">.</span>fullmatch<span class="token punctuation">(</span><span class="token string">"234"</span><span class="token punctuation">)</span> <span class="token comment"># 调用对象方法 &lt;re.Match object; span=(0, 3), match='234'></span>
-
-<span class="token comment"># re.fullmatch(pattern, string, flags=0) 如果整个string匹配到正则表达式样式，就返回一个相应的匹配对象</span>
-re<span class="token punctuation">.</span>fullmatch<span class="token punctuation">(</span><span class="token string">r"\d&#123;5,&#125;"</span><span class="token punctuation">,</span> <span class="token string">"ddf123456"</span><span class="token punctuation">)</span> <span class="token comment"># None</span>
-re<span class="token punctuation">.</span>fullmatch<span class="token punctuation">(</span><span class="token string">r"\d&#123;5,&#125;"</span><span class="token punctuation">,</span> <span class="token string">"123456"</span><span class="token punctuation">)</span> <span class="token comment"># &lt;re.Match object; span=(0, 6), match='123456'></span>
-
-<span class="token comment"># re.match(pattern, string, flags=0) 如果string开始的0或者多个字符匹配到了正则表达式样式，就返回一个相应的匹配对象</span>
-re<span class="token punctuation">.</span><span class="token keyword">match</span><span class="token punctuation">(</span><span class="token string">r"\d&#123;5,&#125;"</span><span class="token punctuation">,</span> <span class="token string">"ddf123456"</span><span class="token punctuation">)</span> <span class="token comment"># None</span>
-re<span class="token punctuation">.</span><span class="token keyword">match</span><span class="token punctuation">(</span><span class="token string">r"\d&#123;5,&#125;"</span><span class="token punctuation">,</span> <span class="token string">"123456ddf"</span><span class="token punctuation">)</span> <span class="token comment"># &lt;re.Match object; span=(0, 6), match='123456'></span>
-re<span class="token punctuation">.</span><span class="token keyword">match</span><span class="token punctuation">(</span><span class="token string">r"\d&#123;5,&#125;?"</span><span class="token punctuation">,</span> <span class="token string">"123456ddf"</span><span class="token punctuation">)</span> <span class="token comment"># &lt;re.Match object; span=(0, 5), match='12345'></span>
-
-<span class="token comment"># re.search(pattern, string, flags=0) 扫描整个字符串找到匹配样式的第一个位置，并返回一个相应的匹配对象</span>
-re<span class="token punctuation">.</span>search<span class="token punctuation">(</span><span class="token string">r"\d&#123;5,&#125;"</span><span class="token punctuation">,</span> <span class="token string">"ddf123456"</span><span class="token punctuation">)</span> <span class="token comment"># &lt;re.Match object; span=(3, 9), match='123456'></span>
-
-<span class="token comment"># re.split(pattern, string, maxsplit=0, flags=0)</span>
-<span class="token comment"># 用pattern分开string。如果在pattern中捕获到括号，那么所有的组里的文字也会包含在列表里。如果maxsplit非零，最多进行 maxsplit 次分隔，剩下的字符全部返回到列表的最后一个元素。</span>
-re<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">r"[a-f]+"</span><span class="token punctuation">,</span> <span class="token string">"0a3B9a008"</span><span class="token punctuation">,</span> flags<span class="token operator">=</span>re<span class="token punctuation">.</span>IGNORECASE<span class="token punctuation">)</span> <span class="token comment"># ['0', '3', '9', '008']</span>
-re<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">r"[a-f]+"</span><span class="token punctuation">,</span> <span class="token string">"0a3B9a008"</span><span class="token punctuation">)</span> <span class="token comment"># ['0', '3B9', '008']</span>
-re<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">r"[a-f]+"</span><span class="token punctuation">,</span> <span class="token string">"0a3B9a008"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> flags<span class="token operator">=</span>re<span class="token punctuation">.</span>IGNORECASE<span class="token punctuation">)</span> <span class="token comment"># ['0', '3B9a008']</span>
-re<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">r"([a-f]+)"</span><span class="token punctuation">,</span> <span class="token string">"0a3B9a008"</span><span class="token punctuation">,</span> flags<span class="token operator">=</span>re<span class="token punctuation">.</span>IGNORECASE<span class="token punctuation">)</span> <span class="token comment"># ['0', 'a', '3', 'B', '9', 'a', '008']</span>
-re<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">r"([a-f]+)"</span><span class="token punctuation">,</span> <span class="token string">"0a3B9a008"</span><span class="token punctuation">)</span> <span class="token comment"># ['0', 'a', '3B9', 'a', '008']</span>
-
-<span class="token comment"># re.findall(pattern, string, flags=0)</span>
-<span class="token comment"># 在字符串中获取满足正则表达式的所有的字符，返回一个列表，列表元素是字符串</span>
-<span class="token comment"># 如果这个正则表达式中有一个分组，结果是列表中只那个分组匹配到的结果</span>
-<span class="token comment"># 如果这个正则表达式中分组的个数大于1，结果是一个列表，列表中的元素是元祖，元祖中是每个分组匹配到的内容</span>
-re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">r"[a-zA-Z]&#123;2,&#125;\d+[a-z]+?"</span><span class="token punctuation">,</span> <span class="token string">"haja37jjkd89sdhs909nnna238"</span><span class="token punctuation">)</span> <span class="token comment"># ['haja37j', 'jkd89s', 'dhs909n']</span>
-re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">r"[a-zA-Z]&#123;2,&#125;(\d+)[a-z]+?"</span><span class="token punctuation">,</span> <span class="token string">"haja37jjkd89sdhs909nnna238"</span><span class="token punctuation">)</span> <span class="token comment"># ['37', '89', '909']</span>
-re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">r"[a-zA-Z]&#123;2,&#125;(\d+)([a-z]+?)"</span><span class="token punctuation">,</span> <span class="token string">"haja37jjkd89sdhs909nnna238"</span><span class="token punctuation">)</span> <span class="token comment"># [('37', 'j'), ('89', 's'), ('909', 'n')]</span>
-
-<span class="token comment"># re.finditer(pattern, string, flags=0)</span>
-<span class="token comment"># 获取字符串中满足正则表达式的内容，返回的是一个迭代器，迭代器中的元素是匹配对象</span>
-res <span class="token operator">=</span> re<span class="token punctuation">.</span>finditer<span class="token punctuation">(</span><span class="token string">r"[a-zA-Z]&#123;2,&#125;(\d+)([a-z]+?)"</span><span class="token punctuation">,</span> <span class="token string">"haja37jjkd89sdhs909nnna238==="</span><span class="token punctuation">)</span> <span class="token comment"># &lt;callable_iterator object at 0x00000162676BB340></span>
-<span class="token builtin">next</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token comment"># &lt;re.Match object; span=(0, 7), match='haja37j'></span>
-
-<span class="token comment"># re.sub(pattern, repl, string, count=0, flags=0)</span>
-<span class="token comment"># 用新子串替换字符串中满足正则表达式的子串，返回一个替换后的字符串</span>
-<span class="token comment"># repl可以是字符串或函数；如为字符串，则其中任何反斜杠转义序列都会被处理;如为函数，那它会对每个非重复的pattern的情况调用</span>
-re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">r"\sAND\s"</span><span class="token punctuation">,</span> <span class="token string">" &amp; "</span><span class="token punctuation">,</span> <span class="token string">"Baked Beans And Spam"</span><span class="token punctuation">,</span> flags<span class="token operator">=</span>re<span class="token punctuation">.</span>IGNORECASE<span class="token punctuation">)</span>
-
-<span class="token keyword">def</span> <span class="token function">foo</span><span class="token punctuation">(</span>matchobj<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">if</span> <span class="token builtin">int</span><span class="token punctuation">(</span>matchobj<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">1</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token string">"odd"</span>
-    <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token string">"even"</span>
-
-re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">r"\d+"</span><span class="token punctuation">,</span> foo<span class="token punctuation">,</span> <span class="token string">"who i am,1,2,123"</span><span class="token punctuation">)</span> <span class="token comment"># 'who i am,odd,even,odd'</span>
-re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">r"\d+"</span><span class="token punctuation">,</span> foo<span class="token punctuation">,</span> <span class="token string">"who i am,1,2,123"</span><span class="token punctuation">,</span> count<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment"># 'who i am,odd,2,123'</span>
-
-<span class="token comment"># re.subn(pattern, repl, string, count=0, flags=0)</span>
-<span class="token comment"># 返回一个元组(字符串, 替换次数).</span>
-re<span class="token punctuation">.</span>subn<span class="token punctuation">(</span><span class="token string">r"\d+"</span><span class="token punctuation">,</span> foo<span class="token punctuation">,</span> <span class="token string">"who i am,1,2,123"</span><span class="token punctuation">)</span> <span class="token comment"># ('who i am,odd,even,odd', 3)</span>
-
-<span class="token comment"># 匹配对象</span>
-<span class="token comment"># 匹配对象总是有一个布尔值True。如果没有匹配的话match()和search()返回None所以可以简单的用if语句来判断是否匹配</span>
-<span class="token comment"># Match.start([group]) 获取匹配结果的开始下标</span>
-<span class="token comment"># Match.end([group]) 获取匹配结果的结束下标</span>
-<span class="token comment"># 匹配对象.start()/匹配对象.end() - 获取整个正则表达式匹配到的开始下标/结束下标</span>
-<span class="token comment"># 匹配对象.start(n)/匹配对象.end(n) - 获取正则表达式中第n个分组匹配到的开始/结束下标</span>
-m <span class="token operator">=</span> re<span class="token punctuation">.</span><span class="token keyword">match</span><span class="token punctuation">(</span><span class="token string">r"\d&#123;5,&#125;?"</span><span class="token punctuation">,</span> <span class="token string">"123456ddf"</span><span class="token punctuation">)</span>
-m<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># 0 </span>
-m<span class="token punctuation">.</span>end<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># 5</span>
-
-<span class="token comment"># Match.span([group])</span>
-<span class="token comment"># 匹配到的内容的范围，(开始下标, 结束下标)</span>
-<span class="token comment"># 匹配对象.span() - 获取整个正则表达式匹配到的范围</span>
-<span class="token comment"># 匹配对象.span(n) - 获取正则表达式中第n个分组匹配到的范围(前提是有分组)</span>
-m<span class="token punctuation">.</span>span<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># (0, 5)</span>
-
-<span class="token comment"># Match.group([group1, ...]) 获取匹配到的内容</span>
-<span class="token comment"># 匹配对象.group() - 获取整个正则表达式匹配到的内容</span>
-<span class="token comment"># 匹配对象.group(n) - 获取正则表达式中第n个分组匹配到的内容</span>
-m <span class="token operator">=</span> re<span class="token punctuation">.</span><span class="token keyword">match</span><span class="token punctuation">(</span><span class="token string">r"(\w+) (\w+)"</span><span class="token punctuation">,</span> <span class="token string">"Isaac Newton, physicist"</span><span class="token punctuation">)</span>
-m<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment"># 'Isaac Newton'</span>
-m<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment"># 'Isaac'</span>
-m<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment"># ('Isaac', 'Newton')</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="Golang中的使用"><a href="#Golang中的使用" class="headerlink" title="Golang中的使用"></a>Golang中的使用</h2><pre class="line-numbers language-golang" data-language="golang"><code class="language-golang">package main
-
-import (
-	&quot;fmt&quot;
-	&quot;regexp&quot;
-	&quot;strings&quot;
-)
-
-func main() &#123;
-	&#x2F;&#x2F; regexp.Compile() -&gt; (*Regexp, error) 编译正则表达式
-	re, _ :&#x3D; regexp.Compile(&quot;#(?U)(.+)#&quot;) &#x2F;&#x2F; (?U)表示无视大小写模式
-	template :&#x3D; &quot;Hi 您有一个提醒通知，请输入 性质：全职，状态：正式，#retire_date#，未填写#ov_learning_style#15天，男，离异否是否#residential_address#&quot;
-	&#x2F;&#x2F; Regexp.FindAllString() 所有字符串查询 返回表达式的所有连续匹配的切片
-	findTemplate :&#x3D; re.FindAllString(template, -1)
-	fmt.Println(findTemplate) &#x2F;&#x2F; [#retire_date# #ov_learning_style# #residential_address#]
-	&#x2F;&#x2F; Regexp.FindAllStringSubmatch() 所有字符串查询 返回表达式的所有连续匹配的切片 包含分组内的值
-	fmt.Println(re.FindAllStringSubmatch(template, -1)) &#x2F;&#x2F; [[#retire_date# retire_date] [#ov_learning_style# ov_learning_style] [#residenti al_address# residential_address]]
-	&#x2F;&#x2F; Regexp.ReplaceAllString() 所有字符串替换
-	reTemplate :&#x3D; re.ReplaceAllString(template, &quot;&quot;)
-	fmt.Println(reTemplate) &#x2F;&#x2F; Hi 您有一个提醒通知，请输入 性质：全职，状态：正式，，未填写15天，男，离异否是否
-	&#x2F;&#x2F; Regexp.ReplaceAllStringFunc 所有字符串替换 函数
-	re &#x3D; regexp.MustCompile(&#96;[^aeiou]&#96;)
-	fmt.Println(re.ReplaceAllStringFunc(&quot;seafood fool&quot;, strings.ToUpper)) &#x2F;&#x2F; SeaFooD FooL
-	&#x2F;&#x2F; regexp.MustCompile() -&gt; *Regexp 编译正则表达式
-	fileUrl :&#x3D; &quot;https:&#x2F;&#x2F;pub-cdn-dev.xxxx.com&#x2F;f97c46278b05449eba6ecb9068508f1b?attname&#x3D;ceshi.xlsx&amp;attname&#x3D;xixi.xlsx&quot;
-	re &#x3D; regexp.MustCompile(&quot;attname&#x3D;(.*?).xlsx&quot;)
-	&#x2F;&#x2F; Regexp.FindStringSubmatch() 字符串查询，其中包含查询字符串中正则表达式的最左侧匹配文本及其子表达式的匹配项
-	matchArr :&#x3D; re.FindStringSubmatch(fileUrl)
-	fmt.Println(matchArr) &#x2F;&#x2F; [attname&#x3D;ceshi.xlsx ceshi]
-&#125;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a target="_blank" rel="noopener" href="https://deerchao.cn/tutorials/regex/regex.htm">deerchao博客</a><br><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/re.html">Python re 文档</a><br><a target="_blank" rel="noopener" href="https://pkg.go.dev/regexp">Golang regexp 文档</a></p>
+<h3 id="不同偏移-排序不一致"><a href="#不同偏移-排序不一致" class="headerlink" title="不同偏移 排序不一致"></a>不同偏移 排序不一致</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span>
+    <span class="token identifier"><span class="token punctuation">`</span>c_id<span class="token punctuation">`</span></span><span class="token punctuation">,</span>
+    <span class="token identifier"><span class="token punctuation">`</span>c_emp_name<span class="token punctuation">`</span></span><span class="token punctuation">,</span>
+    <span class="token identifier"><span class="token punctuation">`</span>c_department_id<span class="token punctuation">`</span></span><span class="token punctuation">,</span>
+    <span class="token identifier"><span class="token punctuation">`</span>c_hire_dt<span class="token punctuation">`</span></span><span class="token punctuation">,</span>
+    <span class="token identifier"><span class="token punctuation">`</span>c_add_dt<span class="token punctuation">`</span></span>
+<span class="token keyword">FROM</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span> 
+<span class="token keyword">WHERE</span>
+    <span class="token punctuation">(</span> <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_is_delete<span class="token punctuation">`</span></span> <span class="token operator">=</span> <span class="token boolean">FALSE</span> <span class="token operator">AND</span> <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_company_id<span class="token punctuation">`</span></span> <span class="token operator">=</span> <span class="token string">'93c6bff9c6154e469338c42d93a6ba92'</span> <span class="token punctuation">)</span> 
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_add_dt<span class="token punctuation">`</span></span> <span class="token keyword">DESC</span><span class="token punctuation">,</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_hire_dt<span class="token punctuation">`</span></span> <span class="token keyword">DESC</span>
+<span class="token keyword">LIMIT</span> <span class="token number">7</span> <span class="token comment">-- 4,5,6,7排序打乱</span>
+<span class="token keyword">OFFSET</span> <span class="token number">0</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="解决-1"><a href="#解决-1" class="headerlink" title="解决"></a>解决</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span>
+    <span class="token identifier"><span class="token punctuation">`</span>c_id<span class="token punctuation">`</span></span><span class="token punctuation">,</span>
+    <span class="token identifier"><span class="token punctuation">`</span>c_emp_name<span class="token punctuation">`</span></span><span class="token punctuation">,</span>
+    <span class="token identifier"><span class="token punctuation">`</span>c_department_id<span class="token punctuation">`</span></span><span class="token punctuation">,</span>
+    <span class="token identifier"><span class="token punctuation">`</span>c_hire_dt<span class="token punctuation">`</span></span><span class="token punctuation">,</span>
+    <span class="token identifier"><span class="token punctuation">`</span>c_add_dt<span class="token punctuation">`</span></span>
+<span class="token keyword">FROM</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span> 
+<span class="token keyword">WHERE</span>
+    <span class="token punctuation">(</span> <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_is_delete<span class="token punctuation">`</span></span> <span class="token operator">=</span> <span class="token boolean">FALSE</span> <span class="token operator">AND</span> <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_company_id<span class="token punctuation">`</span></span> <span class="token operator">=</span> <span class="token string">'93c6bff9c6154e469338c42d93a6ba92'</span> <span class="token punctuation">)</span> 
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_add_dt<span class="token punctuation">`</span></span> <span class="token keyword">DESC</span><span class="token punctuation">,</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_hire_dt<span class="token punctuation">`</span></span> <span class="token keyword">DESC</span><span class="token punctuation">,</span>
+    <span class="token identifier"><span class="token punctuation">`</span>t_employee_info<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>c_id<span class="token punctuation">`</span></span> <span class="token keyword">ASC</span>
+<span class="token keyword">LIMIT</span> <span class="token number">7</span> <span class="token comment">-- 4,5,6,7排序一致</span>
+<span class="token keyword">OFFSET</span> <span class="token number">0</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="场景复现"><a href="#场景复现" class="headerlink" title="场景复现"></a>场景复现</h3><h4 id="整体查询截图"><a href="#整体查询截图" class="headerlink" title="整体查询截图"></a>整体查询截图</h4><p><img src="/img/mysql_page0.png" alt="整体查询截图" title="整体查询截图"></p>
+<h4 id="limit4"><a href="#limit4" class="headerlink" title="limit4"></a>limit4</h4><h5 id="修改前"><a href="#修改前" class="headerlink" title="修改前"></a>修改前</h5><p><img src="/img/mysql_page10.png" alt="limit4-前" title="limit4-前"></p>
+<h5 id="修改后"><a href="#修改后" class="headerlink" title="修改后"></a>修改后</h5><p><img src="/img/mysql_page11.png" alt="limit4-后" title="limit4-后"></p>
+<h4 id="limit5"><a href="#limit5" class="headerlink" title="limit5"></a>limit5</h4><h5 id="修改前-1"><a href="#修改前-1" class="headerlink" title="修改前"></a>修改前</h5><p><img src="/img/mysql_page20.png" alt="limit5-前" title="limit5-前"></p>
+<h5 id="修改后-1"><a href="#修改后-1" class="headerlink" title="修改后"></a>修改后</h5><p><img src="/img/mysql_page21.png" alt="limit5-后" title="limit5-后"></p>
+<h4 id="limit6"><a href="#limit6" class="headerlink" title="limit6"></a>limit6</h4><h5 id="修改前-2"><a href="#修改前-2" class="headerlink" title="修改前"></a>修改前</h5><p><img src="/img/mysql_page30.png" alt="limit6-前" title="limit6-前"></p>
+<h5 id="修改后-2"><a href="#修改后-2" class="headerlink" title="修改后"></a>修改后</h5><p><img src="/img/mysql_page31.png" alt="limit6-后" title="limit6-后"></p>
+<h4 id="limit7"><a href="#limit7" class="headerlink" title="limit7"></a>limit7</h4><h5 id="修改前-3"><a href="#修改前-3" class="headerlink" title="修改前"></a>修改前</h5><p><img src="/img/mysql_page40.png" alt="limit7-前" title="limit7-前"></p>
+<h5 id="修改后-3"><a href="#修改后-3" class="headerlink" title="修改后"></a>修改后</h5><p><img src="/img/mysql_page41.png" alt="limit7-后" title="limit7-后"></p>
 
                 
             </div>
@@ -872,7 +556,7 @@ func main() &#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://ddf118.github.io/2023/05/29/zheng-ze-biao-da-shi/">https://ddf118.github.io/2023/05/29/zheng-ze-biao-da-shi/</a>
+                    <a href="https://ddf118.github.io/2023/11/28/mysql-fen-ye-zi-cha-xun-wen-ti/">https://ddf118.github.io/2023/11/28/mysql-fen-ye-zi-cha-xun-wen-ti/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -910,8 +594,8 @@ func main() &#123;
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E9%80%9A%E7%94%A8%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/">
-                                    <span class="chip bg-color">通用技术知识</span>
+                                <a href="/tags/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">Mysql数据库</span>
                                 </a>
                             
                         </div>
@@ -990,9 +674,10 @@ func main() &#123;
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2023/11/28/mysql-fen-ye-zi-cha-xun-wen-ti/">
                     <div class="card-image">
@@ -1010,9 +695,9 @@ func main() &#123;
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-11-28
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1025,6 +710,7 @@ func main() &#123;
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1043,13 +729,13 @@ func main() &#123;
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/05/29/gong-ju-yu-yan/">
+                <a href="/2023/05/29/zheng-ze-biao-da-shi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="工具语言">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="正则表达式">
                         
-                        <span class="card-title">工具语言</span>
+                        <span class="card-title">正则表达式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
