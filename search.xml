@@ -4,6 +4,81 @@
   
     
     <entry>
+      <title>蒸鱼</title>
+      <link href="/2023/12/20/zheng-yu/"/>
+      <url>/2023/12/20/zheng-yu/</url>
+      
+        <content type="html"><![CDATA[<h2 id="用料"><a href="#用料" class="headerlink" title="用料"></a>用料</h2><p>鲈鱼&#x2F;多宝鱼&#x2F;石斑鱼<br>姜丝&#x2F;葱丝&#x2F;小米辣<br>蒸鱼豉油&#x2F;料酒&#x2F;盐</p><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol><li>鱼洗净，左右各划几刀，盐和料酒涂抹鱼身。<br><img src="/img/fish1.jpg" alt="鱼划刀" title="鱼划刀"></li><li>姜葱切丝，放入鱼身，鱼肚和鱼嘴也塞入剩余姜葱丝。</li><li>水烧开后蒸7-8分钟(大于1斤蒸10分钟)，关火后利用余热焖5分钟。</li><li>此时可以热油(猪油为佳)</li><li>焖时间到后，去掉汤汁和部分姜葱丝(不嫌麻烦可以重新撒上姜葱丝)</li><li>放入小米辣、蒸鱼豉油，准备完后淋上热油即可<br><img src="/img/fish2.jpg" alt="鱼成" title="鱼成"></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 半日闲 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 烹饪 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Mysql左连接查询问题</title>
+      <link href="/2023/12/20/mysql-zuo-lian-jie-cha-xun-wen-ti/"/>
+      <url>/2023/12/20/mysql-zuo-lian-jie-cha-xun-wen-ti/</url>
+      
+        <content type="html"><![CDATA[<h2 id="先说总结"><a href="#先说总结" class="headerlink" title="先说总结"></a>先说总结</h2><p>总结：在left join语句中，左表过滤必须放在where条件中，右表过滤必须放在on条件中</p><h3 id="执行left-join-sql"><a href="#执行left-join-sql" class="headerlink" title="执行left join sql"></a>执行left join sql</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 其中P1是on过滤条件，缺失则认为是TRUE，P2是where过滤条件，缺失也认为是TRUE</span><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> LT <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> RT <span class="token keyword">ON</span> P1<span class="token punctuation">(</span>LT<span class="token punctuation">,</span>RT<span class="token punctuation">)</span> <span class="token keyword">WHERE</span> P2<span class="token punctuation">(</span>LT<span class="token punctuation">,</span>RT<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h3 id="执行left-join时的伪代码"><a href="#执行left-join时的伪代码" class="headerlink" title="执行left join时的伪代码"></a>执行left join时的伪代码</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c">FOR each row lt in LT <span class="token punctuation">&#123;</span><span class="token comment">// 遍历左表的每一行</span>  BOOL b <span class="token operator">=</span> FALSE<span class="token punctuation">;</span>  FOR each row rt in RT such that <span class="token function">P1</span><span class="token punctuation">(</span>lt<span class="token punctuation">,</span> rt<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token comment">// 遍历右表每一行，找到满足join条件的行</span>    IF <span class="token function">P2</span><span class="token punctuation">(</span>lt<span class="token punctuation">,</span> rt<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token comment">//满足 where 过滤条件</span>      t<span class="token operator">:</span><span class="token operator">=</span>lt<span class="token operator">||</span>rt<span class="token punctuation">;</span><span class="token comment">//合并行，输出该行</span>    <span class="token punctuation">&#125;</span>    b<span class="token operator">=</span>TRUE<span class="token punctuation">;</span><span class="token comment">// lt在RT中有对应的行</span>  <span class="token punctuation">&#125;</span>  <span class="token function">IF</span> <span class="token punctuation">(</span><span class="token operator">!</span>b<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 遍历完RT，发现lt在RT中没有有对应的行，则尝试用null补一行</span>    IF <span class="token function">P2</span><span class="token punctuation">(</span>lt<span class="token punctuation">,</span><span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token comment">// 补上null后满足 where 过滤条件</span>      t<span class="token operator">:</span><span class="token operator">=</span>lt<span class="token operator">||</span><span class="token constant">NULL</span><span class="token punctuation">;</span> <span class="token comment">// 输出lt和null补上的行</span>    <span class="token punctuation">&#125;</span>           <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="释义"><a href="#释义" class="headerlink" title="释义"></a>释义</h3><ul><li>1.右表限制用ON如果想对右表进行限制，则一定要在on条件中进行，若在where中进行则可能导致数据缺失，导致左表在右表中无匹配行的行在最终结果中不出现，违背了我们对left join的理解。因为对左表无右表匹配行的行而言，遍历右表后b&#x3D;FALSE,所以会尝试用NULL补齐右表，但是此时我们的P2对右表行进行了限制，NULL若不满足P2(NULL一般都不会满足限制条件，除非IS NULL这种)，则不会加入最终的结果中，导致结果缺失。</li><li>2.左表限制用WHERE如果没有where条件，无论on条件对左表进行怎样的限制，左表的每一行都至少会有一行的合成结果，对左表行而言，若右表若没有对应的行，则右表遍历结束后b&#x3D;FALSE，会用一行NULL来生成数据，而这个数据是多余的。所以对左表进行过滤必须用where。</li></ul><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><h3 id="错误写法"><a href="#错误写法" class="headerlink" title="错误写法"></a>错误写法</h3><p>右表过滤放在WHERE条件中 P2含有右表过滤 右表含有NULL数据导致整体数据减少</p><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> t2<span class="token punctuation">.</span>c_fullname<span class="token punctuation">,</span> t2<span class="token punctuation">.</span>c_company_no<span class="token punctuation">,</span> t2<span class="token punctuation">.</span>c_id<span class="token punctuation">,</span> t1<span class="token punctuation">.</span>c_company_id<span class="token punctuation">,</span> <span class="token function">count</span><span class="token punctuation">(</span>t1<span class="token punctuation">.</span>c_id<span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token identifier"><span class="token punctuation">`</span>ehr-ucenter<span class="token punctuation">`</span></span><span class="token punctuation">.</span>t_company t2<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> <span class="token identifier"><span class="token punctuation">`</span>ehr-employee<span class="token punctuation">`</span></span><span class="token punctuation">.</span>view_t_employee_info t1<span class="token keyword">ON</span> t1<span class="token punctuation">.</span>c_company_id <span class="token operator">=</span> t2<span class="token punctuation">.</span>c_id <span class="token keyword">WHERE</span> t2<span class="token punctuation">.</span>c_id <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> c_company_id <span class="token keyword">FROM</span> <span class="token identifier"><span class="token punctuation">`</span>ehr-ucenter<span class="token punctuation">`</span></span><span class="token punctuation">.</span>t_group_company <span class="token keyword">WHERE</span> c_group_id <span class="token operator">=</span> <span class="token string">'d668de3c45784438928bd4ef710ae346'</span><span class="token punctuation">)</span><span class="token operator">AND</span> t1<span class="token punctuation">.</span>c_is_delete <span class="token operator">=</span> <span class="token number">0</span> <span class="token operator">AND</span> t1<span class="token punctuation">.</span>c_work_status <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token keyword">GROUP</span> <span class="token keyword">BY</span> t2<span class="token punctuation">.</span>c_id<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> t2<span class="token punctuation">.</span>c_id<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><img src="/img/mysql_leftjoin2.png" alt="右表过滤放在WHERE条件中" title="右表过滤放在WHERE条件中"></p><h3 id="正确写法"><a href="#正确写法" class="headerlink" title="正确写法"></a>正确写法</h3><p>右表过滤必须放在on条件中</p><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> t2<span class="token punctuation">.</span>c_fullname<span class="token punctuation">,</span> t2<span class="token punctuation">.</span>c_company_no<span class="token punctuation">,</span> t2<span class="token punctuation">.</span>c_id<span class="token punctuation">,</span> t1<span class="token punctuation">.</span>c_company_id<span class="token punctuation">,</span> <span class="token function">count</span><span class="token punctuation">(</span>t1<span class="token punctuation">.</span>c_id<span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token identifier"><span class="token punctuation">`</span>ehr-ucenter<span class="token punctuation">`</span></span><span class="token punctuation">.</span>t_company t2<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> <span class="token identifier"><span class="token punctuation">`</span>ehr-employee<span class="token punctuation">`</span></span><span class="token punctuation">.</span>view_t_employee_info t1<span class="token keyword">ON</span> t1<span class="token punctuation">.</span>c_company_id <span class="token operator">=</span> t2<span class="token punctuation">.</span>c_id <span class="token operator">AND</span> t1<span class="token punctuation">.</span>c_is_delete <span class="token operator">=</span> <span class="token number">0</span> <span class="token operator">AND</span> t1<span class="token punctuation">.</span>c_work_status <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token keyword">WHERE</span> t2<span class="token punctuation">.</span>c_id <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> c_company_id <span class="token keyword">FROM</span> <span class="token identifier"><span class="token punctuation">`</span>ehr-ucenter<span class="token punctuation">`</span></span><span class="token punctuation">.</span>t_group_company <span class="token keyword">WHERE</span> c_group_id <span class="token operator">=</span> <span class="token string">'d668de3c45784438928bd4ef710ae346'</span><span class="token punctuation">)</span><span class="token keyword">GROUP</span> <span class="token keyword">BY</span> t2<span class="token punctuation">.</span>c_id<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> t2<span class="token punctuation">.</span>c_id<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><img src="/img/mysql_leftjoin1.png" alt="右表过滤放在on条件中" title="右表过滤放在on条件中"></p><h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a href="https://developer.aliyun.com/article/718897">阿里云-开发者社区</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术开发 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Mysql数据库 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>青椒炒花甲</title>
+      <link href="/2023/12/20/qing-jiao-chao-hua-jia/"/>
+      <url>/2023/12/20/qing-jiao-chao-hua-jia/</url>
+      
+        <content type="html"><![CDATA[<h2 id="用料"><a href="#用料" class="headerlink" title="用料"></a>用料</h2><p>花甲<br>青椒&#x2F;小米辣&#x2F;葱花&#x2F;姜&#x2F;蒜<br>料酒&#x2F;蚝油&#x2F;生抽&#x2F;白糖&#x2F;淀粉&#x2F;盐</p><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol><li>花甲放入水中，再放入1勺盐让它吐沙。</li><li>准备酱汁：料酒1勺+蚝油1勺+生抽2勺+白糖0.5勺+淀粉1勺+水5勺(按比例适当增减)。</li><li>花甲吐完沙后清洗一下，起锅烧水，水开后放入花甲直至花甲壳打开，捞出。</li><li>锅热倒油，油热后可关火或小火，放入姜蒜爆香。</li><li>接着倒入花甲翻炒片刻，放入酱汁翻炒上色。</li><li>倒入青椒(吃熟一点的青椒可以倒入花甲前放入也可以提前水煮一下青椒)&#x2F;小米辣翻炒，出锅前撒上葱花。<br><img src="/img/clams.jpg" alt="花甲成" title="花甲成"></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 半日闲 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 烹饪 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Mysql分页子查询问题</title>
       <link href="/2023/11/28/mysql-fen-ye-zi-cha-xun-wen-ti/"/>
       <url>/2023/11/28/mysql-fen-ye-zi-cha-xun-wen-ti/</url>

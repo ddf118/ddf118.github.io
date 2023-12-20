@@ -4,11 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ssh的基本操作, 轮回">
-    <meta name="description" content="ssh的基本操作ssh服务器(文字接口连接服务器)SSH是Secure Shell Protocol(安全的壳程序协议)的简写。
-
-公钥:id_rsa.pub
-很多服务器都是需要认证的，ssh认证是其中的一种。在客户端生成公钥，把生成的公钥">
+    <meta name="keywords" content="青椒炒花甲, 轮回">
+    <meta name="description" content="用料花甲青椒&amp;#x2F;小米辣&amp;#x2F;葱花&amp;#x2F;姜&amp;#x2F;蒜料酒&amp;#x2F;蚝油&amp;#x2F;生抽&amp;#x2F;白糖&amp;#x2F;淀粉&amp;#x2F;盐
+步骤
+花甲放入水中，再放入1勺盐让它吐沙。
+准备酱汁：料酒1勺+蚝油1勺+生抽2勺">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>ssh的基本操作 | 轮回</title>
+    <title>青椒炒花甲 | 轮回</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
     
 
@@ -328,12 +328,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">ssh的基本操作</h1>
+                    <h1 class="description center-align post-title">青椒炒花甲</h1>
                 </div>
             </div>
         </div>
@@ -357,8 +357,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-                                <span class="chip bg-color">服务器</span>
+                            <a href="/tags/%E7%83%B9%E9%A5%AA/">
+                                <span class="chip bg-color">烹饪</span>
                             </a>
                         
                     </div>
@@ -369,8 +369,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%BD%91%E7%BB%9C%E8%BF%90%E7%BB%B4/" class="post-category">
-                                网络运维
+                            <a href="/categories/%E5%8D%8A%E6%97%A5%E9%97%B2/" class="post-category">
+                                半日闲
                             </a>
                         
                     </div>
@@ -382,21 +382,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-05-29
+                    2023-12-20
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-05-29
+                    2023-12-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    445
+                    197
                 </div>
                 
 
@@ -421,36 +421,15 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="ssh的基本操作"><a href="#ssh的基本操作" class="headerlink" title="ssh的基本操作"></a>ssh的基本操作</h2><h3 id="ssh服务器-文字接口连接服务器"><a href="#ssh服务器-文字接口连接服务器" class="headerlink" title="ssh服务器(文字接口连接服务器)"></a>ssh服务器(文字接口连接服务器)</h3><p>SSH是Secure Shell Protocol(安全的壳程序协议)的简写。</p>
-<ul>
-<li>公钥:id_rsa.pub<ul>
-<li>很多服务器都是需要认证的，ssh认证是其中的一种。在客户端生成公钥，把生成的公钥添加到服务器，你以后连接服务器就不用每次都输入用户名和密码了。</li>
-<li>很多git服务器都是用ssh认证方式，你需要把你生成的公钥发送给代码仓库管理员，让他给你添加到服务器上，你就可以通过ssh自由地拉取和提交代码了。</li>
-</ul>
-</li>
-<li>私钥:id_rsa</li>
-<li>启动SSH服务(默认已经启动)<br><code>/etc/init.d/sshd restart</code></li>
-</ul>
-<h3 id="查看本机ssh公钥，生成公钥"><a href="#查看本机ssh公钥，生成公钥" class="headerlink" title="查看本机ssh公钥，生成公钥"></a>查看本机ssh公钥，生成公钥</h3><h4 id="查看ssh公钥方法："><a href="#查看ssh公钥方法：" class="headerlink" title="查看ssh公钥方法："></a>查看ssh公钥方法：</h4><ol>
-<li>通过命令窗口 cat ~&#x2F;.ssh&#x2F;id_rsa.pub<ul>
-<li>打开你的终端窗口</li>
-<li>进入.ssh 目录：cd ~&#x2F;.ssh</li>
-<li>找到id_rsa.pub文件：ls</li>
-<li>查看公钥：cat id_rsa.pub 或者 vim id_rsa.pub</li>
-</ul>
-</li>
-<li>通过图形界面<br>打开User下面的.ssh文件夹，打开它里面的 id_rsa.pub 文件</li>
+                <h2 id="用料"><a href="#用料" class="headerlink" title="用料"></a>用料</h2><p>花甲<br>青椒&#x2F;小米辣&#x2F;葱花&#x2F;姜&#x2F;蒜<br>料酒&#x2F;蚝油&#x2F;生抽&#x2F;白糖&#x2F;淀粉&#x2F;盐</p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
+<li>花甲放入水中，再放入1勺盐让它吐沙。</li>
+<li>准备酱汁：料酒1勺+蚝油1勺+生抽2勺+白糖0.5勺+淀粉1勺+水5勺(按比例适当增减)。</li>
+<li>花甲吐完沙后清洗一下，起锅烧水，水开后放入花甲直至花甲壳打开，捞出。</li>
+<li>锅热倒油，油热后可关火或小火，放入姜蒜爆香。</li>
+<li>接着倒入花甲翻炒片刻，放入酱汁翻炒上色。</li>
+<li>倒入青椒(吃熟一点的青椒可以倒入花甲前放入也可以提前水煮一下青椒)&#x2F;小米辣翻炒，出锅前撒上葱花。<br><img src="/img/clams.jpg" alt="花甲成" title="花甲成"></li>
 </ol>
-<h4 id="生成公钥"><a href="#生成公钥" class="headerlink" title="生成公钥"></a>生成公钥</h4><ol>
-<li>生成公钥了：<code>ssh-keygen -t rsa</code></li>
-<li>接着会确认存放公钥的地址，默认就是上面说的路径，直接enter键确认</li>
-<li>接着会要求输入密码和确认密码，如果不想设置密码直接不输入内容 按enter键</li>
-</ol>
-<h3 id="通过ssh连接服务器"><a href="#通过ssh连接服务器" class="headerlink" title="通过ssh连接服务器"></a>通过ssh连接服务器</h3><p><code>ssh 账号@主机ip</code></p>
-<h3 id="给服务器添加公钥-阿里"><a href="#给服务器添加公钥-阿里" class="headerlink" title="给服务器添加公钥(阿里)"></a>给服务器添加公钥(阿里)</h3><p>cd ~&#x2F;.ssh<br>vim authorized_keys 然后在里面加入自己本地的公钥</p>
-<h3 id="远程添加"><a href="#远程添加" class="headerlink" title="远程添加"></a>远程添加</h3><p>文件异地直接复制:SCP<br>scp id_rsa.pub root@主机地址:~&#x2F;.ssh&#x2F;ddf.pub<br>cat ddf.pub &gt;&gt; authorized_keys 累加进<br><img src="/img/scp1.png" alt="操作图片">                  </p>
-<h3 id="退出"><a href="#退出" class="headerlink" title="退出"></a>退出</h3><p><code>ssh -T url</code>测试是否设置成功<br>logout</p>
-<h2 id="各种图形化软件"><a href="#各种图形化软件" class="headerlink" title="各种图形化软件"></a>各种图形化软件</h2><p>windows: <a target="_blank" rel="noopener" href="https://www.xshell.com/zh/xshell/">Xshell</a><br>mac: <a target="_blank" rel="noopener" href="https://royalapps.com/ts/mac/features">Royal TSX</a><br>linux: <a target="_blank" rel="noopener" href="https://termius.com/">Termius</a></p>
 
                 
             </div>
@@ -477,7 +456,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://ddf118.github.io/2023/05/29/ssh-de-ji-ben-cao-zuo/">https://ddf118.github.io/2023/05/29/ssh-de-ji-ben-cao-zuo/</a>
+                    <a href="https://ddf118.github.io/2023/12/20/qing-jiao-chao-hua-jia/">https://ddf118.github.io/2023/12/20/qing-jiao-chao-hua-jia/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -515,8 +494,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-                                    <span class="chip bg-color">服务器</span>
+                                <a href="/tags/%E7%83%B9%E9%A5%AA/">
+                                    <span class="chip bg-color">烹饪</span>
                                 </a>
                             
                         </div>
@@ -599,13 +578,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/05/29/git-cao-zuo-pian/">
+                <a href="/2023/12/20/mysql-zuo-lian-jie-cha-xun-wen-ti/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="GIT操作篇">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Mysql左连接查询问题">
                         
-                        <span class="card-title">GIT操作篇</span>
+                        <span class="card-title">Mysql左连接查询问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -616,7 +595,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-05-29
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-20
                         </span>
                         <span class="publish-author">
                             
@@ -633,8 +612,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E4%BB%93%E5%BA%93%E7%AE%A1%E7%90%86/">
-                        <span class="chip bg-color">仓库管理</span>
+                    <a href="/tags/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">Mysql数据库</span>
                     </a>
                     
                 </div>
@@ -648,13 +627,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/05/29/ge-chong-bao-guan-li-gong-ju/">
+                <a href="/2023/11/28/mysql-fen-ye-zi-cha-xun-wen-ti/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="包管理更换国内镜像源">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Mysql分页子查询问题">
                         
-                        <span class="card-title">包管理更换国内镜像源</span>
+                        <span class="card-title">Mysql分页子查询问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -665,7 +644,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-05-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-28
                             </span>
                         <span class="publish-author">
                             
@@ -682,8 +661,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%80%9A%E7%94%A8%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/">
-                        <span class="chip bg-color">通用技术知识</span>
+                    <a href="/tags/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">Mysql数据库</span>
                     </a>
                     
                 </div>

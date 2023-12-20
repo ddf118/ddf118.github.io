@@ -4,11 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ssh的基本操作, 轮回">
-    <meta name="description" content="ssh的基本操作ssh服务器(文字接口连接服务器)SSH是Secure Shell Protocol(安全的壳程序协议)的简写。
-
-公钥:id_rsa.pub
-很多服务器都是需要认证的，ssh认证是其中的一种。在客户端生成公钥，把生成的公钥">
+    <meta name="keywords" content="Mysql左连接查询问题, 轮回">
+    <meta name="description" content="先说总结总结：在left join语句中，左表过滤必须放在where条件中，右表过滤必须放在on条件中
+执行left join sql-- 其中P1是on过滤条件，缺失则认为是TRUE，P2是where过滤条件，缺失也认为是TRUE
+SEL">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +19,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>ssh的基本操作 | 轮回</title>
+    <title>Mysql左连接查询问题 | 轮回</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
     
 
@@ -328,12 +327,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">ssh的基本操作</h1>
+                    <h1 class="description center-align post-title">Mysql左连接查询问题</h1>
                 </div>
             </div>
         </div>
@@ -357,8 +356,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-                                <span class="chip bg-color">服务器</span>
+                            <a href="/tags/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                <span class="chip bg-color">Mysql数据库</span>
                             </a>
                         
                     </div>
@@ -369,8 +368,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%BD%91%E7%BB%9C%E8%BF%90%E7%BB%B4/" class="post-category">
-                                网络运维
+                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/" class="post-category">
+                                技术开发
                             </a>
                         
                     </div>
@@ -382,28 +381,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-05-29
+                    2023-12-20
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-05-29
+                    2023-12-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    445
+                    689
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -421,36 +420,46 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="ssh的基本操作"><a href="#ssh的基本操作" class="headerlink" title="ssh的基本操作"></a>ssh的基本操作</h2><h3 id="ssh服务器-文字接口连接服务器"><a href="#ssh服务器-文字接口连接服务器" class="headerlink" title="ssh服务器(文字接口连接服务器)"></a>ssh服务器(文字接口连接服务器)</h3><p>SSH是Secure Shell Protocol(安全的壳程序协议)的简写。</p>
-<ul>
-<li>公钥:id_rsa.pub<ul>
-<li>很多服务器都是需要认证的，ssh认证是其中的一种。在客户端生成公钥，把生成的公钥添加到服务器，你以后连接服务器就不用每次都输入用户名和密码了。</li>
-<li>很多git服务器都是用ssh认证方式，你需要把你生成的公钥发送给代码仓库管理员，让他给你添加到服务器上，你就可以通过ssh自由地拉取和提交代码了。</li>
+                <h2 id="先说总结"><a href="#先说总结" class="headerlink" title="先说总结"></a>先说总结</h2><p>总结：在left join语句中，左表过滤必须放在where条件中，右表过滤必须放在on条件中</p>
+<h3 id="执行left-join-sql"><a href="#执行left-join-sql" class="headerlink" title="执行left join sql"></a>执行left join sql</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 其中P1是on过滤条件，缺失则认为是TRUE，P2是where过滤条件，缺失也认为是TRUE</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> LT <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> RT <span class="token keyword">ON</span> P1<span class="token punctuation">(</span>LT<span class="token punctuation">,</span>RT<span class="token punctuation">)</span> <span class="token keyword">WHERE</span> P2<span class="token punctuation">(</span>LT<span class="token punctuation">,</span>RT<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="执行left-join时的伪代码"><a href="#执行left-join时的伪代码" class="headerlink" title="执行left join时的伪代码"></a>执行left join时的伪代码</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c">FOR each row lt in LT <span class="token punctuation">&#123;</span><span class="token comment">// 遍历左表的每一行</span>
+  BOOL b <span class="token operator">=</span> FALSE<span class="token punctuation">;</span>
+  FOR each row rt in RT such that <span class="token function">P1</span><span class="token punctuation">(</span>lt<span class="token punctuation">,</span> rt<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token comment">// 遍历右表每一行，找到满足join条件的行</span>
+    IF <span class="token function">P2</span><span class="token punctuation">(</span>lt<span class="token punctuation">,</span> rt<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token comment">//满足 where 过滤条件</span>
+      t<span class="token operator">:</span><span class="token operator">=</span>lt<span class="token operator">||</span>rt<span class="token punctuation">;</span><span class="token comment">//合并行，输出该行</span>
+    <span class="token punctuation">&#125;</span>
+    b<span class="token operator">=</span>TRUE<span class="token punctuation">;</span><span class="token comment">// lt在RT中有对应的行</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token function">IF</span> <span class="token punctuation">(</span><span class="token operator">!</span>b<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 遍历完RT，发现lt在RT中没有有对应的行，则尝试用null补一行</span>
+    IF <span class="token function">P2</span><span class="token punctuation">(</span>lt<span class="token punctuation">,</span><span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token comment">// 补上null后满足 where 过滤条件</span>
+      t<span class="token operator">:</span><span class="token operator">=</span>lt<span class="token operator">||</span><span class="token constant">NULL</span><span class="token punctuation">;</span> <span class="token comment">// 输出lt和null补上的行</span>
+    <span class="token punctuation">&#125;</span>         
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="释义"><a href="#释义" class="headerlink" title="释义"></a>释义</h3><ul>
+<li>1.右表限制用ON如果想对右表进行限制，则一定要在on条件中进行，若在where中进行则可能导致数据缺失，导致左表在右表中无匹配行的行在最终结果中不出现，违背了我们对left join的理解。因为对左表无右表匹配行的行而言，遍历右表后b&#x3D;FALSE,所以会尝试用NULL补齐右表，但是此时我们的P2对右表行进行了限制，NULL若不满足P2(NULL一般都不会满足限制条件，除非IS NULL这种)，则不会加入最终的结果中，导致结果缺失。</li>
+<li>2.左表限制用WHERE如果没有where条件，无论on条件对左表进行怎样的限制，左表的每一行都至少会有一行的合成结果，对左表行而言，若右表若没有对应的行，则右表遍历结束后b&#x3D;FALSE，会用一行NULL来生成数据，而这个数据是多余的。所以对左表进行过滤必须用where。</li>
 </ul>
-</li>
-<li>私钥:id_rsa</li>
-<li>启动SSH服务(默认已经启动)<br><code>/etc/init.d/sshd restart</code></li>
-</ul>
-<h3 id="查看本机ssh公钥，生成公钥"><a href="#查看本机ssh公钥，生成公钥" class="headerlink" title="查看本机ssh公钥，生成公钥"></a>查看本机ssh公钥，生成公钥</h3><h4 id="查看ssh公钥方法："><a href="#查看ssh公钥方法：" class="headerlink" title="查看ssh公钥方法："></a>查看ssh公钥方法：</h4><ol>
-<li>通过命令窗口 cat ~&#x2F;.ssh&#x2F;id_rsa.pub<ul>
-<li>打开你的终端窗口</li>
-<li>进入.ssh 目录：cd ~&#x2F;.ssh</li>
-<li>找到id_rsa.pub文件：ls</li>
-<li>查看公钥：cat id_rsa.pub 或者 vim id_rsa.pub</li>
-</ul>
-</li>
-<li>通过图形界面<br>打开User下面的.ssh文件夹，打开它里面的 id_rsa.pub 文件</li>
-</ol>
-<h4 id="生成公钥"><a href="#生成公钥" class="headerlink" title="生成公钥"></a>生成公钥</h4><ol>
-<li>生成公钥了：<code>ssh-keygen -t rsa</code></li>
-<li>接着会确认存放公钥的地址，默认就是上面说的路径，直接enter键确认</li>
-<li>接着会要求输入密码和确认密码，如果不想设置密码直接不输入内容 按enter键</li>
-</ol>
-<h3 id="通过ssh连接服务器"><a href="#通过ssh连接服务器" class="headerlink" title="通过ssh连接服务器"></a>通过ssh连接服务器</h3><p><code>ssh 账号@主机ip</code></p>
-<h3 id="给服务器添加公钥-阿里"><a href="#给服务器添加公钥-阿里" class="headerlink" title="给服务器添加公钥(阿里)"></a>给服务器添加公钥(阿里)</h3><p>cd ~&#x2F;.ssh<br>vim authorized_keys 然后在里面加入自己本地的公钥</p>
-<h3 id="远程添加"><a href="#远程添加" class="headerlink" title="远程添加"></a>远程添加</h3><p>文件异地直接复制:SCP<br>scp id_rsa.pub root@主机地址:~&#x2F;.ssh&#x2F;ddf.pub<br>cat ddf.pub &gt;&gt; authorized_keys 累加进<br><img src="/img/scp1.png" alt="操作图片">                  </p>
-<h3 id="退出"><a href="#退出" class="headerlink" title="退出"></a>退出</h3><p><code>ssh -T url</code>测试是否设置成功<br>logout</p>
-<h2 id="各种图形化软件"><a href="#各种图形化软件" class="headerlink" title="各种图形化软件"></a>各种图形化软件</h2><p>windows: <a target="_blank" rel="noopener" href="https://www.xshell.com/zh/xshell/">Xshell</a><br>mac: <a target="_blank" rel="noopener" href="https://royalapps.com/ts/mac/features">Royal TSX</a><br>linux: <a target="_blank" rel="noopener" href="https://termius.com/">Termius</a></p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><h3 id="错误写法"><a href="#错误写法" class="headerlink" title="错误写法"></a>错误写法</h3><p>右表过滤放在WHERE条件中 P2含有右表过滤 右表含有NULL数据导致整体数据减少</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> t2<span class="token punctuation">.</span>c_fullname<span class="token punctuation">,</span> t2<span class="token punctuation">.</span>c_company_no<span class="token punctuation">,</span> t2<span class="token punctuation">.</span>c_id<span class="token punctuation">,</span> t1<span class="token punctuation">.</span>c_company_id<span class="token punctuation">,</span> <span class="token function">count</span><span class="token punctuation">(</span>t1<span class="token punctuation">.</span>c_id<span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token identifier"><span class="token punctuation">`</span>ehr-ucenter<span class="token punctuation">`</span></span><span class="token punctuation">.</span>t_company t2
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> <span class="token identifier"><span class="token punctuation">`</span>ehr-employee<span class="token punctuation">`</span></span><span class="token punctuation">.</span>view_t_employee_info t1
+<span class="token keyword">ON</span> t1<span class="token punctuation">.</span>c_company_id <span class="token operator">=</span> t2<span class="token punctuation">.</span>c_id 
+<span class="token keyword">WHERE</span> t2<span class="token punctuation">.</span>c_id <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> c_company_id <span class="token keyword">FROM</span> <span class="token identifier"><span class="token punctuation">`</span>ehr-ucenter<span class="token punctuation">`</span></span><span class="token punctuation">.</span>t_group_company <span class="token keyword">WHERE</span> c_group_id <span class="token operator">=</span> <span class="token string">'d668de3c45784438928bd4ef710ae346'</span><span class="token punctuation">)</span>
+<span class="token operator">AND</span> t1<span class="token punctuation">.</span>c_is_delete <span class="token operator">=</span> <span class="token number">0</span> <span class="token operator">AND</span> t1<span class="token punctuation">.</span>c_work_status <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> t2<span class="token punctuation">.</span>c_id
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> t2<span class="token punctuation">.</span>c_id<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="/img/mysql_leftjoin2.png" alt="右表过滤放在WHERE条件中" title="右表过滤放在WHERE条件中"></p>
+<h3 id="正确写法"><a href="#正确写法" class="headerlink" title="正确写法"></a>正确写法</h3><p>右表过滤必须放在on条件中</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> t2<span class="token punctuation">.</span>c_fullname<span class="token punctuation">,</span> t2<span class="token punctuation">.</span>c_company_no<span class="token punctuation">,</span> t2<span class="token punctuation">.</span>c_id<span class="token punctuation">,</span> t1<span class="token punctuation">.</span>c_company_id<span class="token punctuation">,</span> <span class="token function">count</span><span class="token punctuation">(</span>t1<span class="token punctuation">.</span>c_id<span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token identifier"><span class="token punctuation">`</span>ehr-ucenter<span class="token punctuation">`</span></span><span class="token punctuation">.</span>t_company t2
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> <span class="token identifier"><span class="token punctuation">`</span>ehr-employee<span class="token punctuation">`</span></span><span class="token punctuation">.</span>view_t_employee_info t1
+<span class="token keyword">ON</span> t1<span class="token punctuation">.</span>c_company_id <span class="token operator">=</span> t2<span class="token punctuation">.</span>c_id 
+<span class="token operator">AND</span> t1<span class="token punctuation">.</span>c_is_delete <span class="token operator">=</span> <span class="token number">0</span> <span class="token operator">AND</span> t1<span class="token punctuation">.</span>c_work_status <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token keyword">WHERE</span> t2<span class="token punctuation">.</span>c_id <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> c_company_id <span class="token keyword">FROM</span> <span class="token identifier"><span class="token punctuation">`</span>ehr-ucenter<span class="token punctuation">`</span></span><span class="token punctuation">.</span>t_group_company <span class="token keyword">WHERE</span> c_group_id <span class="token operator">=</span> <span class="token string">'d668de3c45784438928bd4ef710ae346'</span><span class="token punctuation">)</span>
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> t2<span class="token punctuation">.</span>c_id
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> t2<span class="token punctuation">.</span>c_id<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="/img/mysql_leftjoin1.png" alt="右表过滤放在on条件中" title="右表过滤放在on条件中"></p>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/718897">阿里云-开发者社区</a></p>
 
                 
             </div>
@@ -477,7 +486,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://ddf118.github.io/2023/05/29/ssh-de-ji-ben-cao-zuo/">https://ddf118.github.io/2023/05/29/ssh-de-ji-ben-cao-zuo/</a>
+                    <a href="https://ddf118.github.io/2023/12/20/mysql-zuo-lian-jie-cha-xun-wen-ti/">https://ddf118.github.io/2023/12/20/mysql-zuo-lian-jie-cha-xun-wen-ti/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -515,8 +524,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-                                    <span class="chip bg-color">服务器</span>
+                                <a href="/tags/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">Mysql数据库</span>
                                 </a>
                             
                         </div>
@@ -599,13 +608,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/05/29/git-cao-zuo-pian/">
+                <a href="/2023/12/20/zheng-yu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="GIT操作篇">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="蒸鱼">
                         
-                        <span class="card-title">GIT操作篇</span>
+                        <span class="card-title">蒸鱼</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -616,14 +625,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-05-29
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-20
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/" class="post-category">
-                                    技术开发
+                            <a href="/categories/%E5%8D%8A%E6%97%A5%E9%97%B2/" class="post-category">
+                                    半日闲
                                 </a>
                             
                             
@@ -633,8 +642,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E4%BB%93%E5%BA%93%E7%AE%A1%E7%90%86/">
-                        <span class="chip bg-color">仓库管理</span>
+                    <a href="/tags/%E7%83%B9%E9%A5%AA/">
+                        <span class="chip bg-color">烹饪</span>
                     </a>
                     
                 </div>
@@ -648,13 +657,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/05/29/ge-chong-bao-guan-li-gong-ju/">
+                <a href="/2023/12/20/qing-jiao-chao-hua-jia/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="包管理更换国内镜像源">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="青椒炒花甲">
                         
-                        <span class="card-title">包管理更换国内镜像源</span>
+                        <span class="card-title">青椒炒花甲</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -665,14 +674,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-05-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-20
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/" class="post-category">
-                                    技术开发
+                            <a href="/categories/%E5%8D%8A%E6%97%A5%E9%97%B2/" class="post-category">
+                                    半日闲
                                 </a>
                             
                             
@@ -682,8 +691,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%80%9A%E7%94%A8%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/">
-                        <span class="chip bg-color">通用技术知识</span>
+                    <a href="/tags/%E7%83%B9%E9%A5%AA/">
+                        <span class="chip bg-color">烹饪</span>
                     </a>
                     
                 </div>
