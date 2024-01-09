@@ -4,9 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="工具语言, 轮回">
-    <meta name="description" content="Markdown介绍Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。
-基本语法标题使用 # 号标记: 行首插入1-6个#，每多一个#，标题大小更小，相当于副标题，最多支持六">
+    <meta name="keywords" content="Curl指南, 轮回">
+    <meta name="description" content="简介Curl 是一个命令行工具，用来请求Web服务器。适用于各种无图形化界面的服务器端，例如跳板机&amp;#x2F;堡垒机访问服务接口。
+安装linux环境# Debian/Ubuntu
+sudo apt-get update
+sudo apt-">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>工具语言 | 轮回</title>
+    <title>Curl指南 | 轮回</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
     
 
@@ -326,12 +328,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">工具语言</h1>
+                    <h1 class="description center-align post-title">Curl指南</h1>
                 </div>
             </div>
         </div>
@@ -355,8 +357,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E9%80%9A%E7%94%A8%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/">
-                                <span class="chip bg-color">通用技术知识</span>
+                            <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+                                <span class="chip bg-color">服务器</span>
                             </a>
                         
                     </div>
@@ -367,8 +369,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/" class="post-category">
-                                技术开发
+                            <a href="/categories/%E7%BD%91%E7%BB%9C%E8%BF%90%E7%BB%B4/" class="post-category">
+                                网络运维
                             </a>
                         
                     </div>
@@ -380,28 +382,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-05-29
+                    2024-01-07
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-05-29
+                    2024-01-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    914
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    4 分
                 </div>
                 
 
@@ -419,209 +421,76 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。</p>
-<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><p>使用 # 号标记: 行首插入1-6个#，每多一个#，标题大小更小，相当于副标题，最多支持六个#<br>使用 &#x3D; 和 - 标记一级和二级标题:</p>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token title important">我展示的是一级标题
-<span class="token punctuation">===</span></span>
-
-<span class="token title important">我展示的是二级标题
-<span class="token punctuation">---</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="段落"><a href="#段落" class="headerlink" title="段落"></a>段落</h4><p>段落之间空一行,即回车</p>
-<h4 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h4><p>斜体格式: 要倾斜的文字左右分别用一个*号包起来 <em>ddf</em><br>粗体格式: 要加粗的文字左右分别用两个*号包起来 <strong>ddf</strong><br>斜体加粗: 要倾斜和加粗的文字左右分别用三个*号包起来 <em><strong>ddf</strong></em><br>删除线: 要加删除线处理的文字左右分别用两个~~号包起来 <del>ddf</del><br>下划线: 要加下划线处理的文字通过HTML的&lt;u&gt;标签 <u>ddf</u></p>
-<h4 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h4><p>三个或者三个以上的 - 或者 * 都可以 </p>
-<h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><p>在引用的文字前加&gt;即可。引用也可以嵌套，如加两个&gt;&gt;三个&gt;&gt;&gt;</p>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><p>单行代码: 代码之间分别用一个包起来 <code>dd</code><br>代码块: </p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"hello world"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><p>无序列表:无序列表用 - + * 任何一种都可以 , - + *内容之间都要有一个空格</p>
-<ul>
-<li>列表内容</li>
-</ul>
-<ul>
-<li>列表内容</li>
-</ul>
-<ul>
-<li>列表内容</li>
-</ul>
-<p>有序列表:数字加点,序号与内容之间需要有一个空格</p>
-<ol>
-<li>列表内容</li>
-<li>列表内容</li>
-<li>列表内容</li>
+                <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Curl 是一个命令行工具，用来请求Web服务器。适用于各种无图形化界面的服务器端，例如跳板机&#x2F;堡垒机访问服务接口。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="linux环境"><a href="#linux环境" class="headerlink" title="linux环境"></a>linux环境</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># Debian/Ubuntu</span>
+<span class="token function">sudo</span> <span class="token function">apt-get</span> update
+<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> <span class="token function">curl</span>
+<span class="token comment"># CentOS</span>
+<span class="token function">sudo</span> yum update
+<span class="token function">sudo</span> yum <span class="token function">install</span> <span class="token function">curl</span>
+<span class="token function">curl</span> <span class="token parameter variable">--version</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="macOS环境"><a href="#macOS环境" class="headerlink" title="macOS环境"></a>macOS环境</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">brew <span class="token function">install</span> <span class="token function">curl</span>
+<span class="token function">curl</span> <span class="token parameter variable">--version</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="windows环境"><a href="#windows环境" class="headerlink" title="windows环境"></a>windows环境</h3><ol>
+<li>直接官网下载安装 <a target="_blank" rel="noopener" href="https://curl.se/download.html%EF%BC%8C%E6%B7%BB%E5%8A%A0PATH%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%8D%B3%E5%8F%AF%E3%80%82">https://curl.se/download.html，添加PATH环境变量即可。</a></li>
+<li>利用docker运行，<code>docker run --rm alpine curl --version</code>，–rm 标志表示容器在运行完毕后会自动删除。</li>
 </ol>
-<p>列表嵌套:如果希望一个没有加列表点的段落和一个列表项的内容显示对齐。需要把非列表段落行首打四个空格（比tab稳点）</p>
-<ul>
-<li>A<ul>
-<li>A1</li>
-<li>A2</li>
-</ul>
-</li>
-</ul>
-<ol>
-<li>B<ul>
-<li>B1</li>
-<li>B2</li>
-</ul>
-</li>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="默认参数、-G-gt-GET请求"><a href="#默认参数、-G-gt-GET请求" class="headerlink" title="默认参数、-G-&gt;GET请求"></a>默认参数、-G-&gt;GET请求</h3><p>默认即位GET请求，访问网页获取网页html，访问接口获取json。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> https://example.com
+<span class="token comment"># 构造URL的查询字符串并进行URL编码</span>
+<span class="token function">curl</span> <span class="token parameter variable">-G</span> --data-urlencode <span class="token string">'comment=hello world'</span> https://www.example.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="X-gt-指定HTTP请求的方法，POST请求"><a href="#X-gt-指定HTTP请求的方法，POST请求" class="headerlink" title="-X-&gt;指定HTTP请求的方法，POST请求"></a>-X-&gt;指定HTTP请求的方法，POST请求</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># POST请求</span>
+<span class="token function">curl</span> <span class="token parameter variable">-X</span> POST https://www.example.com
+<span class="token comment"># DELETE请求</span>
+<span class="token function">curl</span> <span class="token parameter variable">-X</span> DELETE https://www.example.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="d-gt-用于发送POST请求的数据体，自动将请求转为POST方法，因此可以省略-X-POST"><a href="#d-gt-用于发送POST请求的数据体，自动将请求转为POST方法，因此可以省略-X-POST" class="headerlink" title="-d-&gt;用于发送POST请求的数据体，自动将请求转为POST方法，因此可以省略-X POST"></a>-d-&gt;用于发送POST请求的数据体，自动将请求转为POST方法，因此可以省略-X POST</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> <span class="token parameter variable">-d</span> <span class="token string">'login=emma＆password=123'</span> <span class="token parameter variable">-X</span> POST https://www.example.com/login
+<span class="token comment"># 读取本地文本文件的数据，向服务器发送</span>
+<span class="token function">curl</span> <span class="token parameter variable">-d</span> <span class="token string">'@data.txt'</span> https://www.example.com/login
+<span class="token comment"># 数据进行URL编码，向服务器发送</span>
+<span class="token function">curl</span> --data-urlencode <span class="token string">'comment=hello world'</span> https://www.example.com/login<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="H-gt-添加HTTP请求的标头"><a href="#H-gt-添加HTTP请求的标头" class="headerlink" title="-H-&gt;添加HTTP请求的标头"></a>-H-&gt;添加HTTP请求的标头</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> <span class="token parameter variable">-H</span> <span class="token string">'Accept-Language: en-US'</span> <span class="token parameter variable">-H</span> <span class="token string">'Secret-Message: xyzzy'</span> https://www.example.com
+<span class="token function">curl</span> <span class="token parameter variable">-H</span> <span class="token string">'accesstoken: xxxx'</span> https://www.example.com
+<span class="token function">curl</span> <span class="token parameter variable">-d</span> <span class="token string">'&#123;"login": "emma", "pass": "123"&#125;'</span> <span class="token parameter variable">-H</span> <span class="token string">'Content-Type: application/json'</span> https://www.example.com/login
+<span class="token function">curl</span> <span class="token parameter variable">-H</span> <span class="token string">"Authorization: Bearer token123"</span> http://example.com/resource
+<span class="token function">curl</span> <span class="token parameter variable">--header</span> <span class="token string">"Content-Type:application/json"</span> https://example.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="b-gt-发送Cookie"><a href="#b-gt-发送Cookie" class="headerlink" title="-b-&gt;发送Cookie"></a>-b-&gt;发送Cookie</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 发送单个Cookie</span>
+<span class="token function">curl</span> <span class="token parameter variable">-b</span> <span class="token string">"cookie_name=cookie_value"</span> https://www.example.com
+<span class="token function">curl</span> <span class="token parameter variable">--cookie</span> <span class="token string">"cookie_name=cookie_value"</span> https://www.example.com
+<span class="token comment"># 发送多个Cookie</span>
+<span class="token function">curl</span> <span class="token parameter variable">-b</span> <span class="token string">"cookie1=value1; cookie2=value2"</span> https://www.example.com
+<span class="token comment"># 从文件中读取Cookies</span>
+<span class="token function">curl</span> <span class="token parameter variable">-b</span> cookies.txt https://www.example.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="i、-I-gt-显示HTTP响应头信息"><a href="#i、-I-gt-显示HTTP响应头信息" class="headerlink" title="-i、-I-&gt;显示HTTP响应头信息"></a>-i、-I-&gt;显示HTTP响应头信息</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 只显示响应头，等同于发起HEAD请求，一般用于服务健康检测</span>
+<span class="token function">curl</span> <span class="token parameter variable">-I</span> https://www.example.com
+<span class="token function">curl</span> <span class="token parameter variable">--head</span> https://www.example.com
+<span class="token comment"># 显示响应头以及结果</span>
+<span class="token function">curl</span> <span class="token parameter variable">-i</span> https://www.example.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="A-gt-指定客户端的用户代理标头，即User-Agent"><a href="#A-gt-指定客户端的用户代理标头，即User-Agent" class="headerlink" title="-A-&gt;指定客户端的用户代理标头，即User-Agent"></a>-A-&gt;指定客户端的用户代理标头，即User-Agent</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> <span class="token parameter variable">-A</span> <span class="token string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.6045.199 Safari/537.36'</span> https://www.example.com
+<span class="token function">curl</span> --user-agent <span class="token string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.6045.199 Safari/537.36'</span> https://www.example.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="v-gt-输出通信的整个过程"><a href="#v-gt-输出通信的整个过程" class="headerlink" title="-v-&gt;输出通信的整个过程"></a>-v-&gt;输出通信的整个过程</h3><p><code>curl -v https://www.example.com</code></p>
+<h3 id="x-gt-指定HTTP请求的代理"><a href="#x-gt-指定HTTP请求的代理" class="headerlink" title="-x-&gt;指定HTTP请求的代理"></a>-x-&gt;指定HTTP请求的代理</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 使用HTTP代理，默认为HTTP</span>
+<span class="token function">curl</span> <span class="token parameter variable">-x</span> https://proxy.example.com:8080 https://example.com
+<span class="token comment"># 使用SOCKS5代理</span>
+<span class="token function">curl</span> <span class="token parameter variable">-x</span> socks5://proxy.example.com:1080 https://example.com
+<span class="token function">curl</span> --socks5-hostname proxy.example.com:1080 https://example.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="o、-O-gt-保存下载，类似wget命令"><a href="#o、-O-gt-保存下载，类似wget命令" class="headerlink" title="-o、-O-&gt;保存下载，类似wget命令"></a>-o、-O-&gt;保存下载，类似wget命令</h3><ol>
+<li>下载文件到当前目录<br><code>curl -O https://example.com/file.zip</code></li>
+<li>指定本地文件名下载<br><code>curl -o local_file.zip http://example.com/file.zip</code></li>
 </ol>
-<h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><p>图片为<code>![](url)</code> <code>![alt 属性文本](图片地址 &quot;可选标题&quot;)</code></p>
-<h4 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h4><p>超链接<code>[](url)</code></p>
-<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><p>Markdown 制作表格使用 | 来分隔不同的单元格，使用 - 来分隔表头和其他行</p>
-<blockquote>
-<p>对齐方式<br>-: 设置内容和标题栏居右对齐<br>:- 设置内容和标题栏居左对齐<br>:-: 设置内容和标题栏居中对齐</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th align="left">左对齐</th>
-<th align="right">右对齐</th>
-<th align="center">居中对齐</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">单元格</td>
-<td align="right">单元格</td>
-<td align="center">单元格</td>
-</tr>
-<tr>
-<td align="left">单元格</td>
-<td align="right">单元格</td>
-<td align="center">单元格</td>
-</tr>
-</tbody></table>
-<h3 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h3><ul>
-<li>Markdown 文件的文件类型是 .md</li>
-</ul>
-<h3 id="开发语言与Markdown"><a href="#开发语言与Markdown" class="headerlink" title="开发语言与Markdown"></a>开发语言与Markdown</h3><h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a><a target="_blank" rel="noopener" href="https://www.markdownguide.org/">参考文档</a></h3><h2 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h2><h3 id="介绍-1"><a href="#介绍-1" class="headerlink" title="介绍"></a>介绍</h3><p>JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。易于人阅读和编写。同时也易于机器解析和生成。它基于JavaScript Programming Language, Standard ECMA-262 3rd Edition - December 1999的一个子集。JSON采用完全独立于语言的文本格式，但是也使用了类似于C语言家族的习惯（包括C, C++, C#, Java, JavaScript, Perl, Python等）。 这些特性使JSON成为理想的数据交换语言。</p>
-<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><ol>
-<li>对象 {}<blockquote>
-<p>对象可以包含多个 key&#x2F;value（键&#x2F;值）对。<br>key 必须是字符串，value 可以是合法的 JSON 数据类型（字符串, 数字, 对象, 数组, 布尔值或 null）。<br>key 和 value 中使用冒号 : 分割。<br>每个 key&#x2F;value 对使用逗号 , 分割。</p>
-</blockquote>
-</li>
-</ol>
-<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span><span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"ddf"</span><span class="token punctuation">,</span> <span class="token property">"qq"</span><span class="token operator">:</span> <span class="token number">1008611</span><span class="token punctuation">,</span> <span class="token property">"site"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span> <span class="token property">"is_married"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<ol start="2">
-<li>数组 []<blockquote>
-<p>JSON 中数组值必须是合法的 JSON 数据类型（字符串, 数字, 对象, 数组, 布尔值或 null）。</p>
-</blockquote>
-<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">[</span><span class="token string">"Google"</span><span class="token punctuation">,</span> <span class="token string">"Baidu"</span><span class="token punctuation">,</span> <span class="token string">"Taobao"</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>例子<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
-  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"ddf"</span><span class="token punctuation">,</span>
-  <span class="token property">"age"</span><span class="token operator">:</span> <span class="token number">18</span><span class="token punctuation">,</span>
-  <span class="token property">"is_married"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-  <span class="token property">"site"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span> 
-  <span class="token property">"contact_information"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-    <span class="token property">"qq"</span><span class="token operator">:</span> <span class="token number">1008611</span><span class="token punctuation">,</span>
-    <span class="token property">"mobile"</span><span class="token operator">:</span> <span class="token string">"15880040000"</span><span class="token punctuation">,</span>
-    <span class="token property">"address"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"Sichuan Province"</span><span class="token punctuation">,</span> <span class="token string">"Guangdong Province"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token property">"twitter"</span><span class="token operator">:</span> <span class="token null keyword">null</span>
-  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-  <span class="token property">"family_members"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-    <span class="token string">"dyf"</span><span class="token punctuation">,</span>
-    <span class="token string">"ydm"</span><span class="token punctuation">,</span>
-    <span class="token string">"wiam"</span>
-  <span class="token punctuation">]</span><span class="token punctuation">,</span>
-  <span class="token property">"skill"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-    <span class="token punctuation">&#123;</span><span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"fish-farming"</span><span class="token punctuation">,</span> <span class="token property">"score"</span><span class="token operator">:</span> <span class="token number">95</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-    <span class="token punctuation">&#123;</span><span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"C-V"</span><span class="token punctuation">,</span> <span class="token property">"score"</span><span class="token operator">:</span> <span class="token number">85</span><span class="token punctuation">&#125;</span>
-  <span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h3 id="文件-1"><a href="#文件-1" class="headerlink" title="文件"></a>文件</h3><ul>
-<li>JSON 文件的文件类型是 .json</li>
-<li>JSON 文本的 MIME 类型是 application&#x2F;json</li>
-</ul>
-<h3 id="开发语言与JSON"><a href="#开发语言与JSON" class="headerlink" title="开发语言与JSON"></a>开发语言与JSON</h3><h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> json
+<h3 id="L-gt-请求跟随服务器的重定向，curl默认不跟随重定向"><a href="#L-gt-请求跟随服务器的重定向，curl默认不跟随重定向" class="headerlink" title="-L-&gt;请求跟随服务器的重定向，curl默认不跟随重定向"></a>-L-&gt;请求跟随服务器的重定向，curl默认不跟随重定向</h3><p><code>curl -L https://example.com</code></p>
+<h3 id="F-gt-文件上传"><a href="#F-gt-文件上传" class="headerlink" title="-F-&gt;文件上传"></a>-F-&gt;文件上传</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 上面命令会给HTTP请求加上标头Content-Type: multipart/form-data，然后将文件local_file.txt作为file字段上传</span>
+<span class="token function">curl</span> <span class="token parameter variable">-F</span> <span class="token string">"file=@local_file.txt"</span> https://example.com/upload
+<span class="token comment"># 设置MIME文件类型，curl默认MIME类型为application/octet-stream</span>
+<span class="token function">curl</span> <span class="token parameter variable">-F</span> <span class="token string">"file=@local_file.txt;type=text/plain"</span> https://example.com/upload
+<span class="token comment"># 指定文件名，服务器接收到的文件名为ddf.txt</span>
+<span class="token function">curl</span> <span class="token parameter variable">-F</span> <span class="token string">'file=@local_file.txt;filename=ddf.txt'</span> https://example.com/upload
+<span class="token comment"># 上传多个</span>
+<span class="token function">curl</span> <span class="token parameter variable">-F</span> <span class="token string">"file1=@file1.txt"</span> <span class="token parameter variable">-F</span> <span class="token string">"file2=@file2.jpg"</span> https://example.com/upload<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="c-gt-将服务器设置的Cookie写入一个文件"><a href="#c-gt-将服务器设置的Cookie写入一个文件" class="headerlink" title="-c-&gt;将服务器设置的Cookie写入一个文件"></a>-c-&gt;将服务器设置的Cookie写入一个文件</h3><p><code>curl -c cookies.txt https://www.example.com</code></p>
+<h3 id="e-gt-设置HTTP的标头Referer"><a href="#e-gt-设置HTTP的标头Referer" class="headerlink" title="-e-&gt;设置HTTP的标头Referer"></a>-e-&gt;设置HTTP的标头Referer</h3><p><code>curl -e &#39;https://google.com?q=example&#39; https://www.example.com</code></p>
+<h3 id="k-gt-跳过SSL检测"><a href="#k-gt-跳过SSL检测" class="headerlink" title="-k-&gt;跳过SSL检测"></a>-k-&gt;跳过SSL检测</h3><p><code>curl -k https://www.example.com</code></p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a target="_blank" rel="noopener" href="https://catonmat.net/cookbooks/curl">Curl Cookbook</a><br><a target="_blank" rel="noopener" href="https://curl.se/">curl se</a><br><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2019/09/curl-reference.html">curl 的用法指南</a></p>
 
-
-emp_info <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"ddf"</span><span class="token punctuation">,</span> <span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">18</span><span class="token punctuation">,</span> <span class="token string">"site"</span><span class="token punctuation">:</span> <span class="token boolean">None</span><span class="token punctuation">,</span> <span class="token string">"is_married"</span><span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">&#125;</span>
-json_emp_info <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>emp_info<span class="token punctuation">)</span> <span class="token comment"># '&#123;"name": "ddf", "age": 18, "site": null, "is_married": true&#125;'</span>
-json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>json_emp_info<span class="token punctuation">)</span> <span class="token comment"># &#123;'name': 'ddf', 'age': 18, 'site': None, 'is_married': True&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="参考文档-1"><a href="#参考文档-1" class="headerlink" title="参考文档"></a><a target="_blank" rel="noopener" href="https://www.json.org/json-zh.html">参考文档</a></h3><h2 id="YAML"><a href="#YAML" class="headerlink" title="YAML"></a>YAML</h2><h3 id="介绍-2"><a href="#介绍-2" class="headerlink" title="介绍"></a>介绍</h3><p>YAML Ain’t a Markup Language.(YAML不是一种标记语言)。<br>YAML is a human-friendly data serialization language for all programming languages.(YAML是一种适用于所有编程语言的人性化数据序列化语言。)<br>在开发的这种语言时，YAML的意思其实是：”Yet Another Markup Language”（仍是一种标记语言）。</p>
-<h3 id="基本语法-1"><a href="#基本语法-1" class="headerlink" title="基本语法"></a>基本语法</h3><blockquote>
-<p>大小写敏感<br>使用缩进表示层级关系<br>缩进不允许使用tab，只允许空格<br>缩进的空格数不重要，只要相同层级的元素左对齐即可<br>‘#’表示注释</p>
-</blockquote>
-<h3 id="结构-1"><a href="#结构-1" class="headerlink" title="结构"></a>结构</h3><ol>
-<li>对象 <blockquote>
-<p>键值对的集合，又称为映射（mapping）&#x2F; 哈希（hashes） &#x2F; 字典（dictionary）<br>对象键值对使用冒号结构表示 key: value，冒号后面要加一个空格。<br>也可以使用 key:{key1: value1, key2: value2, …}。<br>还可以使用缩进表示层级关系。</p>
-</blockquote>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">labels</span><span class="token punctuation">:</span>
-  <span class="token key atrule">app_name</span><span class="token punctuation">:</span> project
-  <span class="token key atrule">env</span><span class="token punctuation">:</span> dev
-<span class="token key atrule">websites</span><span class="token punctuation">:</span>
-  <span class="token key atrule">YAML</span><span class="token punctuation">:</span> yaml.org
-  <span class="token key atrule">Ruby</span><span class="token punctuation">:</span> ruby<span class="token punctuation">-</span>lang.org
-  <span class="token key atrule">Python</span><span class="token punctuation">:</span> python.org
-  <span class="token key atrule">Perl</span><span class="token punctuation">:</span> use.perl.org<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>数组 <blockquote>
-<p>一组按次序排列的值，又称为序列（sequence） &#x2F; 列表（list）<br>以 - 开头的行表示构成一个数组</p>
-</blockquote>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">stages</span><span class="token punctuation">:</span>
-  <span class="token punctuation">-</span> build
-  <span class="token punctuation">-</span> auto_cd
-<span class="token key atrule">languages</span><span class="token punctuation">:</span>
-  <span class="token punctuation">-</span> Ruby
-  <span class="token punctuation">-</span> Perl
-  <span class="token punctuation">-</span> Python <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>纯量（scalars） <blockquote>
-<p>纯量是最基本的，不可再分的值，<br>字符串: 可以使用双引号或者单引号包裹特殊字符;字符串可以拆成多行，每一行会被转化成一个空格<br>布尔值: true,True,false,False<br>整数: 可以使用二进制表示<br>浮点数: 可以使用科学计数法<br>Null: 使用~表示null<br>时间: 时间使用ISO 8601格式，时间和日期之间使用T连接，最后使用+代表时区<br>日期: 日期必须使用ISO 8601格式，即yyyy-MM-dd</p>
-</blockquote>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">name</span><span class="token punctuation">:</span> ddf
-<span class="token key atrule">mobile</span><span class="token punctuation">:</span> <span class="token string">"15880040000"</span>
-<span class="token key atrule">tty</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-<span class="token key atrule">is_married</span><span class="token punctuation">:</span> <span class="token boolean important">False</span>
-<span class="token key atrule">age</span><span class="token punctuation">:</span> <span class="token number">18</span>
-<span class="token key atrule">money</span><span class="token punctuation">:</span> <span class="token number">998.18</span>
-<span class="token key atrule">site</span><span class="token punctuation">:</span> <span class="token null important">~</span>
-<span class="token key atrule">hire_date</span><span class="token punctuation">:</span> <span class="token datetime number">2020-04-07</span>
-<span class="token key atrule">add_dt</span><span class="token punctuation">:</span> <span class="token datetime number">2020-04-07T15:02:31+08:00</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>例子<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">"3"</span>
-<span class="token key atrule">services</span><span class="token punctuation">:</span>
-  <span class="token key atrule">project</span><span class="token punctuation">:</span>
-    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> project
-    <span class="token key atrule">image</span><span class="token punctuation">:</span> xxx<span class="token punctuation">:</span>dev
-    <span class="token key atrule">labels</span><span class="token punctuation">:</span>
-      <span class="token key atrule">app_name</span><span class="token punctuation">:</span> <span class="token string">"project"</span>
-      <span class="token key atrule">env</span><span class="token punctuation">:</span> <span class="token string">"dev"</span>
-    <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
-    <span class="token key atrule">tty</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-    <span class="token key atrule">stdin_open</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
-      <span class="token punctuation">-</span> <span class="token string">"15090:8000"</span>
-    <span class="token key atrule">working_dir</span><span class="token punctuation">:</span> /data/wwwRoot
-    <span class="token key atrule">command</span><span class="token punctuation">:</span> gunicorn app<span class="token punctuation">:</span>app <span class="token punctuation">-</span><span class="token punctuation">-</span>workers=4 <span class="token punctuation">-</span><span class="token punctuation">-</span>worker<span class="token punctuation">-</span>class=uvicorn.workers.UvicornWorker <span class="token punctuation">-</span><span class="token punctuation">-</span>bind=0.0.0.0<span class="token punctuation">:</span>8000 <span class="token punctuation">-</span><span class="token punctuation">-</span>worker<span class="token punctuation">-</span>tmp<span class="token punctuation">-</span>dir /dev/shm <span class="token punctuation">-</span><span class="token punctuation">-</span>log<span class="token punctuation">-</span>level=debug
-    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
-      <span class="token key atrule">TZ</span><span class="token punctuation">:</span> <span class="token string">"Asia/Shanghai"</span>
-      <span class="token key atrule">ENV_MODE</span><span class="token punctuation">:</span> <span class="token string">"dev"</span>
-      <span class="token key atrule">DEBUG</span><span class="token punctuation">:</span> <span class="token string">"true"</span>
-      <span class="token key atrule">LOG_LEVEL</span><span class="token punctuation">:</span> <span class="token string">"DEBUG"</span>
-    <span class="token key atrule">logging</span><span class="token punctuation">:</span>
-      <span class="token key atrule">driver</span><span class="token punctuation">:</span> <span class="token string">"json-file"</span>
-      <span class="token key atrule">options</span><span class="token punctuation">:</span>
-        <span class="token key atrule">max-size</span><span class="token punctuation">:</span> <span class="token string">"2m"</span>
-        <span class="token key atrule">max-file</span><span class="token punctuation">:</span> <span class="token string">"10"</span>
-
-<span class="token key atrule">networks</span><span class="token punctuation">:</span>
-  <span class="token key atrule">default</span><span class="token punctuation">:</span>
-    <span class="token key atrule">driver</span><span class="token punctuation">:</span> bridge
-    <span class="token key atrule">driver_opts</span><span class="token punctuation">:</span>
-      <span class="token key atrule">com.docker.network.driver.mtu</span><span class="token punctuation">:</span> <span class="token number">1452</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h3 id="文件-2"><a href="#文件-2" class="headerlink" title="文件"></a>文件</h3><ul>
-<li>YAML 文件的文件类型是 .yml</li>
-</ul>
-<h3 id="开发语言与YAML"><a href="#开发语言与YAML" class="headerlink" title="开发语言与YAML"></a>开发语言与YAML</h3><h4 id="Python-1"><a href="#Python-1" class="headerlink" title="Python"></a>Python</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># pip install pyyaml</span>
-<span class="token keyword">import</span> yaml
-
-
-emp_info <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"ddf"</span><span class="token punctuation">,</span> <span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">18</span><span class="token punctuation">,</span> <span class="token string">"site"</span><span class="token punctuation">:</span> <span class="token boolean">None</span><span class="token punctuation">,</span> <span class="token string">"is_married"</span><span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">&#125;</span>
-yaml_emp_info <span class="token operator">=</span> yaml<span class="token punctuation">.</span>dump<span class="token punctuation">(</span>emp_info<span class="token punctuation">)</span> <span class="token comment"># 'age: 18\nis_married: true\nname: ddf\nsite: null\n'</span>
-yaml<span class="token punctuation">.</span>load<span class="token punctuation">(</span>yaml_emp_info<span class="token punctuation">,</span> Loader<span class="token operator">=</span>yaml<span class="token punctuation">.</span>FullLoader<span class="token punctuation">)</span> <span class="token comment"># &#123;'age': 18, 'is_married': True, 'name': 'ddf', 'site': None&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="参考文档-2"><a href="#参考文档-2" class="headerlink" title="参考文档"></a><a target="_blank" rel="noopener" href="https://yaml.org/">参考文档</a></h3><h2 id="Shell脚本"><a href="#Shell脚本" class="headerlink" title="Shell脚本"></a>Shell脚本</h2><h3 id="介绍-3"><a href="#介绍-3" class="headerlink" title="介绍"></a>介绍</h3><p>Shell 是一个用 C 语言编写的程序，它是用户使用 Linux 的桥梁。Shell 既是一种命令语言，又是一种程序设计语言。<br>Shell 脚本（shell script），是一种为 shell 编写的脚本程序。</p>
-<h3 id="基本语法-2"><a href="#基本语法-2" class="headerlink" title="基本语法"></a>基本语法</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
-<span class="token builtin class-name">echo</span> <span class="token string">"Hello World !"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h3 id="文件-3"><a href="#文件-3" class="headerlink" title="文件"></a>文件</h3><ul>
-<li>Shell文件的文件类型是 .sh</li>
-</ul>
-<h3 id="开发语言与Shell"><a href="#开发语言与Shell" class="headerlink" title="开发语言与Shell"></a>开发语言与Shell</h3><h3 id="参考文档-3"><a href="#参考文档-3" class="headerlink" title="参考文档"></a><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-shell.html">参考文档</a></h3>
                 
             </div>
             <hr/>
@@ -647,7 +516,7 @@ yaml<span class="token punctuation">.</span>load<span class="token punctuation">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://ddf118.github.io/2023/05/29/gong-ju-yu-yan/">https://ddf118.github.io/2023/05/29/gong-ju-yu-yan/</a>
+                    <a href="https://ddf118.github.io/2024/01/07/curl-zhi-nan/">https://ddf118.github.io/2024/01/07/curl-zhi-nan/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -685,8 +554,8 @@ yaml<span class="token punctuation">.</span>load<span class="token punctuation">
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E9%80%9A%E7%94%A8%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/">
-                                    <span class="chip bg-color">通用技术知识</span>
+                                <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+                                    <span class="chip bg-color">服务器</span>
                                 </a>
                             
                         </div>
@@ -765,17 +634,18 @@ yaml<span class="token punctuation">.</span>load<span class="token punctuation">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/05/29/zheng-ze-biao-da-shi/">
+                <a href="/2024/01/07/curl-zhi-nan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="正则表达式">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Curl指南">
                         
-                        <span class="card-title">正则表达式</span>
+                        <span class="card-title">Curl指南</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -785,26 +655,27 @@ yaml<span class="token punctuation">.</span>load<span class="token punctuation">
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-05-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-07
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/" class="post-category">
-                                    技术开发
+                            <a href="/categories/%E7%BD%91%E7%BB%9C%E8%BF%90%E7%BB%B4/" class="post-category">
+                                    网络运维
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%80%9A%E7%94%A8%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/">
-                        <span class="chip bg-color">通用技术知识</span>
+                    <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+                        <span class="chip bg-color">服务器</span>
                     </a>
                     
                 </div>
@@ -818,13 +689,13 @@ yaml<span class="token punctuation">.</span>load<span class="token punctuation">
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/05/29/git-cao-zuo-pian/">
+                <a href="/2023/12/20/zheng-yu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="GIT操作篇">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="蒸鱼">
                         
-                        <span class="card-title">GIT操作篇</span>
+                        <span class="card-title">蒸鱼</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -835,14 +706,14 @@ yaml<span class="token punctuation">.</span>load<span class="token punctuation">
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-05-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-20
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/" class="post-category">
-                                    技术开发
+                            <a href="/categories/%E5%8D%8A%E6%97%A5%E9%97%B2/" class="post-category">
+                                    半日闲
                                 </a>
                             
                             
@@ -852,8 +723,8 @@ yaml<span class="token punctuation">.</span>load<span class="token punctuation">
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E4%BB%93%E5%BA%93%E7%AE%A1%E7%90%86/">
-                        <span class="chip bg-color">仓库管理</span>
+                    <a href="/tags/%E7%83%B9%E9%A5%AA/">
+                        <span class="chip bg-color">烹饪</span>
                     </a>
                     
                 </div>
