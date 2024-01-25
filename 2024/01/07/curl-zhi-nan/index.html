@@ -5,10 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Curl指南, 轮回">
-    <meta name="description" content="简介Curl 是一个命令行工具，用来请求Web服务器。适用于各种无图形化界面的服务器端，例如跳板机&amp;#x2F;堡垒机访问服务接口。
-安装linux环境# Debian/Ubuntu
-sudo apt-get update
-sudo apt-">
+    <meta name="description" content="简介wrk 是一种现代 HTTP 基准测试工具，它能够在单机多核 CPU 的条件下，使用系统自带的高性能 I&amp;#x2F;O 机制，如 epoll，kqueue 等，通过多线程和事件模式，对目标机器产生大量的负载。github链接
+安装lin">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -389,14 +387,14 @@ sudo apt-">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-01-09
+                    2024-01-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    914
+                    985
                 </div>
                 
 
@@ -421,75 +419,96 @@ sudo apt-">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Curl 是一个命令行工具，用来请求Web服务器。适用于各种无图形化界面的服务器端，例如跳板机&#x2F;堡垒机访问服务接口。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="linux环境"><a href="#linux环境" class="headerlink" title="linux环境"></a>linux环境</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># Debian/Ubuntu</span>
-<span class="token function">sudo</span> <span class="token function">apt-get</span> update
-<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> <span class="token function">curl</span>
-<span class="token comment"># CentOS</span>
-<span class="token function">sudo</span> yum update
-<span class="token function">sudo</span> yum <span class="token function">install</span> <span class="token function">curl</span>
-<span class="token function">curl</span> <span class="token parameter variable">--version</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="macOS环境"><a href="#macOS环境" class="headerlink" title="macOS环境"></a>macOS环境</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">brew <span class="token function">install</span> <span class="token function">curl</span>
-<span class="token function">curl</span> <span class="token parameter variable">--version</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+                <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>wrk 是一种现代 HTTP 基准测试工具，它能够在单机多核 CPU 的条件下，使用系统自带的高性能 I&#x2F;O 机制，如 epoll，kqueue 等，通过多线程和事件模式，对目标机器产生大量的负载。<br><a target="_blank" rel="noopener" href="https://github.com/wg/wrk">github链接</a><br><img src="/img/wrk1.jpg" alt="wrk-v" title="wrk-v"></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="linux环境"><a href="#linux环境" class="headerlink" title="linux环境"></a>linux环境</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/wg/wrk.git wrk
+<span class="token builtin class-name">cd</span> wrk/
+<span class="token function">make</span>
+<span class="token function">cp</span> wrk /usr/local/bin
+wrk <span class="token parameter variable">-v</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="macOS环境"><a href="#macOS环境" class="headerlink" title="macOS环境"></a>macOS环境</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">brew <span class="token function">install</span> wrk
+wrk <span class="token parameter variable">-v</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="windows环境"><a href="#windows环境" class="headerlink" title="windows环境"></a>windows环境</h3><ol>
-<li>直接官网下载安装 <a target="_blank" rel="noopener" href="https://curl.se/download.html%EF%BC%8C%E6%B7%BB%E5%8A%A0PATH%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%8D%B3%E5%8F%AF%E3%80%82">https://curl.se/download.html，添加PATH环境变量即可。</a></li>
-<li>利用docker运行，<code>docker run --rm alpine curl --version</code>，–rm 标志表示容器在运行完毕后会自动删除。</li>
+<li>官方不支持。</li>
+<li>利用docker运行<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> pull williamyeh/wrk
+<span class="token function">docker</span> run <span class="token parameter variable">-it</span> <span class="token parameter variable">--rm</span> williamyeh/wrk <span class="token parameter variable">-t12</span> <span class="token parameter variable">-c400</span> <span class="token parameter variable">-d30s</span> http://www.baidu.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>wsl<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装启用WSL</span>
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+<span class="token comment"># 安装Ubuntu</span>
+wsl <span class="token parameter variable">--install</span> <span class="token parameter variable">-d</span> Ubuntu
+<span class="token comment"># 进入Ubuntu子系统</span>
+wsl <span class="token parameter variable">-d</span> Ubuntu
+<span class="token comment"># 安装wrk</span>
+<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> <span class="token parameter variable">-y</span> wrk
+wrk <span class="token parameter variable">-v</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="默认参数、-G-gt-GET请求"><a href="#默认参数、-G-gt-GET请求" class="headerlink" title="默认参数、-G-&gt;GET请求"></a>默认参数、-G-&gt;GET请求</h3><p>默认即位GET请求，访问网页获取网页html，访问接口获取json。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> https://example.com
-<span class="token comment"># 构造URL的查询字符串并进行URL编码</span>
-<span class="token function">curl</span> <span class="token parameter variable">-G</span> --data-urlencode <span class="token string">'comment=hello world'</span> https://www.example.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h3 id="X-gt-指定HTTP请求的方法，POST请求"><a href="#X-gt-指定HTTP请求的方法，POST请求" class="headerlink" title="-X-&gt;指定HTTP请求的方法，POST请求"></a>-X-&gt;指定HTTP请求的方法，POST请求</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># POST请求</span>
-<span class="token function">curl</span> <span class="token parameter variable">-X</span> POST https://www.example.com
-<span class="token comment"># DELETE请求</span>
-<span class="token function">curl</span> <span class="token parameter variable">-X</span> DELETE https://www.example.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="d-gt-用于发送POST请求的数据体，自动将请求转为POST方法，因此可以省略-X-POST"><a href="#d-gt-用于发送POST请求的数据体，自动将请求转为POST方法，因此可以省略-X-POST" class="headerlink" title="-d-&gt;用于发送POST请求的数据体，自动将请求转为POST方法，因此可以省略-X POST"></a>-d-&gt;用于发送POST请求的数据体，自动将请求转为POST方法，因此可以省略-X POST</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> <span class="token parameter variable">-d</span> <span class="token string">'login=emma＆password=123'</span> <span class="token parameter variable">-X</span> POST https://www.example.com/login
-<span class="token comment"># 读取本地文本文件的数据，向服务器发送</span>
-<span class="token function">curl</span> <span class="token parameter variable">-d</span> <span class="token string">'@data.txt'</span> https://www.example.com/login
-<span class="token comment"># 数据进行URL编码，向服务器发送</span>
-<span class="token function">curl</span> --data-urlencode <span class="token string">'comment=hello world'</span> https://www.example.com/login<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="H-gt-添加HTTP请求的标头"><a href="#H-gt-添加HTTP请求的标头" class="headerlink" title="-H-&gt;添加HTTP请求的标头"></a>-H-&gt;添加HTTP请求的标头</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> <span class="token parameter variable">-H</span> <span class="token string">'Accept-Language: en-US'</span> <span class="token parameter variable">-H</span> <span class="token string">'Secret-Message: xyzzy'</span> https://www.example.com
-<span class="token function">curl</span> <span class="token parameter variable">-H</span> <span class="token string">'accesstoken: xxxx'</span> https://www.example.com
-<span class="token function">curl</span> <span class="token parameter variable">-d</span> <span class="token string">'&#123;"login": "emma", "pass": "123"&#125;'</span> <span class="token parameter variable">-H</span> <span class="token string">'Content-Type: application/json'</span> https://www.example.com/login
-<span class="token function">curl</span> <span class="token parameter variable">-H</span> <span class="token string">"Authorization: Bearer token123"</span> http://example.com/resource
-<span class="token function">curl</span> <span class="token parameter variable">--header</span> <span class="token string">"Content-Type:application/json"</span> https://example.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="b-gt-发送Cookie"><a href="#b-gt-发送Cookie" class="headerlink" title="-b-&gt;发送Cookie"></a>-b-&gt;发送Cookie</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 发送单个Cookie</span>
-<span class="token function">curl</span> <span class="token parameter variable">-b</span> <span class="token string">"cookie_name=cookie_value"</span> https://www.example.com
-<span class="token function">curl</span> <span class="token parameter variable">--cookie</span> <span class="token string">"cookie_name=cookie_value"</span> https://www.example.com
-<span class="token comment"># 发送多个Cookie</span>
-<span class="token function">curl</span> <span class="token parameter variable">-b</span> <span class="token string">"cookie1=value1; cookie2=value2"</span> https://www.example.com
-<span class="token comment"># 从文件中读取Cookies</span>
-<span class="token function">curl</span> <span class="token parameter variable">-b</span> cookies.txt https://www.example.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="i、-I-gt-显示HTTP响应头信息"><a href="#i、-I-gt-显示HTTP响应头信息" class="headerlink" title="-i、-I-&gt;显示HTTP响应头信息"></a>-i、-I-&gt;显示HTTP响应头信息</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 只显示响应头，等同于发起HEAD请求，一般用于服务健康检测</span>
-<span class="token function">curl</span> <span class="token parameter variable">-I</span> https://www.example.com
-<span class="token function">curl</span> <span class="token parameter variable">--head</span> https://www.example.com
-<span class="token comment"># 显示响应头以及结果</span>
-<span class="token function">curl</span> <span class="token parameter variable">-i</span> https://www.example.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="A-gt-指定客户端的用户代理标头，即User-Agent"><a href="#A-gt-指定客户端的用户代理标头，即User-Agent" class="headerlink" title="-A-&gt;指定客户端的用户代理标头，即User-Agent"></a>-A-&gt;指定客户端的用户代理标头，即User-Agent</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> <span class="token parameter variable">-A</span> <span class="token string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.6045.199 Safari/537.36'</span> https://www.example.com
-<span class="token function">curl</span> --user-agent <span class="token string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.6045.199 Safari/537.36'</span> https://www.example.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h3 id="v-gt-输出通信的整个过程"><a href="#v-gt-输出通信的整个过程" class="headerlink" title="-v-&gt;输出通信的整个过程"></a>-v-&gt;输出通信的整个过程</h3><p><code>curl -v https://www.example.com</code></p>
-<h3 id="x-gt-指定HTTP请求的代理"><a href="#x-gt-指定HTTP请求的代理" class="headerlink" title="-x-&gt;指定HTTP请求的代理"></a>-x-&gt;指定HTTP请求的代理</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 使用HTTP代理，默认为HTTP</span>
-<span class="token function">curl</span> <span class="token parameter variable">-x</span> https://proxy.example.com:8080 https://example.com
-<span class="token comment"># 使用SOCKS5代理</span>
-<span class="token function">curl</span> <span class="token parameter variable">-x</span> socks5://proxy.example.com:1080 https://example.com
-<span class="token function">curl</span> --socks5-hostname proxy.example.com:1080 https://example.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="o、-O-gt-保存下载，类似wget命令"><a href="#o、-O-gt-保存下载，类似wget命令" class="headerlink" title="-o、-O-&gt;保存下载，类似wget命令"></a>-o、-O-&gt;保存下载，类似wget命令</h3><ol>
-<li>下载文件到当前目录<br><code>curl -O https://example.com/file.zip</code></li>
-<li>指定本地文件名下载<br><code>curl -o local_file.zip http://example.com/file.zip</code></li>
-</ol>
-<h3 id="L-gt-请求跟随服务器的重定向，curl默认不跟随重定向"><a href="#L-gt-请求跟随服务器的重定向，curl默认不跟随重定向" class="headerlink" title="-L-&gt;请求跟随服务器的重定向，curl默认不跟随重定向"></a>-L-&gt;请求跟随服务器的重定向，curl默认不跟随重定向</h3><p><code>curl -L https://example.com</code></p>
-<h3 id="F-gt-文件上传"><a href="#F-gt-文件上传" class="headerlink" title="-F-&gt;文件上传"></a>-F-&gt;文件上传</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 上面命令会给HTTP请求加上标头Content-Type: multipart/form-data，然后将文件local_file.txt作为file字段上传</span>
-<span class="token function">curl</span> <span class="token parameter variable">-F</span> <span class="token string">"file=@local_file.txt"</span> https://example.com/upload
-<span class="token comment"># 设置MIME文件类型，curl默认MIME类型为application/octet-stream</span>
-<span class="token function">curl</span> <span class="token parameter variable">-F</span> <span class="token string">"file=@local_file.txt;type=text/plain"</span> https://example.com/upload
-<span class="token comment"># 指定文件名，服务器接收到的文件名为ddf.txt</span>
-<span class="token function">curl</span> <span class="token parameter variable">-F</span> <span class="token string">'file=@local_file.txt;filename=ddf.txt'</span> https://example.com/upload
-<span class="token comment"># 上传多个</span>
-<span class="token function">curl</span> <span class="token parameter variable">-F</span> <span class="token string">"file1=@file1.txt"</span> <span class="token parameter variable">-F</span> <span class="token string">"file2=@file2.jpg"</span> https://example.com/upload<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="c-gt-将服务器设置的Cookie写入一个文件"><a href="#c-gt-将服务器设置的Cookie写入一个文件" class="headerlink" title="-c-&gt;将服务器设置的Cookie写入一个文件"></a>-c-&gt;将服务器设置的Cookie写入一个文件</h3><p><code>curl -c cookies.txt https://www.example.com</code></p>
-<h3 id="e-gt-设置HTTP的标头Referer"><a href="#e-gt-设置HTTP的标头Referer" class="headerlink" title="-e-&gt;设置HTTP的标头Referer"></a>-e-&gt;设置HTTP的标头Referer</h3><p><code>curl -e &#39;https://google.com?q=example&#39; https://www.example.com</code></p>
-<h3 id="k-gt-跳过SSL检测"><a href="#k-gt-跳过SSL检测" class="headerlink" title="-k-&gt;跳过SSL检测"></a>-k-&gt;跳过SSL检测</h3><p><code>curl -k https://www.example.com</code></p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a target="_blank" rel="noopener" href="https://catonmat.net/cookbooks/curl">Curl Cookbook</a><br><a target="_blank" rel="noopener" href="https://curl.se/">curl se</a><br><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2019/09/curl-reference.html">curl 的用法指南</a></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="相关指数"><a href="#相关指数" class="headerlink" title="相关指数"></a>相关指数</h3><blockquote>
+<p>QPS（TPS）：每秒钟request&#x2F;事务 数量<br>并发数： 系统同时处理的request&#x2F;事务数<br>响应时间： 一般取平均响应时间<br>-&gt; QPS（TPS）&#x3D; 并发数&#x2F;平均响应时间 或者 并发数 &#x3D; QPS*平均响应时间</p>
+</blockquote>
+<h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><p>使用12线程在30s内请求百度400次。<br><code>wrk -t12 -c400 -d30s http://www.baidu.com</code><br><img src="/img/wrk2.jpg" alt="wrk基本使用" title="wrk基本使用"></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ddf@ddfsamsaradeMBP ~ % wrk  <span class="token parameter variable">-t12</span> <span class="token parameter variable">-c400</span> <span class="token parameter variable">-d30s</span> http://www.baidu.com
+Running 30s <span class="token builtin class-name">test</span> @ http://www.baidu.com
+  <span class="token number">12</span> threads and <span class="token number">400</span> connections
+  <span class="token comment">#            （平均值） （标准差）  （最大值）（正负一个标准差所占比例）</span>
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+  <span class="token comment"># 延迟，这里可以理解为响应时间的平均值、标准差、最大值、正负一个标准差所占比，一般我们来说我们主要关注平均值和最大值. 标准差如果太大说明样本本身离散程度比较高. 有可能系统性能波动很大。</span>
+    Latency    <span class="token number">44</span>.51ms   <span class="token number">53</span>.66ms   <span class="token number">1</span>.23s    <span class="token number">97.59</span>%
+    <span class="token comment"># 每秒请求数的平均值、标准差、最大值、正负一个标准差所占比</span>
+    Req/Sec   <span class="token number">299.25</span>    <span class="token number">172.70</span>   <span class="token number">710.00</span>     <span class="token number">60.73</span>%
+  <span class="token comment"># 30s进行了18779 次请求，耗费187.45MB流量</span>
+  <span class="token number">18779</span> requests <span class="token keyword">in</span> <span class="token number">30</span>.10s, <span class="token number">187</span>.45MB <span class="token builtin class-name">read</span>
+  <span class="token comment"># 发生错误次数，连接、读、写错误和超时</span>
+  Socket errors: connect <span class="token number">157</span>, <span class="token builtin class-name">read</span> <span class="token number">7779</span>, <span class="token function">write</span> <span class="token number">0</span>, <span class="token function">timeout</span> <span class="token number">2</span>
+<span class="token comment"># 每秒处理请求数，即QPS为623.96</span>
+Requests/sec:    <span class="token number">623.96</span>
+<span class="token comment"># 平均每秒流量为6.23MB</span>
+Transfer/sec:      <span class="token number">6</span>.23MB<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ddf@ddfsamsaradeMBP ~ % wrk <span class="token parameter variable">-help</span>
+wrk: invalid option -- h
+Usage: wrk <span class="token operator">&lt;</span>options<span class="token operator">></span> <span class="token operator">&lt;</span>url<span class="token operator">></span>                            
+  Options: 
+    <span class="token comment"># -c 和服务器保持连接的数量，例如:-c 100 就代表保持连接的连接数为100                                       </span>
+    -c, <span class="token parameter variable">--connections</span> <span class="token operator">&lt;</span>N<span class="token operator">></span>  Connections to keep <span class="token function">open</span>   
+    <span class="token comment"># -d 持续时间，例如:-d 30s 压测持续时间为30s</span>
+    -d, <span class="token parameter variable">--duration</span>    <span class="token operator">&lt;</span>T<span class="token operator">></span>  Duration of <span class="token builtin class-name">test</span>
+    <span class="token comment"># 指定线程数，例如:-t 4 即指定线程数为4          </span>
+    -t, <span class="token parameter variable">--threads</span>     <span class="token operator">&lt;</span>N<span class="token operator">></span>  Number of threads to use   
+
+    <span class="token comment"># 指定Lua脚本路径                                                 </span>
+    -s, <span class="token parameter variable">--script</span>      <span class="token operator">&lt;</span>S<span class="token operator">></span>  Load Lua script <span class="token function">file</span>   
+    <span class="token comment"># 每一个HTTP请求添加HTTP头    </span>
+    -H, <span class="token parameter variable">--header</span>      <span class="token operator">&lt;</span>H<span class="token operator">></span>  Add header to request   
+        <span class="token comment"># 在压测结束后,打印延迟统计信息   </span>
+        <span class="token parameter variable">--latency</span>          Print latency statistics  
+        <span class="token comment"># 超时时间 </span>
+        <span class="token parameter variable">--timeout</span>     <span class="token operator">&lt;</span>T<span class="token operator">></span>  Socket/request <span class="token function">timeout</span>     
+    <span class="token comment"># 打印正在使用的wrk的详细版本信息</span>
+    -v, <span class="token parameter variable">--version</span>          Print version details      
+  <span class="token comment"># 上述参数可以指定数字参数和单位，例如国际单位 (1k, 1M, 1G)                                                    </span>
+  Numeric arguments may include a SI unit <span class="token punctuation">(</span>1k, 1M, 1G<span class="token punctuation">)</span>
+  <span class="token comment"># 代表时间参数，支持时间单位 (2s, 2m, 2h)，所以我们压测的-d 60s即压测1分钟</span>
+  Time arguments may include a <span class="token function">time</span> unit <span class="token punctuation">(</span>2s, 2m, 2h<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>注意wrk压测使用线程数尽量不要设置太大，避免频繁的线程切换测不出比较真实准确的结果，建议压测时设置线程数为CPU核心的2到4倍即可。<br>4核,number of connections must be &gt;&#x3D; threads<br>POST请求需要使用lua脚本</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ddf@ddfsamsaradeMBP ~ % wrk <span class="token parameter variable">-t8</span> <span class="token parameter variable">-c400</span> <span class="token parameter variable">-d10s</span> <span class="token parameter variable">--latency</span> http://www.baidu.com
+Running 10s <span class="token builtin class-name">test</span> @ http://www.baidu.com
+  <span class="token number">8</span> threads and <span class="token number">400</span> connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   <span class="token number">103</span>.19ms  <span class="token number">159</span>.76ms   <span class="token number">1</span>.74s    <span class="token number">90.94</span>%
+    Req/Sec   <span class="token number">302.00</span>    <span class="token number">212.90</span>     <span class="token number">1</span>.05k    <span class="token number">69.86</span>%
+  Latency Distribution
+     <span class="token number">50</span>%   <span class="token number">48</span>.24ms
+     <span class="token number">75</span>%   <span class="token number">71</span>.50ms
+     <span class="token number">90</span>%  <span class="token number">238</span>.99ms
+     <span class="token number">99</span>%  <span class="token number">919</span>.86ms
+  <span class="token number">23898</span> requests <span class="token keyword">in</span> <span class="token number">10</span>.03s, <span class="token number">239</span>.20MB <span class="token builtin class-name">read</span>
+  Socket errors: connect <span class="token number">157</span>, <span class="token builtin class-name">read</span> <span class="token number">1028</span>, <span class="token function">write</span> <span class="token number">0</span>, <span class="token function">timeout</span> <span class="token number">18</span>
+Requests/sec:   <span class="token number">2383.24</span>
+Transfer/sec:     <span class="token number">23</span>.85MB<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/grizz/p/11570801.html">压测工具比较</a><br><a target="_blank" rel="noopener" href="https://gitbook.curiouser.top/origin/wrk.html">命令行测试工具wrk</a></p>
 
                 
             </div>
@@ -634,18 +653,17 @@ sudo apt-">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2024/01/07/curl-zhi-nan/">
+                <a href="/2024/01/25/wrk-zhi-nan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Curl指南">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="wrk指南">
                         
-                        <span class="card-title">Curl指南</span>
+                        <span class="card-title">wrk指南</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -655,9 +673,9 @@ sudo apt-">
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-07
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-01-25
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -670,7 +688,6 @@ sudo apt-">
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -907,7 +924,7 @@ sudo apt-">
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">10.3k</span>
+                        class="white-color">12.3k</span>
             
             
             
