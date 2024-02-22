@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>InstantID项目</title>
+      <link href="/2024/02/22/instantid-xiang-mu/"/>
+      <url>/2024/02/22/instantid-xiang-mu/</url>
+      
+        <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>基于扩散模型的图像生成方案</p><h2 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h2><p><a href="https://instantid.github.io/">示例文档</a><br><a href="https://github.com/InstantID/InstantID">github</a></p><h2 id="测试生成图片"><a href="#测试生成图片" class="headerlink" title="测试生成图片"></a>测试生成图片</h2><p><img src="/img/ikun1.jpg" alt="ikun1" title="ikun1"><br><img src="/img/ikun2.jpg" alt="ikun2" title="ikun2"><br><img src="/img/ikun3.jpg" alt="ikun3" title="ikun3"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 人工智能 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 图像生成 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Curl指南</title>
       <link href="/2024/01/26/curl-zhi-nan/"/>
       <url>/2024/01/26/curl-zhi-nan/</url>
